@@ -1,0 +1,31 @@
+{
+  "name": "life-of-code",
+  "description": "a platform for learning how to code",
+  "version": "0.0.1",
+  "author": "JavaScript Joe <jjprevite@gmail.com>",
+  "dependencies": {
+    "@types/node": "^11.10.4",
+    "@types/react": "^16.8.6",
+    "@types/react-dom": "^16.8.2",
+    "gatsby": "^2.1.19",
+    "gatsby-plugin-react-helmet": "^3.0.7",
+    "gatsby-plugin-typescript": "^2.0.9",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-helmet": "^5.2.0"
+  },
+  "keywords": [
+    "gatsby, typescript"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "prettier": "^1.8.2"
+  }
+}
