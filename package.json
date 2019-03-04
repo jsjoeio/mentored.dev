@@ -34,6 +34,8 @@
   },
   "standard": {
     "parser": "typescript-eslint-parser",
-    "plugins": [ "typescript" ]
+    "plugins": [
+      "typescript"
+    ]
   }
 }
