@@ -1,6 +1,7 @@
 import React, { useState, useReducer } from 'react'
 import { graphql } from 'gatsby'
-import Typed from '../components/atoms/Typed'
+import story from '../utils/story'
+import Form from '../components/molecules/Form'
 
 interface IndexPageProps {
   data: {
@@ -12,63 +13,41 @@ interface IndexPageProps {
   }
 }
 
-const story = {
-  states: {
-    initial: {
-      MESSAGE: 'Hooray! You\'re here at last.^1000\nThey told us you\'d be joining soon.',
-      NEXT: 'intro',
-    },
-    intro: {
-      MESSAGE: 'Welcome to the Life of Code!^1000\nOur goal?^1000\nTo teach you to become a developer.',
-      NEXT: 'name',
-    },
-    name: {
-      MESSAGE: 'First things first.^500\n\nWhat’s your name? I want to make sure I address you correctly.',
-      NEXT: 'greet',
-      PREVIOUS: 'intro',
-      VALUE: ''
-    },
-    greet: {
-      MESSAGE: () => `Nice to meet you, ${this.name['VALUE']}`,
-      NEXT: 'moreInfo',
-      PREVIOUS: 'name'
-    },
-    moreInfo: {
-      MESSAGE: 'Before we start this journey to becoming a developer, I need more information.',
-      NEXT: 'os',
-      PREVIOUS: 'greet'
-    },
-    os: {
-      MESSAGE: 'What operating system are you using?^1000\n',
-      NEXT: 'osComment',
-      OPTIONS: ['macOS', 'Windows', 'Linux'],
-      PREVIOUS: 'moreInfo',
-      VALUE: ''
-    },
-    osComment: {
-      MESSAGE: () => `${this.os['VALUE']}, eh?^500Fantsatic choice! We're going to make a great team.`,
-      PREVIOUS: 'os'
+const Index = (props: IndexPageProps) => {
+  const [gameStarted, startGame] = useState(false)
+  const [state, setState] = useState({ name: '' })
+  const transitionStory = (state, transition) => {
+    if (state['NEXT'] === 'greet') {
+      story.states[state[transition]].name = 'Joe.'
     }
+    return story.states[state[transition]] || state
   }
-}
-
-const Index = (props : IndexPageProps) => {
-  const [gameStarted, startGame]= useState(false)
-  const transitionStory = (state, transition) => story.states[state[transition]] || state
-  const [storyState, transitionTo] = useReducer(transitionStory, story.states.initial)
+  const [storyState, transitionTo] = useReducer(
+    transitionStory,
+    story.states.initial
+  )
+  console.log('this is state', state)
   return (
     <div>
-      {!gameStarted &&<h2 onClick={() => startGame(!gameStarted)}><Typed speed={40} strings={['Enter']}/></h2> }
-      {gameStarted &&
-        (
-          <React.Fragment>
-            <p>{storyState['MESSAGE']}</p>
-            <div>
-              <button onClick={() => transitionTo("NEXT")}>Next</button>
-            </div>
-          </React.Fragment>
-        )
-      }
+      {!gameStarted && <h2 onClick={() => startGame(!gameStarted)}>Enter</h2>}
+      {gameStarted && (
+        <React.Fragment>
+          <p style={{ fontSize: '3rem' }}>{storyState['MESSAGE']}</p>
+          {storyState.hasOwnProperty('VALUE') && (
+            <Form
+              for="name"
+              value={state.name}
+              onChange={e => setState({ ...state, name: e.target.value })}
+              handleSubmit={e => {
+                e.preventDefault()
+              }}
+            />
+          )}
+          <div>
+            <button onClick={() => transitionTo('NEXT')}>Next</button>
+          </div>
+        </React.Fragment>
+      )}
     </div>
   )
 }
