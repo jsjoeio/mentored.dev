@@ -15,16 +15,16 @@ const story = {
         'First things first.^500\n\nWhat’s your name? I want to make sure I address you correctly.',
       NEXT: 'greet',
       PREVIOUS: 'intro',
-      VALUE: null
+      INPUT: {
+        TYPE: 'text',
+        KEY: 'name'
+      }
     },
     greet: {
-      set name(name) {
-        console.log('set greeting called', name)
-        this['MESSAGE'] = `Nice to meet you, ${name}`
-      },
-      MESSAGE: null,
+      MESSAGE: 'Nice to meet you, {name}',
       NEXT: 'moreInfo',
-      PREVIOUS: 'name'
+      PREVIOUS: 'name',
+      HAS_KEY: 'name'
     },
     moreInfo: {
       MESSAGE:
@@ -35,16 +35,18 @@ const story = {
     os: {
       MESSAGE: 'What operating system are you using?^1000\n',
       NEXT: 'osComment',
-      OPTIONS: ['macOS', 'Windows', 'Linux'],
       PREVIOUS: 'moreInfo',
-      VALUE: ''
+      INPUT: {
+        TYPE: 'radio',
+        KEY: 'os',
+        OPTIONS: ['macOS', 'Windows', 'Linux']
+      }
     },
     osComment: {
-      MESSAGE: () =>
-        `${
-          this.os['VALUE']
-        }, eh?^500Fantsatic choice! We're going to make a great team.`,
-      PREVIOUS: 'os'
+      MESSAGE:
+        "{os}, eh?^500Fantastic choice! We're going to make a great team.",
+      PREVIOUS: 'os',
+      HAS_KEY: 'os'
     }
   }
 }
