@@ -2,17 +2,17 @@ const story = {
   states: {
     initial: {
       MESSAGE:
-        "Hooray! You're here at last.^1000\nThey told us you'd be joining soon.",
+        "Hooray! You're here at last.\nThey told us you'd be joining soon.",
       NEXT: 'intro'
     },
     intro: {
       MESSAGE:
-        'Welcome to the Life of Code!^1000\nOur goal?^1000\nTo teach you to become a developer.',
+        'Welcome to the Life of Code!\nOur goal?\nTo teach you to become a developer.',
       NEXT: 'name'
     },
     name: {
       MESSAGE:
-        'First things first.^500\n\nWhat’s your name? I want to make sure I address you correctly.',
+        'First things first.\n\nWhat’s your name? I want to make sure I address you correctly.',
       NEXT: 'greet',
       PREVIOUS: 'intro',
       INPUT: {
@@ -21,7 +21,7 @@ const story = {
       }
     },
     greet: {
-      MESSAGE: 'Nice to meet you, {name}',
+      MESSAGE: 'Nice to meet you, {name}!',
       NEXT: 'moreInfo',
       PREVIOUS: 'name',
       HAS_KEY: 'name'
