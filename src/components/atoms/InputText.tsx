@@ -1,14 +1,14 @@
 import React from 'react'
 
-const InputText = ({ name, value, onChange }) => (
+const InputText = ({ questionKey, value, onChange }) => (
   <React.Fragment>
-    <label htmlFor={name}>{name}</label>
+    <label htmlFor={questionKey}>{questionKey}</label>
     <input
       value={value}
       onChange={onChange}
       type="text"
-      name={name}
-      id={name}
+      name={questionKey}
+      id={questionKey}
     />
   </React.Fragment>
 )
