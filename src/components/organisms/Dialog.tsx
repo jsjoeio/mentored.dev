@@ -30,8 +30,9 @@ const Dialog = ({
     <Message>{children}</Message>
     {showForm && (
       <Form
-        for={storyState['INPUT']['KEY']}
+        state={state}
         value={state[storyState['INPUT']['KEY']] || ''}
+        input={storyState['INPUT']}
         handleOnChange={e => handleOnChange(e)}
       />
     )}
