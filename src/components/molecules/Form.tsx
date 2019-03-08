@@ -1,16 +1,13 @@
 import React from 'react'
+import InputText from '../atoms/InputText'
 
 const Form = ({ name, handleOnChange, value }) => {
   return (
     <form>
-      <label htmlFor={name}>{name}</label>
-      <input
-        value={value}
-        onChange={handleOnChange}
-        type="text"
-        name={name}
-        id={name}
-      />
+      <InputText name={name} value={value} onChange={handleOnChange} />
+      <button onClick={handleSubmit} type="submit">
+        Submit
+      </button>
     </form>
   )
 }
