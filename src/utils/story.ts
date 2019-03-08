@@ -7,12 +7,12 @@ const story = {
     },
     intro: {
       MESSAGE:
-        'Welcome to the Life of Code!\nOur goal?\nTo teach you to become a developer.',
+        'Welcome to the Life of Code! Our goal? To teach you to become a developer.',
       NEXT: 'name'
     },
     name: {
       MESSAGE:
-        'First things first.\n\nWhat’s your name? I want to make sure I address you correctly.',
+        'First things first. What’s your name? I want to make sure I address you correctly.',
       NEXT: 'greet',
       PREVIOUS: 'intro',
       INPUT: {
@@ -33,7 +33,7 @@ const story = {
       PREVIOUS: 'greet'
     },
     os: {
-      MESSAGE: 'What operating system are you using?^1000\n',
+      MESSAGE: 'What operating system are you using?',
       NEXT: 'osComment',
       PREVIOUS: 'moreInfo',
       INPUT: {
@@ -43,8 +43,7 @@ const story = {
       }
     },
     osComment: {
-      MESSAGE:
-        "{os}, eh?^500Fantastic choice! We're going to make a great team.",
+      MESSAGE: "{os}, eh? Fantastic choice! We're going to make a great team.",
       PREVIOUS: 'os',
       HAS_KEY: 'os'
     }
