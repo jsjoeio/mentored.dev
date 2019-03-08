@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Form = ({ name, handleOnChange, handleSubmit, value }) => {
+const Form = ({ name, handleOnChange, value }) => {
   return (
     <form>
       <label htmlFor={name}>{name}</label>
@@ -11,9 +11,6 @@ const Form = ({ name, handleOnChange, handleSubmit, value }) => {
         name={name}
         id={name}
       />
-      <button onClick={handleSubmit} type="submit">
-        Submit
-      </button>
     </form>
   )
 }
