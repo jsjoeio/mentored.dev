@@ -5,9 +5,6 @@ const Form = ({ name, handleOnChange, value }) => {
   return (
     <form>
       <InputText name={name} value={value} onChange={handleOnChange} />
-      <button onClick={handleSubmit} type="submit">
-        Submit
-      </button>
     </form>
   )
 }
