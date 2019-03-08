@@ -1,8 +1,9 @@
 import React, { useReducer, useEffect } from 'react'
-import story from '../../utils/story'
-import Form from '../molecules/Form'
 import { initialState, storyInputsReducer } from '../../state/storyInputs'
 import { getMessage } from '../../utils/functions'
+import story from '../../utils/story'
+import Form from '../molecules/Form'
+import Dialog from '../atoms/Dialog'
 
 const Game = ({}) => {
   const [state, dispatch] = useReducer(storyInputsReducer, initialState)
@@ -35,7 +36,7 @@ const Game = ({}) => {
   }
   return (
     <React.Fragment>
-      <p style={{ fontSize: '3rem', whiteSpace: 'pre' }}>{message}</p>
+      <Dialog>{message}</Dialog>
       {storyState.hasOwnProperty('INPUT') && (
         <Form
           for={storyState['INPUT']['KEY']}
