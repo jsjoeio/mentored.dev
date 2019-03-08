@@ -1,7 +1,7 @@
-import React, { useState, useReducer, useEffect } from 'react'
+import React, { useState, useReducer, useEffect, useRef } from 'react'
 import { graphql } from 'gatsby'
 import Game from '../components/organisms/Game'
-
+import Enter from '../components/atoms/Enter'
 interface IndexPageProps {
   data: {
     site: {
@@ -16,7 +16,7 @@ const Index = (props: IndexPageProps) => {
   const [gameStarted, startGame] = useState(false)
   return (
     <div>
-      {!gameStarted && <h2 onClick={() => startGame(!gameStarted)}>Enter</h2>}
+      {!gameStarted && <Enter onClick={() => startGame(!gameStarted)} />}
       {gameStarted && <Game />}
     </div>
   )
