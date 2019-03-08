@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Form from '../molecules/Form'
 
 const Container = styled.div`
   border: 1px solid black;
@@ -17,9 +18,24 @@ const Message = styled.p`
   white-space: pre-line;
 `
 
-const Dialog = ({ children }) => (
+const Dialog = ({
+  children,
+  transition,
+  showForm,
+  storyState,
+  state,
+  handleOnChange
+}) => (
   <Container>
     <Message>{children}</Message>
+    {showForm && (
+      <Form
+        for={storyState['INPUT']['KEY']}
+        value={state[storyState['INPUT']['KEY']] || ''}
+        handleOnChange={e => handleOnChange(e)}
+      />
+    )}
+    <button onClick={transition}>Next</button>
   </Container>
 )
 
