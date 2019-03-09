@@ -2,14 +2,19 @@ import React from 'react'
 import InputText from '../atoms/InputText'
 import InputRadio from '../atoms/InputRadio'
 
-const Form = ({ state, input, handleOnChange, value }) => {
+const Form = ({ state, input, handleOnChange, value, transition }) => {
   return (
-    <form>
+    <form
+      onSubmit={e => {
+        e.preventDefault()
+      }}
+    >
       {input['TYPE'] === 'text' && (
         <InputText
           questionKey={input['KEY']}
           value={value}
           onChange={handleOnChange}
+          transition={transition}
         />
       )}
       {input['TYPE'] === 'radio' && (
@@ -19,6 +24,7 @@ const Form = ({ state, input, handleOnChange, value }) => {
           questionKey={input['KEY']}
           value={value}
           onChange={handleOnChange}
+          transition={transition}
         />
       )}
     </form>
