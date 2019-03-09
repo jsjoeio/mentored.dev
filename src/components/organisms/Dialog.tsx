@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Form from '../molecules/Form'
+import Next from '../atoms/Next'
 
 const Container = styled.div`
   border: 1px solid black;
@@ -34,9 +35,10 @@ const Dialog = ({
         value={state[storyState['INPUT']['KEY']] || ''}
         input={storyState['INPUT']}
         handleOnChange={e => handleOnChange(e)}
+        transition={transition}
       />
     )}
-    <button onClick={transition}>Next</button>
+    <Next transition={transition} hasForm={showForm} />
   </Container>
 )
 
