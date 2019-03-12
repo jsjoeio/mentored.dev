@@ -44,6 +44,7 @@ const story = {
     },
     osComment: {
       MESSAGE: "{os}, eh? Fantastic choice! We're going to make a great team.",
+      NEXT: 'initialCommandLine',
       PREVIOUS: 'os',
       HAS_KEY: 'os'
     },
@@ -219,7 +220,8 @@ const story = {
       ANSWER: 'cd'
     },
     commandLineQuizQuesTwo: {
-      MESSAGE: "What would you type to create a new directory called 'awesome'?",
+      MESSAGE:
+        "What would you type to create a new directory called 'awesome'?",
       NEXT: 'commandLineQuizQuesThree',
       PREVIOUS: 'commandLineQuizQuesOne',
       INPUT: {
@@ -229,7 +231,8 @@ const story = {
       ANSWER: 'mkdir awesome'
     },
     commandLineQuizQuesThree: {
-      MESSAGE: "How would you create a new file named "hello" with the extension .txt?",
+      MESSAGE:
+        "How would you create a new file named 'hello' with the extension .txt?",
       NEXT: 'greet',
       PREVIOUS: 'commandLineQuizQuesTwo',
       INPUT: {
@@ -240,7 +243,7 @@ const story = {
     },
     commandLineQuizSummary: {
       MESSAGE:
-      "{reaction} You scored {score}. {closingMessage}. That ends today's lesson. I'll see you here again tomorrow. Cheerio!",
+        "{reaction} You scored {score}. {closingMessage}. That ends today's lesson. I'll see you here again tomorrow. Cheerio!",
       PREVIOUS: 'commandLineQuizQuesThree',
       HAS_LOCAL_KEYS: ['reaction', 'score', 'closingMessage']
     }
