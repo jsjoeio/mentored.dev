@@ -16,7 +16,7 @@ const Container = styled.div`
 `
 
 const Dialog = ({
-  children,
+  message,
   transition,
   showForm,
   storyState,
@@ -24,7 +24,7 @@ const Dialog = ({
   handleOnChange
 }) => (
   <Container>
-    <Message message={children} />
+    {message && <Message message={message} />}
     {showForm && (
       <Form
         state={state}

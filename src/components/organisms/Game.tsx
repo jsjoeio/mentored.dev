@@ -48,17 +48,14 @@ const Game = () => {
   }
   let message = getMessage({ state, storyState })
   return (
-    <React.Fragment>
-      <Dialog
-        transition={() => transitionTo('NEXT')}
-        showForm={storyState.hasOwnProperty('INPUT')}
-        storyState={storyState}
-        handleOnChange={handleOnChange}
-        state={state}
-      >
-        {message}
-      </Dialog>
-    </React.Fragment>
+    <Dialog
+      message={message}
+      transition={() => transitionTo('NEXT')}
+      showForm={storyState.hasOwnProperty('INPUT')}
+      storyState={storyState}
+      handleOnChange={handleOnChange}
+      state={state}
+    />
   )
 }
 
