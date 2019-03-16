@@ -45,13 +45,11 @@ export function getMessage({ state, storyState }) {
     message = replaceKey({ state, storyState })
   } else if (storyState['HAS_LOCAL_KEYS']) {
     message = replaceLocalKeys({ state, storyState })
-    console.log('inside local keys', message)
   } else if (storyState['HAS_SPECIAL_MESSAGE']) {
     message = replaceSpecialMessage({ state, storyState })
   } else {
     message = storyState['MESSAGE']
   }
-  console.log('here is the message', message)
   return message
 }
 
@@ -69,8 +67,6 @@ function calculateScore({ state }) {
   for (let i = 0; i < stateKeys.length; i++) {
     //@Techdebt this assumes  that the user has answered all questions in the storyState
     // Double check if the state has an ANSWER key on it
-    console.log(story.states, 'states bitch')
-    console.log(stateKeys[i], 'key dude')
     if (
       story.states.hasOwnProperty(stateKeys[i]) &&
       story.states[stateKeys[i]]['ANSWER']

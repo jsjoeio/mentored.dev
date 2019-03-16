@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Typist from 'react-typist'
 import Form from '../molecules/Form'
 import Next from '../atoms/Next'
 import Message from '../atoms/Message'
@@ -15,11 +14,6 @@ const Container = styled.div`
   bottom: 0;
   right: 0;
 `
-
-// const Message = styled.p`
-//   font-size: 2.2rem;
-//   white-space: pre-line;
-// `
 
 const Dialog = ({
   children,
