@@ -52,8 +52,8 @@ const story = {
       MESSAGE:
         "Enough chit-chat. Lets dive into your first lesson! Today's lesson is on the command line. Have you used the command line before?",
       NEXT: {
-        YES: 'commandLineExpYes',
-        NO: 'commandLineExpNo'
+        OPTION_0: 'commandLineExpYes',
+        OPTION_1: 'commandLineExpNo'
       },
       PREVIOUS: 'osComment',
       INPUT: {
@@ -109,8 +109,8 @@ const story = {
       MESSAGE:
         "Let's try changing into the 'Desktop' directory. Inside the {application} window, type 'cd Desktop'. If everything worked smoothly, you should see the location update to show /Desktop.",
       NEXT: {
-        YES: 'commandLineLessonPartOneSuccessYes',
-        NO: 'commandLineLessonPartOneSuccessNo'
+        OPTION_0: 'commandLineLessonPartOneSuccessYes',
+        OPTION_1: 'commandLineLessonPartOneSuccessNo'
       },
       PREVIOUS: 'commandLineLessonStartCont',
       INPUT: {
@@ -126,7 +126,7 @@ const story = {
     commandLineLessonPartOneSuccessYes: {
       MESSAGE:
         "Great job! 😄 You have learned your first command for the command line. 5pts for you! Let's keep up the momentum and move onto the next.",
-      NEXT: 'commandLineLessonPartOne',
+      NEXT: 'commandLineLessonPartTwo',
       PREVIOUS: 'commandLineLessonPartOne'
     },
     commandLineLessonPartOneSuccessNo: {
@@ -147,8 +147,8 @@ const story = {
       MESSAGE:
         "Since we 'cd'ed' into the Desktop directory, you should now see a new folder on your Desktop titled 'coding-stuff'.",
       NEXT: {
-        YES: 'commandLineLessonPartTwoSuccessYes',
-        NO: 'commandLineLessonPartTwoSuccessNo'
+        OPTION_0: 'commandLineLessonPartTwoSuccessYes',
+        OPTION_1: 'commandLineLessonPartTwoSuccessNo'
       },
       PREVIOUS: 'commandLineLessonStartCont',
       INPUT: {
@@ -174,8 +174,8 @@ const story = {
       MESSAGE:
         "Directories are cool and all, but their purpose is to store files. Our last command for this lesson will help us with that. Inside the same {application} window, change directories into 'coding-stuff' and then type 'touch first-file.txt'.",
       NEXT: {
-        YES: 'commandLineLessonPartThreeSuccessYes',
-        NO: 'commandLineLessonPartThreeSuccessNo'
+        OPTION_0: 'commandLineLessonPartThreeSuccessYes',
+        OPTION_1: 'commandLineLessonPartThreeSuccessNo'
       },
       PREVIOUS: 'commandLineLessonPartTwoSuccessYes',
       INPUT: {
@@ -226,14 +226,14 @@ const story = {
       PREVIOUS: 'commandLineQuizQuesOne',
       INPUT: {
         TYPE: 'text',
-        KEY: 'commandLineQuizQuesOne'
+        KEY: 'commandLineQuizQuesTwo'
       },
       ANSWER: 'mkdir awesome'
     },
     commandLineQuizQuesThree: {
       MESSAGE:
         "How would you create a new file named 'hello' with the extension .txt?",
-      NEXT: 'greet',
+      NEXT: 'commandLineQuizSummary',
       PREVIOUS: 'commandLineQuizQuesTwo',
       INPUT: {
         TYPE: 'text',
@@ -243,9 +243,9 @@ const story = {
     },
     commandLineQuizSummary: {
       MESSAGE:
-        "{reaction} You scored {score}. {closingMessage}. That ends today's lesson. I'll see you here again tomorrow. Cheerio!",
+        "{reaction} You scored {score}. {closingMessage} That ends today's lesson. I'll see you here again tomorrow. Cheerio!",
       PREVIOUS: 'commandLineQuizQuesThree',
-      HAS_LOCAL_KEYS: ['reaction', 'score', 'closingMessage']
+      HAS_SPECIAL_MESSAGE: ['reaction', 'score', 'closingMessage']
     }
   }
 }
