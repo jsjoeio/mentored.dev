@@ -126,7 +126,7 @@ const story = {
     commandLineLessonPartOneSuccessYes: {
       MESSAGE:
         "Great job! 😄 You have learned your first command for the command line. 5pts for you! Let's keep up the momentum and move onto the next.",
-      NEXT: 'commandLineLessonPartOne',
+      NEXT: 'commandLineLessonPartTwo',
       PREVIOUS: 'commandLineLessonPartOne'
     },
     commandLineLessonPartOneSuccessNo: {
@@ -226,7 +226,7 @@ const story = {
       PREVIOUS: 'commandLineQuizQuesOne',
       INPUT: {
         TYPE: 'text',
-        KEY: 'commandLineQuizQuesOne'
+        KEY: 'commandLineQuizQuesTwo'
       },
       ANSWER: 'mkdir awesome'
     },
@@ -243,9 +243,9 @@ const story = {
     },
     commandLineQuizSummary: {
       MESSAGE:
-        "{reaction} You scored {score}. {closingMessage}. That ends today's lesson. I'll see you here again tomorrow. Cheerio!",
+        "{reaction} You scored {score}. {closingMessage} That ends today's lesson. I'll see you here again tomorrow. Cheerio!",
       PREVIOUS: 'commandLineQuizQuesThree',
-      HAS_LOCAL_KEYS: ['reaction', 'score', 'closingMessage']
+      HAS_SPECIAL_MESSAGE: ['reaction', 'score', 'closingMessage']
     }
   }
 }
