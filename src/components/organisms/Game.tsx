@@ -46,13 +46,7 @@ const Game = () => {
       value: e.target.value
     })
   }
-  let message
-  console.log('hi storystate', storyState)
-  if (storyState['HAS_KEY']) {
-    message = getMessage(state, storyState)
-  } else {
-    message = storyState['MESSAGE']
-  }
+  let message = getMessage({ state, storyState })
   return (
     <React.Fragment>
       <Dialog
