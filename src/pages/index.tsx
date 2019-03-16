@@ -16,7 +16,11 @@ const Index = (props: IndexPageProps) => {
   const [gameStarted, startGame] = useState(false)
   return (
     <div>
-      {!gameStarted && <Enter onClick={() => startGame(!gameStarted)} />}
+      {!gameStarted && (
+        <div style={{ margin: '50% auto', textAlign: 'center' }}>
+          <Enter onClick={() => startGame(!gameStarted)} />
+        </div>
+      )}
       {gameStarted && <Game />}
     </div>
   )
