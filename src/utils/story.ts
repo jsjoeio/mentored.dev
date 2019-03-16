@@ -21,7 +21,7 @@ const story = {
       }
     },
     greet: {
-      MESSAGE: 'Nice to meet you, {name}!',
+      MESSAGE: 'Nice to meet you, {name}! 👋🏼',
       NEXT: 'moreInfo',
       PREVIOUS: 'name',
       HAS_KEY: 'name'
