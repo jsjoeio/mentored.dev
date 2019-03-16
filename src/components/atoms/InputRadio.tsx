@@ -10,7 +10,6 @@ const InputRadio = ({
   const inputRadioRef = useRef(null)
   useEffect(() => {
     inputRadioRef.current.focus()
-    console.log(inputRadioRef, 'hi')
   }, [inputRadioRef])
   return (
     <React.Fragment>

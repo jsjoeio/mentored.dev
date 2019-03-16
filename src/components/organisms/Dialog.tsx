@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Form from '../molecules/Form'
 import Next from '../atoms/Next'
+import Message from '../atoms/Message'
 
 const Container = styled.div`
   border: 1px solid black;
@@ -14,13 +15,8 @@ const Container = styled.div`
   right: 0;
 `
 
-const Message = styled.p`
-  font-size: 2.2rem;
-  white-space: pre-line;
-`
-
 const Dialog = ({
-  children,
+  message,
   transition,
   showForm,
   storyState,
@@ -28,7 +24,7 @@ const Dialog = ({
   handleOnChange
 }) => (
   <Container>
-    <Message>{children}</Message>
+    {message && <Message message={message} />}
     {showForm && (
       <Form
         state={state}
