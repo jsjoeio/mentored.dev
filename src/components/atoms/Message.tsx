@@ -4,6 +4,8 @@ import styled from 'styled-components'
 const Container = styled.p`
   font-size: 2.2rem;
   white-space: pre-line;
+  width: 500px;
+  min-height: 100px;
 `
 
 const Message = ({ message }) => {
@@ -36,7 +38,7 @@ const Message = ({ message }) => {
     )
   }, [charCount])
 
-  return <Container id="demo">{text}</Container>
+  return <Container>{text}</Container>
 }
 
 export default Message

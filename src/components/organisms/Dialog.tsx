@@ -10,9 +10,6 @@ const Container = styled.div`
   margin: 1rem 3rem 3rem;
   padding: 1rem;
   width: 50vw;
-  position: absolute;
-  bottom: 0;
-  right: 0;
 `
 
 const Dialog = ({

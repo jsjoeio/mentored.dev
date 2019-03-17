@@ -4,6 +4,7 @@ import { getMessage } from '../../utils/functions'
 import story from '../../utils/story'
 import Form from '../molecules/Form'
 import Dialog from './Dialog'
+import Narrator from '../molecules/Narrator'
 
 const Game = () => {
   const [state, dispatch] = useReducer(storyInputsReducer, initialState)
@@ -48,14 +49,17 @@ const Game = () => {
   }
   let message = getMessage({ state, storyState })
   return (
-    <Dialog
-      message={message}
-      transition={() => transitionTo('NEXT')}
-      showForm={storyState.hasOwnProperty('INPUT')}
-      storyState={storyState}
-      handleOnChange={handleOnChange}
-      state={state}
-    />
+    <div style={{ position: 'fixed', bottom: '0', right: '0' }}>
+      <Narrator />
+      <Dialog
+        message={message}
+        transition={() => transitionTo('NEXT')}
+        showForm={storyState.hasOwnProperty('INPUT')}
+        storyState={storyState}
+        handleOnChange={handleOnChange}
+        state={state}
+      />
+    </div>
   )
 }
 
