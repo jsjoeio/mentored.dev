@@ -10,12 +10,11 @@ const Container = styled.div`
   margin: 1rem 3rem 3rem;
   padding: 1rem;
   width: 50vw;
-  position: absolute;
-  bottom: 0;
-  right: 0;
 `
 
 const Dialog = ({
+  isTalking,
+  setTalking,
   message,
   transition,
   showForm,
@@ -24,7 +23,13 @@ const Dialog = ({
   handleOnChange
 }) => (
   <Container>
-    {message && <Message message={message} />}
+    {message && (
+      <Message
+        isTalking={isTalking}
+        setTalking={setTalking}
+        message={message}
+      />
+    )}
     {showForm && (
       <Form
         state={state}

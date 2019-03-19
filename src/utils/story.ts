@@ -11,8 +11,7 @@ const story = {
       NEXT: 'name'
     },
     name: {
-      MESSAGE:
-        'First things first. What’s your name? I want to make sure I address you correctly.',
+      MESSAGE: 'First things first. What’s your name?',
       NEXT: 'greet',
       PREVIOUS: 'intro',
       INPUT: {

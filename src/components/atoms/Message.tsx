@@ -4,9 +4,11 @@ import styled from 'styled-components'
 const Container = styled.p`
   font-size: 2.2rem;
   white-space: pre-line;
+  width: 500px;
+  min-height: 100px;
 `
 
-const Message = ({ message }) => {
+const Message = ({ message, isTalking, setTalking }) => {
   const [charCount, setCharCount] = useState(0)
   const [text, setText] = useState('')
   const [timer, setTimer] = useState('')
@@ -16,11 +18,14 @@ const Message = ({ message }) => {
     if (charCount < message.length) {
       setText(text + message.charAt(charCount))
       setCharCount(charCount + 1)
+    } else {
+      setTalking(!isTalking)
     }
   }
 
   // Reset everything if message changes
   useEffect(() => {
+    setTalking(!isTalking)
     setText('')
     clearTimeout(timer)
     setCharCount(0)
@@ -36,7 +41,7 @@ const Message = ({ message }) => {
     )
   }, [charCount])
 
-  return <Container id="demo">{text}</Container>
+  return <Container>{text}</Container>
 }
 
 export default Message
