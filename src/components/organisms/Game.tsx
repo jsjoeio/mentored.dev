@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react'
+import React, { useReducer, useEffect, useState } from 'react'
 import { initialState, storyInputsReducer } from '../../state/storyInputs'
 import { getMessage } from '../../utils/functions'
 import story from '../../utils/story'
@@ -7,6 +7,7 @@ import Dialog from './Dialog'
 import Narrator from '../molecules/Narrator'
 
 const Game = () => {
+  const [isTalking, setTalking] = useState(false)
   const [state, dispatch] = useReducer(storyInputsReducer, initialState)
   const transitionStory = (storyState, transition) => {
     if (typeof storyState[transition] === 'string') {
@@ -50,8 +51,10 @@ const Game = () => {
   let message = getMessage({ state, storyState })
   return (
     <div style={{ position: 'fixed', bottom: '0', right: '0' }}>
-      <Narrator />
+      <Narrator isTalking={isTalking} setTalking={setTalking} />
       <Dialog
+        isTalking={isTalking}
+        setTalking={setTalking}
         message={message}
         transition={() => transitionTo('NEXT')}
         showForm={storyState.hasOwnProperty('INPUT')}

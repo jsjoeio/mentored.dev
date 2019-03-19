@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import MouthE from '../atoms/Mouths/MouthE'
 import MouthAnimation from './MouthAnimation'
@@ -9,8 +9,7 @@ const Container = styled.div`
   }
 `
 
-const Narrator = () => {
-  const [isTalking, setTalking] = useState(false)
+const Narrator = ({ isTalking, setTalking }) => {
   return (
     <Container>
       <svg
@@ -41,7 +40,10 @@ const Narrator = () => {
           fill="#DC8D82"
         />
         {isTalking && (
-          <MouthAnimation endAnimation={() => setTalking(!isTalking)} />
+          <MouthAnimation
+            isTalking={isTalking}
+            endAnimation={() => setTalking(!isTalking)}
+          />
         )}
         {!isTalking && <MouthE />}
         <path
@@ -51,7 +53,6 @@ const Narrator = () => {
         <rect x="6" y="55" width="55" height="17" rx="8.5" fill="#9FBFD4" />
         <rect x="173" y="54" width="54" height="18" rx="9" fill="#9FBFD4" />
       </svg>
-      <button onClick={() => setTalking(!isTalking)}>Start talking</button>
     </Container>
   )
 }
