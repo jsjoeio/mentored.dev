@@ -8,7 +8,7 @@ const Container = styled.p`
   min-height: 100px;
 `
 
-const Message = ({ message }) => {
+const Message = ({ message, isTalking, setTalking }) => {
   const [charCount, setCharCount] = useState(0)
   const [text, setText] = useState('')
   const [timer, setTimer] = useState('')
@@ -18,11 +18,14 @@ const Message = ({ message }) => {
     if (charCount < message.length) {
       setText(text + message.charAt(charCount))
       setCharCount(charCount + 1)
+    } else {
+      setTalking(!isTalking)
     }
   }
 
   // Reset everything if message changes
   useEffect(() => {
+    setTalking(!isTalking)
     setText('')
     clearTimeout(timer)
     setCharCount(0)
