@@ -5,8 +5,8 @@ import MouthLUH from '../atoms/Mouths/MouthLUH'
 import MouthCON from '../atoms/Mouths/MouthCON'
 import MouthAH from '../atoms/Mouths/MouthAH'
 
-export default ({ endAnimation }) => (
-  <Keyframes component="Fragment" loop={3} onEnd={endAnimation}>
+export default ({ isTalking, endAnimation }) => (
+  <Keyframes component="Fragment" loop={isTalking} onEnd={endAnimation}>
     <Frame duration={130}>
       <MouthIH />
     </Frame>
