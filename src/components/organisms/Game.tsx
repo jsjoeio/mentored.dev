@@ -56,6 +56,7 @@ const Game = () => {
         isTalking={isTalking}
         setTalking={setTalking}
         message={message}
+        transitionPrevious={() => transitionTo('PREVIOUS')}
         transition={() => transitionTo('NEXT')}
         showForm={storyState.hasOwnProperty('INPUT')}
         storyState={storyState}
