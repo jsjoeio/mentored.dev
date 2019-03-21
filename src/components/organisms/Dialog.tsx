@@ -3,13 +3,19 @@ import styled from 'styled-components'
 import Form from '../molecules/Form'
 import Next from '../atoms/Next'
 import Message from '../atoms/Message'
+import DialogNavigation from '../molecules/DialogNavigation'
 
 const Container = styled.div`
-  border: 1px solid black;
-  border-radius: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 15px;
+  background-color: ${props => props.theme.background.main};
   margin: 1rem 3rem 3rem;
-  padding: 1rem;
-  width: 50vw;
+  padding: 2rem;
+  width: 550px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 const Dialog = ({
@@ -17,6 +23,7 @@ const Dialog = ({
   setTalking,
   message,
   transition,
+  transitionPrevious,
   showForm,
   storyState,
   state,
@@ -39,7 +46,11 @@ const Dialog = ({
         transition={transition}
       />
     )}
-    <Next transition={transition} hasForm={showForm} />
+    <DialogNavigation
+      transition={transition}
+      transitionPrevious={transitionPrevious}
+      hasForm={showForm}
+    />
   </Container>
 )
 

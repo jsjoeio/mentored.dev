@@ -1,0 +1,36 @@
+import React, { useRef, useEffect } from 'react'
+import styled from 'styled-components'
+import Arrow from './Arrow'
+
+const Button = styled.button`
+  display: flex;
+  width: 42px;
+  height: 42px;
+  background: transparent;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.4;
+  &:hover,
+  &:focus {
+    opacity: 0.9;
+    outline: none;
+  }
+`
+
+const Previous = ({ transition }) => {
+  return (
+    <Button
+      onClick={transition}
+      onKeyUp={e => {
+        if (e.keyCode === 37) {
+          transition()
+        }
+      }}
+    >
+      <Arrow color="primary" direction="left" />
+    </Button>
+  )
+}
+
+export default Previous
