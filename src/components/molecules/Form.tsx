@@ -5,6 +5,7 @@ import InputRadio from '../atoms/InputRadio'
 const Form = ({ state, input, handleOnChange, value, transition }) => {
   return (
     <form
+      style={{ marginBottom: '0' }}
       onSubmit={e => {
         e.preventDefault()
       }}
