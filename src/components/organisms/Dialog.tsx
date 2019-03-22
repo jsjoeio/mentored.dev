@@ -30,27 +30,34 @@ const Dialog = ({
   handleOnChange
 }) => (
   <Container>
-    {message && (
-      <Message
-        isTalking={isTalking}
-        setTalking={setTalking}
-        message={message}
-      />
-    )}
-    {showForm && (
-      <Form
-        state={state}
-        value={state[storyState['INPUT']['KEY']] || ''}
-        input={storyState['INPUT']}
-        handleOnChange={e => handleOnChange(e)}
+    <div>
+      {message && (
+        <Message
+          isTalking={isTalking}
+          setTalking={setTalking}
+          message={message}
+        />
+      )}
+      {showForm && isTalking && <div style={{ height: '48px' }} />}
+      {showForm && !isTalking && (
+        <Form
+          state={state}
+          value={state[storyState['INPUT']['KEY']] || ''}
+          input={storyState['INPUT']}
+          handleOnChange={e => handleOnChange(e)}
+          transition={transition}
+        />
+      )}
+    </div>
+    {/* This empty div below is a placeholder for the DialogNavigation */}
+    {isTalking && <div style={{ height: '48px' }} />}
+    {!isTalking && (
+      <DialogNavigation
         transition={transition}
+        transitionPrevious={transitionPrevious}
+        showForm={showForm}
       />
     )}
-    <DialogNavigation
-      transition={transition}
-      transitionPrevious={transitionPrevious}
-      hasForm={showForm}
-    />
   </Container>
 )
 
