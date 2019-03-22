@@ -10,6 +10,7 @@ const Button = styled.button`
   transition: all 0.3s ease;
   border-radius: 50%;
   border: none;
+  padding: 0;
   opacity: 0.4;
   &:hover,
   &:focus {
@@ -18,12 +19,14 @@ const Button = styled.button`
   }
 `
 
-const Previous = ({ transition }) => {
+const Previous = ({ transitionPrevious, transition }) => {
   return (
     <Button
-      onClick={transition}
+      onClick={transitionPrevious}
       onKeyUp={e => {
         if (e.keyCode === 37) {
+          transitionPrevious()
+        } else if (e.keyCode === 39) {
           transition()
         }
       }}

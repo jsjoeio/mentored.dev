@@ -1,6 +1,16 @@
 import React, { useRef, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Arrow from './Arrow'
+
+const arrowAnimation = keyframes`
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(2px, 0, 0);
+  }
+`
 
 const Button = styled.button`
   display: flex;
@@ -13,28 +23,33 @@ const Button = styled.button`
   &:focus {
     background-color: ${props => props.theme.primary.darker};
     border-color: #7fdbff;
-    box-shadow: inset 0 1px 2px rgba(165, 229, 255, 0.75),
-      0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-width: 2px;
     outline: none;
+    svg {
+      animation: ${arrowAnimation} 800ms cubic-bezier(0.17, 0.67, 0.83, 0.67)
+        infinite;
+    }
   }
 `
 
-const Next = ({ transition, hasForm }) => {
+const Next = ({ transition, showForm, transitionPrevious }) => {
   const nextText = useRef(null)
   useEffect(() => {
     // Only focus nextText if doesn't have form
-    if (!hasForm) {
+    if (!showForm) {
       nextText.current.focus()
     }
-  }, [nextText, hasForm])
+  }, [nextText, showForm])
   return (
     <Button
       ref={nextText}
       onClick={transition}
-      tabIndex={hasForm ? null : '1'}
+      tabIndex={showForm ? null : '1'}
       onKeyUp={e => {
         if (e.keyCode === 39) {
           transition()
+        } else if (e.keyCode === 37) {
+          transitionPrevious()
         }
       }}
     >
