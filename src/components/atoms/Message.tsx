@@ -6,7 +6,6 @@ const Container = styled.p`
   font-size: 2.2rem;
   white-space: pre-line;
   margin: 0 0 10px;
-  height: 78px;
   overflow-y: hidden;
 `
 
