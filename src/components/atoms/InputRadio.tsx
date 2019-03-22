@@ -22,7 +22,7 @@ const InputRadio = ({
             checked={option === currentValue}
             onChange={onChange}
             onKeyUp={e => {
-              if (e.keyCode === 13) {
+              if ((e.keyCode === 13 || e.keyCode === 39) && currentValue) {
                 transition()
               }
             }}
