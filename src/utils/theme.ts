@@ -7,13 +7,13 @@ const lightTheme = {
     main: '#ffffff'
   },
   background: {
-    main: '#FBF5EC'
+    main: '#F3F3F3'
   }
 }
 
 const darkTheme = {
   primary: {
-    main: '#FBF5EC'
+    main: '#F3F3F3'
   },
   secondary: {
     main: '#000'
