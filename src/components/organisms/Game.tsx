@@ -1,10 +1,21 @@
 import React, { useReducer, useEffect, useState } from 'react'
+import styled from 'styled-components'
 import { initialState, storyInputsReducer } from '../../state/storyInputs'
 import { getMessage } from '../../utils/functions'
 import story from '../../utils/story'
 import Form from '../molecules/Form'
 import Dialog from './Dialog'
-import Narrator from '../molecules/Narrator'
+import Narrator from './Narrator'
+import CharacterTitle from '../atoms/CharacterTitle'
+
+const Container = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`
 
 const Game = () => {
   const [isTalking, setTalking] = useState(false)
@@ -50,19 +61,23 @@ const Game = () => {
   }
   let message = getMessage({ state, storyState })
   return (
-    <div style={{ position: 'fixed', bottom: '0', right: '0' }}>
+    <Container>
       <Narrator isTalking={isTalking} setTalking={setTalking} />
-      <Dialog
-        isTalking={isTalking}
-        setTalking={setTalking}
-        message={message}
-        transition={() => transitionTo('NEXT')}
-        showForm={storyState.hasOwnProperty('INPUT')}
-        storyState={storyState}
-        handleOnChange={handleOnChange}
-        state={state}
-      />
-    </div>
+      <div style={{ position: 'relative' }}>
+        <Dialog
+          isTalking={isTalking}
+          setTalking={setTalking}
+          message={message}
+          transitionPrevious={() => transitionTo('PREVIOUS')}
+          transition={() => transitionTo('NEXT')}
+          showForm={storyState.hasOwnProperty('INPUT')}
+          storyState={storyState}
+          handleOnChange={handleOnChange}
+          state={state}
+        />
+        <CharacterTitle name="Professor" />
+      </div>
+    </Container>
   )
 }
 

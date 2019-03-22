@@ -14,7 +14,7 @@ const InputText = ({ questionKey, value, onChange, transition }) => {
         value={value}
         onChange={onChange}
         onKeyUp={e => {
-          if (e.keyCode === 13 && value !== '') {
+          if ((e.keyCode === 13 || e.keyCode === 39) && value !== '') {
             transition()
           }
         }}

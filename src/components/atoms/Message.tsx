@@ -2,10 +2,11 @@ import React, { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.p`
+  color: ${props => props.theme.primary.main};
   font-size: 2.2rem;
   white-space: pre-line;
-  width: 500px;
-  min-height: 100px;
+  margin: 0 0 10px;
+  overflow-y: hidden;
 `
 
 const Message = ({ message, isTalking, setTalking }) => {
@@ -40,7 +41,6 @@ const Message = ({ message, isTalking, setTalking }) => {
       }, speed)
     )
   }, [charCount])
-
   return <Container>{text}</Container>
 }
 

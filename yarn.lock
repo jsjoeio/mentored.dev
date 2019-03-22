@@ -4256,6 +4256,13 @@ gatsby-link@^2.0.13:
     "@types/reach__router" "^1.0.0"
     prop-types "^15.6.1"
 
+gatsby-plugin-layout@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.0.13.tgz#00779f4a8a7582b202aa20da69b0c4f0dee4b727"
+  integrity sha512-tLV09NzsPH0dpUurWwybUiIgVxIs7NiX/DYw00HAz26wpvigXlJYSuwLrrGxsBsIgkKEHY2eAvBfX40XF6erog==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 gatsby-plugin-page-creator@^2.0.8:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.0.8.tgz#9dfe7df93bca06a898ce29d5701aedf85d1f23f2"

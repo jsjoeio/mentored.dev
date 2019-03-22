@@ -8,7 +8,8 @@ const story = {
     intro: {
       MESSAGE:
         'Welcome to the Life of Code! Our goal? To teach you to become a developer.',
-      NEXT: 'name'
+      NEXT: 'name',
+      PREVIOUS: 'initial'
     },
     name: {
       MESSAGE: 'First things first. What’s your name?',

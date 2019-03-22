@@ -1,26 +1,60 @@
 import React, { useRef, useEffect } from 'react'
+import styled, { keyframes } from 'styled-components'
+import Arrow from './Arrow'
 
-const Next = ({ transition, hasForm }) => {
+const arrowAnimation = keyframes`
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(2px, 0, 0);
+  }
+`
+
+const Button = styled.button`
+  display: flex;
+  width: 42px;
+  height: 42px;
+  background-color: ${props => props.theme.primary.main};
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.primary.darker};
+    border-color: #7fdbff;
+    border-width: 2px;
+    outline: none;
+    svg {
+      animation: ${arrowAnimation} 800ms cubic-bezier(0.17, 0.67, 0.83, 0.67)
+        infinite;
+    }
+  }
+`
+
+const Next = ({ transition, showForm, transitionPrevious }) => {
   const nextText = useRef(null)
   useEffect(() => {
     // Only focus nextText if doesn't have form
-    if (!hasForm) {
+    if (!showForm) {
       nextText.current.focus()
     }
-  }, [nextText, hasForm])
+  }, [nextText, showForm])
   return (
-    <button
+    <Button
       ref={nextText}
       onClick={transition}
-      tabIndex={hasForm ? null : '1'}
+      tabIndex={showForm ? null : '1'}
       onKeyUp={e => {
         if (e.keyCode === 39) {
           transition()
+        } else if (e.keyCode === 37) {
+          transitionPrevious()
         }
       }}
     >
-      Next
-    </button>
+      <Arrow color="secondary" direction="right" />
+    </Button>
   )
 }
 
