@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import Arrow from './Arrow'
+import { addFocus } from '../../utils/mixins'
 
 const Button = styled.button`
   display: flex;
@@ -16,6 +17,9 @@ const Button = styled.button`
   &:focus {
     opacity: 0.9;
     outline: none;
+    padding: 0 7px;
+    border-width: 2px;
+    ${addFocus}
   }
 `
 

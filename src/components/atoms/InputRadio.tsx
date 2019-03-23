@@ -1,4 +1,41 @@
 import React, { useRef, useEffect } from 'react'
+import styled from 'styled-components'
+import { addFocus } from '../../utils/mixins'
+
+const Container = styled.div`
+  input:focus + ${Label}::before, input:active + ${Label}::before {
+    ${addFocus}
+  }
+`
+
+const Label = styled.label`
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    border: 1px solid ${props => props.theme.primary.lighter};
+    border-radius: 50%;
+    position: absolute;
+    left: -19px;
+    top: 4px;
+    background-color: ${props =>
+      props.checked ? props.theme.primary.main : ''};
+  }
+`
+
+const Input = styled.input`
+  font-size: 1.25rem;
+  opacity: 0;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+`
 
 const InputRadio = ({
   currentValue,
@@ -14,8 +51,8 @@ const InputRadio = ({
   return (
     <React.Fragment>
       {options.map((option, index) => (
-        <div key={option}>
-          <input
+        <Container key={option}>
+          <Input
             ref={index === 0 ? inputRadioRef : null}
             tabIndex={index === 0 ? '1' : ''}
             value={option}
@@ -30,8 +67,10 @@ const InputRadio = ({
             name={option}
             id={option}
           />
-          <label htmlFor={option}>{option}</label>
-        </div>
+          <Label checked={option === currentValue} htmlFor={option}>
+            {option}
+          </Label>
+        </Container>
       ))}
     </React.Fragment>
   )

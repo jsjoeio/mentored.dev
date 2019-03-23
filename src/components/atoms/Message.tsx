@@ -5,7 +5,7 @@ const Container = styled.p`
   color: ${props => props.theme.primary.main};
   font-size: 2.2rem;
   white-space: pre-line;
-  margin: 0 0 10px;
+  margin: 0 0 6px;
   overflow-y: hidden;
 `
 
@@ -13,7 +13,7 @@ const Message = ({ message, isTalking, setTalking }) => {
   const [charCount, setCharCount] = useState(0)
   const [text, setText] = useState('')
   const [timer, setTimer] = useState('')
-  let speed = 50
+  let speed = 25
 
   function typeWriter() {
     if (charCount < message.length) {
