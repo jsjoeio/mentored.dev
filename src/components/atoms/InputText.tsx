@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
-import { hideElement, focusInput } from '../../utils/mixins'
+import { hideElement, addFocus } from '../../utils/mixins'
 
 const Label = styled.label`
   ${hideElement}
@@ -26,7 +26,7 @@ const Input = styled.input`
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     border-bottom: solid 2px ${props => props.theme.focus.main};
-    ${focusInput}
+    ${addFocus}
   }
 `
 

@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
-import { focusInput } from '../../utils/mixins'
+import { addFocus } from '../../utils/mixins'
 
 const Container = styled.div`
   input:focus + ${Label}::before, input:active + ${Label}::before {
-    ${focusInput}
+    ${addFocus}
   }
 `
 

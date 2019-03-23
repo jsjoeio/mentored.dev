@@ -12,7 +12,7 @@ export const hideElement = () => css`
   width: 1px;
 `
 
-export const focusInput = () => css`
+export const addFocus = () => css`
   border-color: ${props => props.theme.focus.main};
   box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075),
     0 0 0 0.2em ${props => props.theme.focus.lighter};

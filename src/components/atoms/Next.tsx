@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
 import Arrow from './Arrow'
+import { addFocus } from '../../utils/mixins'
 
 const arrowAnimation = keyframes`
   0%, 100% {
@@ -22,11 +23,11 @@ const Button = styled.button`
   &:hover,
   &:focus {
     background-color: ${props => props.theme.primary.darker};
-    border-color: #7fdbff;
+    ${addFocus}
     border-width: 2px;
     outline: none;
     svg {
-      animation: ${arrowAnimation} 800ms cubic-bezier(0.17, 0.67, 0.83, 0.67)
+      animation: ${arrowAnimation} 1200ms cubic-bezier(0.17, 0.67, 0.83, 0.67)
         infinite;
     }
   }
