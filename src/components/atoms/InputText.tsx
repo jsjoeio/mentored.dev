@@ -1,4 +1,34 @@
 import React, { useRef, useEffect } from 'react'
+import styled from 'styled-components'
+import { hideElement, focusInput } from '../../utils/mixins'
+
+const Label = styled.label`
+  ${hideElement}
+`
+
+const Input = styled.input`
+  background-color: ${props => props.theme.background.main};
+  border: none;
+  border-radius: 1px;
+  border-bottom: solid 2px ${props => props.theme.primary.lighter};
+  color: ${props => props.theme.primary.main};
+  font-size: 18px;
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    text-transform: capitalize;
+  }
+
+  &:active,
+  &:focus {
+    outline: 0;
+    border-radius: 3px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom: solid 2px ${props => props.theme.focus.main};
+    ${focusInput}
+  }
+`
 
 const InputText = ({ questionKey, value, onChange, transition }) => {
   const inputTextRef = useRef(null)
@@ -7,8 +37,13 @@ const InputText = ({ questionKey, value, onChange, transition }) => {
   }, [inputTextRef])
   return (
     <React.Fragment>
-      <label htmlFor={questionKey}>{questionKey}</label>
-      <input
+      <Label id={`${questionKey}-label`} htmlFor={questionKey}>
+        {questionKey}
+      </Label>
+      <Input
+        aria-labelledby={`${questionKey}-label`}
+        required
+        placeholder={questionKey}
         ref={inputTextRef}
         tabIndex="1"
         value={value}
