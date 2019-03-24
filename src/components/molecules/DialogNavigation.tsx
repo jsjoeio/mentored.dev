@@ -28,14 +28,27 @@ const Container = styled.div`
   animation: ${slideUp} 500ms ease;
 `
 
-const DialogNavigation = ({ transition, transitionPrevious, showForm }) => (
+const DialogNavigation = ({
+  hasNext,
+  hasPrevious,
+  transition,
+  transitionPrevious,
+  showForm
+}) => (
   <Container>
-    <Previous transition={transition} transitionPrevious={transitionPrevious} />
-    <Next
-      transition={transition}
-      transitionPrevious={transitionPrevious}
-      showForm={showForm}
-    />
+    {hasPrevious && (
+      <Previous
+        transition={transition}
+        transitionPrevious={transitionPrevious}
+      />
+    )}
+    {hasNext && (
+      <Next
+        transition={transition}
+        transitionPrevious={transitionPrevious}
+        showForm={showForm}
+      />
+    )}
   </Container>
 )
 
