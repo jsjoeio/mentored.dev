@@ -19,6 +19,8 @@ const Container = styled.div`
 `
 
 const Dialog = ({
+  messageIsLoading,
+  setMessageLoading,
   isTalking,
   setTalking,
   message,
@@ -33,13 +35,15 @@ const Dialog = ({
     <div>
       {message && (
         <Message
+          setMessageLoading={setMessageLoading}
           isTalking={isTalking}
           setTalking={setTalking}
           message={message}
         />
       )}
+      {/* This empty div below is a placeholder for the Form */}
       {showForm && isTalking && <div style={{ height: '48px' }} />}
-      {showForm && !isTalking && (
+      {showForm && !messageIsLoading && (
         <Form
           state={state}
           value={state[storyState['INPUT']['KEY']] || ''}

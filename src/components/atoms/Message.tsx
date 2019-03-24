@@ -9,7 +9,7 @@ const Container = styled.p`
   overflow-y: hidden;
 `
 
-const Message = ({ message, isTalking, setTalking }) => {
+const Message = ({ message, isTalking, setTalking, setMessageLoading }) => {
   const [charCount, setCharCount] = useState(0)
   const [text, setText] = useState('')
   const [timer, setTimer] = useState('')
@@ -21,6 +21,7 @@ const Message = ({ message, isTalking, setTalking }) => {
       setCharCount(charCount + 1)
     } else {
       setTalking(!isTalking)
+      setMessageLoading(false)
     }
   }
 

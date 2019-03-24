@@ -18,9 +18,13 @@ const Container = styled.div`
 `
 
 const Game = () => {
+  // @Techdebt - might be better to store these in the reducer at one point
   const [isTalking, setTalking] = useState(false)
+  const [messageIsLoading, setMessageLoading] = useState(false)
   const [state, dispatch] = useReducer(storyInputsReducer, initialState)
   const transitionStory = (storyState, transition) => {
+    // New message coming in
+    setMessageLoading(true)
     if (typeof storyState[transition] === 'string') {
       return story.states[storyState[transition]] || storyState
     } else if (typeof storyState[transition] === 'object') {
@@ -65,6 +69,8 @@ const Game = () => {
       <Narrator isTalking={isTalking} setTalking={setTalking} />
       <div style={{ position: 'relative' }}>
         <Dialog
+          messageIsLoading={messageIsLoading}
+          setMessageLoading={setMessageLoading}
           isTalking={isTalking}
           setTalking={setTalking}
           message={message}
