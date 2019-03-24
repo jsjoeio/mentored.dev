@@ -12,7 +12,7 @@ const Form = ({ state, input, handleOnChange, value, transition }) => {
     >
       {input['TYPE'] === 'text' && (
         <InputText
-          questionKey={input['KEY']}
+          input={input}
           value={value}
           onChange={handleOnChange}
           transition={transition}
@@ -21,8 +21,7 @@ const Form = ({ state, input, handleOnChange, value, transition }) => {
       {input['TYPE'] === 'radio' && (
         <InputRadio
           currentValue={state[input['KEY']]}
-          options={input['OPTIONS']}
-          questionKey={input['KEY']}
+          input={input}
           value={value}
           onChange={handleOnChange}
           transition={transition}
