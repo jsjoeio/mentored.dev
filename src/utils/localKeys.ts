@@ -2,7 +2,7 @@ const localKeys = {
   application: {
     stateKey: 'os',
     macOS: 'Terminal',
-    Windows: 'Command Prompt',
+    Windows: 'Powershell',
     Linux: 'Terminal'
   },
   closingMessage: {
@@ -13,8 +13,7 @@ const localKeys = {
   directions: {
     stateKey: 'os',
     macOS: 'Applications > Utilities > Terminal',
-    Windows:
-      'Start Menu > All Programs > Accessories > Windows Powershell folder > Windows Powershell',
+    Windows: "Start Menu > Search 'powershell' > Windows Powershell",
     Linux: 'Directions: Ubuntu icon > type Terminal'
   },
   reaction: {
