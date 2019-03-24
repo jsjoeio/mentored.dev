@@ -21,7 +21,7 @@ const story = {
       }
     },
     greet: {
-      MESSAGE: 'Nice to meet you, {name}! 👋🏼',
+      MESSAGE: 'Nice to meet you, {name}!',
       NEXT: 'moreInfo',
       PREVIOUS: 'name',
       HAS_KEY: 'name'
@@ -125,7 +125,7 @@ const story = {
     },
     commandLineLessonPartOneSuccessYes: {
       MESSAGE:
-        "Great job! 😄 You have learned your first command for the command line. 5pts for you! Let's keep up the momentum and move onto the next.",
+        "Great job! You have learned your first command for the command line. 5pts for you! Let's keep up the momentum and move onto the next.",
       NEXT: 'commandLineLessonPartTwo',
       PREVIOUS: 'commandLineLessonPartOne'
     },
@@ -154,13 +154,13 @@ const story = {
       INPUT: {
         TYPE: 'radio',
         KEY: 'commandLineLessonPartTwoCont',
-        OPTIONS: ['Success!💯', "Oh no...It didn't work."]
+        OPTIONS: ['Success!', "Oh no...It didn't work."]
       },
       HAS_LOCAL_KEYS: ['application']
     },
     commandLineLessonPartTwoSuccessYes: {
       MESSAGE:
-        "Wow {name}, I knew you were a quick learner when we first met. Congrats on your success! 🙌🏼 That's 2 commands in the book for you my friend. Onto the next one.",
+        "Wow {name}, I knew you were a quick learner when we first met. Congrats on your success! That's 2 commands in the book for you my friend. Onto the next one.",
       NEXT: 'commandLineLessonPartThree',
       PREVIOUS: 'commandLineLessonPartTwoCont',
       HAS_KEY: 'name'
@@ -187,7 +187,7 @@ const story = {
     },
     commandLineLessonPartThreeSuccessYes: {
       MESSAGE:
-        "Hooray! You just created your first file using the command line. If you haven't yet, give yourself a big high-5!😎",
+        "Hooray! You just created your first file using the command line. If you haven't yet, give yourself a big high-5!",
       NEXT: 'commandLineLessonCongrats',
       PREVIOUS: 'commandLineLessonPartThree'
     },
@@ -205,7 +205,7 @@ const story = {
     },
     commandLineStartQuiz: {
       MESSAGE:
-        "Before we end today's lesson, I want to give you a quick quiz to make sure you were paying attention and not just copying and pasting 😉",
+        "Before we end today's lesson, I want to give you a quick quiz to make sure you were paying attention and not just copying and pasting.",
       NEXT: 'commandLineQuizQuesOne',
       PREVIOUS: 'commandLineLessonCongrats'
     },
