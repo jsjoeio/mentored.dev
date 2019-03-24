@@ -30,20 +30,20 @@ const Input = styled.input`
   }
 `
 
-const InputText = ({ questionKey, value, onChange, transition }) => {
+const InputText = ({ input, value, onChange, transition }) => {
   const inputTextRef = useRef(null)
   useEffect(() => {
     inputTextRef.current.focus()
   }, [inputTextRef])
   return (
     <React.Fragment>
-      <Label id={`${questionKey}-label`} htmlFor={questionKey}>
-        {questionKey}
+      <Label id={`${input['KEY']}-label`} htmlFor={input['KEY']}>
+        {input['KEY']}
       </Label>
       <Input
-        aria-labelledby={`${questionKey}-label`}
+        aria-labelledby={`${input['KEY']}-label`}
         required
-        placeholder={questionKey}
+        placeholder={input['PLACEHOLDER'] || input['KEY']}
         ref={inputTextRef}
         tabIndex="1"
         value={value}
@@ -54,8 +54,8 @@ const InputText = ({ questionKey, value, onChange, transition }) => {
           }
         }}
         type="text"
-        name={questionKey}
-        id={questionKey}
+        name={input['KEY']}
+        id={input['KEY']}
       />
     </React.Fragment>
   )
