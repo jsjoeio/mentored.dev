@@ -3,6 +3,18 @@ module.exports = {
     title: `Gatsby Typescript Starter`
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Life of Code',
+        short_name: 'Life of Code',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
+        display: 'standalone',
+        icon: 'src/images/icon.png'
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-layout`,
     `gatsby-plugin-styled-components`,
