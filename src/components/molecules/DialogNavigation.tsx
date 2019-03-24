@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${props => (props.hasPrevious ? 'row' : 'row-reverse')};
   justify-content: space-between;
   transition: all 0.3s ease;
   animation: ${slideUp} 500ms ease;
@@ -35,7 +35,7 @@ const DialogNavigation = ({
   transitionPrevious,
   showForm
 }) => (
-  <Container>
+  <Container hasPrevious={hasPrevious}>
     {hasPrevious && (
       <Previous
         transition={transition}
