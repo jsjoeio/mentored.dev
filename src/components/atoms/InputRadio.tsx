@@ -37,20 +37,14 @@ const Input = styled.input`
   }
 `
 
-const InputRadio = ({
-  currentValue,
-  questionKey,
-  options,
-  onChange,
-  transition
-}) => {
+const InputRadio = ({ currentValue, input, onChange, transition }) => {
   const inputRadioRef = useRef(null)
   useEffect(() => {
     inputRadioRef.current.focus()
   }, [inputRadioRef])
   return (
     <React.Fragment>
-      {options.map((option, index) => (
+      {input['OPTIONS'].map((option, index) => (
         <Container key={option}>
           <Input
             ref={index === 0 ? inputRadioRef : null}

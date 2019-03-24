@@ -12,13 +12,15 @@ const Container = styled.div`
   margin: 1rem 3rem 3rem;
   padding: 2rem;
   width: 550px;
-  height: 170px;
+  height: 190px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `
 
 const Dialog = ({
+  messageIsLoading,
+  setMessageLoading,
   isTalking,
   setTalking,
   message,
@@ -33,13 +35,15 @@ const Dialog = ({
     <div>
       {message && (
         <Message
+          setMessageLoading={setMessageLoading}
           isTalking={isTalking}
           setTalking={setTalking}
           message={message}
         />
       )}
+      {/* This empty div below is a placeholder for the Form */}
       {showForm && isTalking && <div style={{ height: '48px' }} />}
-      {showForm && !isTalking && (
+      {showForm && !messageIsLoading && (
         <Form
           state={state}
           value={state[storyState['INPUT']['KEY']] || ''}
@@ -53,6 +57,8 @@ const Dialog = ({
     {isTalking && <div style={{ height: '48px' }} />}
     {!isTalking && (
       <DialogNavigation
+        hasNext={storyState.hasOwnProperty('NEXT')}
+        hasPrevious={storyState.hasOwnProperty('PREVIOUS')}
         transition={transition}
         transitionPrevious={transitionPrevious}
         showForm={showForm}

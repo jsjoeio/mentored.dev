@@ -6,7 +6,6 @@ const Layout = ({ children }) => {
   // adding ability to set theme, but Layout only likes one child.
   // WIll have to figure out later @TechDebt
   const [darkTheme, setDarkTheme] = useState(false)
-  console.log(theme.lightTheme)
   return (
     <ThemeProvider theme={darkTheme ? theme.darkTheme : theme.lightTheme}>
       {children}

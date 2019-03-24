@@ -17,7 +17,12 @@ const Index = (props: IndexPageProps) => {
   return (
     <div>
       {!gameStarted && (
-        <div style={{ margin: '50% auto', textAlign: 'center' }}>
+        <div
+          style={{
+            margin: '50vh auto',
+            textAlign: 'center'
+          }}
+        >
           <Enter onClick={() => startGame(!gameStarted)} />
         </div>
       )}

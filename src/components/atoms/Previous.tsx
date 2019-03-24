@@ -18,7 +18,7 @@ const Button = styled.button`
     opacity: 0.9;
     outline: none;
     padding: 0 7px;
-    border-width: 2px;
+    border-width: 3px;
     ${addFocus}
   }
 `
