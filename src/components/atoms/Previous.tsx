@@ -14,7 +14,8 @@ const Button = styled.button`
   padding: 0;
   opacity: 0.4;
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     opacity: 0.9;
     outline: none;
     padding: 0 7px;

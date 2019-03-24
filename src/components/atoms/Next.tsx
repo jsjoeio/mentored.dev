@@ -21,7 +21,8 @@ const Button = styled.button`
   border-radius: 50%;
   transition: all 0.3s ease;
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background-color: ${props => props.theme.primary.darker};
     ${addFocus}
     border-width: 3px;
