@@ -8,13 +8,36 @@ const story = {
     intro: {
       MESSAGE:
         'Welcome to the Life of Code! Our goal? To teach you to become a developer.',
-      NEXT: 'name',
+      NEXT: 'instructions',
       PREVIOUS: 'initial'
+    },
+    instructions: {
+      MESSAGE:
+        'You can navigate the dialog using the left and right arrow keys.',
+      NEXT: 'instructionsKeyboard',
+      PREVIOUS: 'intro'
+    },
+    instructionsKeyboard: {
+      MESSAGE:
+        'You can also select answers with spacebar and submit with enter.',
+      NEXT: 'instructionsCont',
+      PREVIOUS: 'instructions'
+    },
+    instructionsCont: {
+      MESSAGE: 'Oh! How rude of me - I forgot to introduce myself.',
+      NEXT: 'introProfessor',
+      PREVIOUS: 'instructionsKeyboard'
+    },
+    introProfessor: {
+      MESSAGE:
+        'My name is Professor and I have the delight of calling myself your teacher.',
+      NEXT: 'name',
+      PREVIOUS: 'instructionsCont'
     },
     name: {
       MESSAGE: 'First things first. What’s your name?',
       NEXT: 'greet',
-      PREVIOUS: 'intro',
+      PREVIOUS: 'introProfessor',
       INPUT: {
         TYPE: 'text',
         KEY: 'name'
