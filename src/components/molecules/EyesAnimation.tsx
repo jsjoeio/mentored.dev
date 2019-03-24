@@ -3,7 +3,7 @@ import { Frame, Keyframes } from '../../utils/react-keyframes/'
 
 export default ({ isTalking }) => (
   <Keyframes component="Fragment" loop={!isTalking}>
-    <Frame duration={4000}>
+    <Frame duration={3000}>
       <circle fill="#1B2D3C" cx="82.5" cy="89.5" r="8.5" />
       <circle fill="#1B2D3C" cx="149.5" cy="91.5" r="8.5" />
     </Frame>
