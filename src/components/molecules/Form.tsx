@@ -16,6 +16,7 @@ const appear = keyframes`
 const Container = styled.form`
   transition: all 0.3s ease;
   animation: ${appear} 1000ms ease;
+  margin-bottom: 6px;
 `
 
 const Form = ({ state, input, handleOnChange, value, transition }) => {
