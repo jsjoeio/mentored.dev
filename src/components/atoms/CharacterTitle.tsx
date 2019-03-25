@@ -9,6 +9,7 @@ const Container = styled.div`
   left: 48px;
   padding: 2px 20px;
   z-index: -1;
+  user-select: none;
 `
 
 const Title = styled.h3`
