@@ -13,15 +13,9 @@ const story = {
     },
     instructions: {
       MESSAGE:
-        'You can navigate the dialog using the left and right arrow keys.',
-      NEXT: 'instructionsKeyboard',
-      PREVIOUS: 'intro'
-    },
-    instructionsKeyboard: {
-      MESSAGE:
-        'You can also select answers with spacebar and submit with enter.',
+        'You can navigate the dialog using the left and right arrow keys, and submit with enter.',
       NEXT: 'instructionsCont',
-      PREVIOUS: 'instructions'
+      PREVIOUS: 'intro'
     },
     instructionsCont: {
       MESSAGE: 'Oh! How rude of me - I forgot to introduce myself.',
