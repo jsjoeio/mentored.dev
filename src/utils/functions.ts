@@ -73,7 +73,7 @@ function calculateScore({ state }) {
     ) {
       // If it does, it's a question.
       totalPossible += 1
-      if (story.states[stateKeys[i]]['ANSWER'].includes(state[stateKeys[i]] === )) {
+      if (story.states[stateKeys[i]]['ANSWER'].includes(state[stateKeys[i]])) {
         score += 1
       }
     }
