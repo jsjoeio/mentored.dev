@@ -26,6 +26,7 @@ const Button = styled.button`
     background-color: ${props => props.theme.primary.darker};
     ${addFocus}
     border-width: 3px;
+    border-style: solid;
     outline: none;
     svg {
       animation: ${arrowAnimation} 1200ms cubic-bezier(0.17, 0.67, 0.83, 0.67)

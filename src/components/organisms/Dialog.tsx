@@ -12,7 +12,7 @@ const Container = styled.div`
   margin: 1rem 3rem 3rem;
   padding: 2rem;
   width: 550px;
-  height: 190px;
+  height: 196px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
