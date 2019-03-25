@@ -321,7 +321,7 @@ const story = {
     },
     commandLineQuizSummary: {
       MESSAGE:
-        "{reaction} You scored {score}. {closingMessage} That ends today's lesson. I'll see you here again tomorrow. Cheerio!",
+        "{reaction} You scored {score}. {closingMessage} That ends today's lesson. Cheerio!",
       PREVIOUS: 'commandLineQuizQuesThree',
       HAS_SPECIAL_MESSAGE: ['reaction', 'score', 'closingMessage']
     }
