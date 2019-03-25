@@ -10,6 +10,12 @@ const localKeys = {
     positive: 'Very impressed with your progress so far.',
     negative: "Don't fret about the score, but I do advise you to study more."
   },
+  newFileCommand: {
+    stateKey: 'os',
+    macOS: 'touch',
+    Windows: 'new-item',
+    Linux: 'touch'
+  },
   directions: {
     stateKey: 'os',
     macOS: 'Applications > Utilities > Terminal',

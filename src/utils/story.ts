@@ -217,7 +217,7 @@ const story = {
     },
     commandLineLessonPartTwoSuccessYes: {
       MESSAGE:
-        "Wow {name}, I knew you were a quick learner when we first met. Congrats! That's 2 commands in the book for you. Onward!",
+        "Wow {name}, I knew you were a quick learner. Congrats! That's 2 commands in the book for you. Onward!",
       NEXT: 'commandLineLessonPartThree',
       PREVIOUS: 'commandLineLessonPartTwoCont',
       HAS_KEY: 'name'
@@ -229,13 +229,13 @@ const story = {
     },
     commandLineLessonPartThreeIntro: {
       MESSAGE:
-        'Directories wonderful in themselves, but their purpose is to store files. Our last command for this lesson will help us with that.',
+        'Directories are wonderful in themselves, but their purpose is to store files. Our last command for this lesson will help us with that.',
       NEXT: 'commandLineLessonPartThree',
       PREVIOUS: 'commandLineLessonPartTwoSuccessYes'
     },
     commandLineLessonPartThree: {
       MESSAGE:
-        "Inside the same {application} window, change directories into 'coding-stuff' and then type 'touch first-file.txt'.",
+        "Inside the same {application} window, cd into 'coding-stuff' and then type '{newFileCommand} intro.txt'.",
       NEXT: {
         OPTION_0: 'commandLineLessonPartThreeSuccessYes',
         OPTION_1: 'commandLineLessonPartThreeSuccessNo'
@@ -246,7 +246,7 @@ const story = {
         KEY: 'commandLineLessonPartThree',
         OPTIONS: ['Yay! I created it successfully.', 'Help! I need a hint.']
       },
-      HAS_LOCAL_KEYS: ['application']
+      HAS_LOCAL_KEYS: ['application', 'newFileCommand']
     },
     commandLineLessonPartThreeSuccessYes: {
       MESSAGE:
@@ -256,13 +256,13 @@ const story = {
     },
     commandLineLessonPartThreeSuccessNo: {
       MESSAGE:
-        "Remember, to change directories you type 'cd' followed by a space followed by the name of the directory.",
+        "Remember, to change directories, type 'cd' followed by a space followed by the name of the directory.",
       NEXT: 'commandLineLessonPartThree',
       PREVIOUS: 'commandLineLessonPartThree'
     },
     commandLineLessonCongrats: {
       MESSAGE:
-        'Look at that. In a short period of time, you learned three commands for the command line.',
+        'Look at that. In a short period of time, you learned three commands on the command line.',
       NEXT: 'commandLineLessonCongratsCont',
       PREVIOUS: 'commandLineLessonPartThreeSuccessYes'
     },
@@ -287,7 +287,7 @@ const story = {
         KEY: 'commandLineQuizQuesOne',
         PLACEHOLDER: 'Write command'
       },
-      ANSWER: 'cd'
+      ANSWER: ['cd']
     },
     commandLineQuizQuesTwo: {
       MESSAGE:
@@ -299,7 +299,7 @@ const story = {
         KEY: 'commandLineQuizQuesTwo',
         PLACEHOLDER: 'Write command'
       },
-      ANSWER: 'mkdir studies'
+      ANSWER: ['mkdir studies']
     },
     commandLineQuizQuesThree: {
       MESSAGE:
@@ -311,7 +311,7 @@ const story = {
         KEY: 'commandLineQuizQuesThree',
         PLACEHOLDER: 'Write command'
       },
-      ANSWER: 'touch hello.txt'
+      ANSWER: ['touch hello.txt', 'new-item hello.txt']
     },
     commandLineQuizSummary: {
       MESSAGE:
