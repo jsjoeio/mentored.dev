@@ -14,6 +14,7 @@ const Input = styled.input`
   color: ${props => props.theme.primary.main};
   font-size: 18px;
   transition: all 0.3s ease;
+  margin-bottom: 8px;
 
   &::placeholder {
     text-transform: capitalize;
