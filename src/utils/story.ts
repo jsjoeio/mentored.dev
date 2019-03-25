@@ -182,8 +182,8 @@ const story = {
     },
     commandLineLessonPartOneSuccessNo: {
       MESSAGE:
-        "Hmm...that's no good. Desktop may not be a folder in your root. Try restarting {application}.",
-      NEXT: 'commandLineLessonPartTwoIntro',
+        "Hmm...that's no good. You may not be in the root folder. Make sure you're not running as admin and restart {application}.",
+      NEXT: 'commandLineLessonPartOne',
       PREVIOUS: 'commandLineLessonPartOne',
       HAS_LOCAL_KEYS: ['application']
     },
