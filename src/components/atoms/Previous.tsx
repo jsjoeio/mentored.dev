@@ -16,6 +16,7 @@ const Button = styled.button`
   &:hover,
   &:focus,
   &:active {
+    cursor: pointer;
     opacity: 0.9;
     outline: none;
     padding: 0 7px;

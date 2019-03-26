@@ -23,6 +23,7 @@ const Button = styled.button`
   &:hover,
   &:focus,
   &:active {
+    cursor: pointer;
     background-color: ${props => props.theme.primary.darker};
     ${addFocus}
     border-width: 3px;
