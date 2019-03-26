@@ -35,7 +35,7 @@ const Button = styled.button`
   }
 `
 
-const Next = ({ transition, showForm, transitionPrevious }) => {
+const Next = ({ transition, formValue, showForm, transitionPrevious }) => {
   const nextText = useRef(null)
   useEffect(() => {
     // Only focus nextText if doesn't have form
@@ -43,14 +43,34 @@ const Next = ({ transition, showForm, transitionPrevious }) => {
       nextText.current.focus()
     }
   }, [nextText, showForm])
+
   return (
     <Button
       ref={nextText}
-      onClick={transition}
+      onClick={() => {
+        // If there is a form
+        if (showForm) {
+          // We need to validate formValue first
+          if (formValue) {
+            transition()
+          }
+          // Otherwise, no form, transition on click
+        } else {
+          transition()
+        }
+      }}
       tabIndex={showForm ? null : '1'}
       onKeyUp={e => {
         if (e.keyCode === 39) {
-          transition()
+          if (showForm) {
+            // We need to validate formValue first
+            if (formValue) {
+              transition()
+            }
+            // Otherwise, no form, transition on click
+          } else {
+            transition()
+          }
         } else if (e.keyCode === 37) {
           transitionPrevious()
         }
