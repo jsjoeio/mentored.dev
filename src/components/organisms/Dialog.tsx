@@ -61,6 +61,7 @@ const Dialog = ({
         hasPrevious={storyState.hasOwnProperty('PREVIOUS')}
         transition={transition}
         transitionPrevious={transitionPrevious}
+        formValue={showForm ? state[storyState['INPUT']['KEY']] : null}
         showForm={showForm}
       />
     )}

@@ -33,6 +33,7 @@ const DialogNavigation = ({
   hasPrevious,
   transition,
   transitionPrevious,
+  formValue,
   showForm
 }) => (
   <Container hasPrevious={hasPrevious}>
@@ -46,6 +47,7 @@ const DialogNavigation = ({
       <Next
         transition={transition}
         transitionPrevious={transitionPrevious}
+        formValue={formValue}
         showForm={showForm}
       />
     )}
