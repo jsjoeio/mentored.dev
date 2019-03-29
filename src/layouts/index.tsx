@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import theme from '../utils/theme'
-import Authentication from '../components/atoms/Authentication'
+import getAuth from '../utils/authentication'
 
 const Layout = ({ children }) => {
-  // adding ability to set theme, but Layout only likes one child.
-  // WIll have to figure out later @TechDebt
+  // @TechDebt implement changing the theme.
+  const auth = getAuth()
   const [darkTheme, setDarkTheme] = useState(false)
   return (
     <ThemeProvider theme={darkTheme ? theme.darkTheme : theme.lightTheme}>
-      <Authentication.Provider>{children}</Authentication.Provider>
+      {React.cloneElement(children, { auth })}
     </ThemeProvider>
   )
 }
