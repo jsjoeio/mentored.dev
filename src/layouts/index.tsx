@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import theme from '../utils/theme'
+import Authentication from '../components/atoms/Authentication'
 
 const Layout = ({ children }) => {
   // adding ability to set theme, but Layout only likes one child.
@@ -8,7 +9,7 @@ const Layout = ({ children }) => {
   const [darkTheme, setDarkTheme] = useState(false)
   return (
     <ThemeProvider theme={darkTheme ? theme.darkTheme : theme.lightTheme}>
-      {children}
+      <Authentication.Provider>{children}</Authentication.Provider>
     </ThemeProvider>
   )
 }
