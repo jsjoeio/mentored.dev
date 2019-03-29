@@ -1,24 +1,26 @@
-import React from 'react'
-import Authentication from '../components/atoms/Authentication'
+import React, { useState } from 'react'
 import auth from '../utils/authentication'
 import Login from '../components/atoms/Login'
 
-const LoginPage = () => {
+const LoginPage = ({ auth }) => {
+  const [authenticated, setAuthenticated] = useState(false)
+
+  function login(service = 'github') {
+    return async () => {
+      await auth.login(service)
+
+      setAuthenticated(await auth.isLoggedIn('github'))
+    }
+  }
   return (
     <div>
-      <Authentication.Consumer>
-        {({ authenticated }) => (
-          <div>
-            {console.log('authenticated', authenticated)}
-            {typeof authenticated !== 'boolean' ? null : authenticated ===
-              true ? (
-              <h1>Logged in</h1>
-            ) : (
-              <Login />
-            )}
-          </div>
+      <div>
+        {authenticated ? (
+          <h1>Logged In</h1>
+        ) : (
+          <button onClick={login()}>Log in with GitHub</button>
         )}
-      </Authentication.Consumer>
+      </div>
     </div>
   )
 }
