@@ -9,3 +9,6 @@ yarn-error.log
 
 # notes file
 NOTES.md
+
+# .env
+.env.development
