@@ -15,6 +15,7 @@
     "gatsby-plugin-styled-components": "^3.0.6",
     "gatsby-plugin-typescript": "^2.0.9",
     "gatsby-plugin-typography": "^2.2.7",
+    "onegraph-auth": "^1.2.23",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
@@ -33,6 +34,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "dotenv": "^7.0.0",
     "eslint-plugin-typescript": "^0.14.0",
     "standard": "^12.0.1",
     "typescript-eslint-parser": "^22.0.0"
