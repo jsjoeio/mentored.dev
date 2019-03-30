@@ -1,7 +1,18 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const Laptop = () => (
-  <svg
+const SVG = styled.svg`
+  pointer-events: all;
+  &:hover,
+  &:active,
+  &:focus {
+    cursor: pointer;
+  }
+`
+//TODO add ids to the different pieces of the svg so you can target them and pass the theme colors instead of hardcoded
+const Laptop = ({ login }) => (
+  <SVG
+    onClick={() => login()}
     fill="none"
     height="248"
     viewBox="0 0 395 248"
@@ -69,7 +80,7 @@ const Laptop = () => (
       <path d="m284 43h25v14h-25z" />
       <path d="m318 43h25v14h-25z" />
     </g>
-  </svg>
+  </SVG>
 )
 
 export default Laptop
