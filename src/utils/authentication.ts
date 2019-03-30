@@ -5,10 +5,12 @@ let auth
 export const appId = process.env.GATSBY_OG_APP_ID
 
 export default () => {
-  if (!auth) {
-    auth = new OneGraphAuth({
-      appId
-    })
+  if (typeof window !== `undefined`) {
+    if (!auth) {
+      auth = new OneGraphAuth({
+        appId
+      })
+    }
+    return auth
   }
-  return auth
 }
