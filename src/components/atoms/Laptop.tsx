@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const SVG = styled.svg`
   pointer-events: all;
@@ -8,9 +8,9 @@ const SVG = styled.svg`
   &:focus {
     cursor: pointer;
   }
-`
+`;
 //TODO add ids to the different pieces of the svg so you can target them and pass the theme colors instead of hardcoded
-const Laptop = ({ login }) => (
+const Laptop: React.FC<{ login: () => void }> = ({ login }) => (
   <SVG
     onClick={() => login()}
     fill="none"
@@ -81,6 +81,6 @@ const Laptop = ({ login }) => (
       <path d="m318 43h25v14h-25z" />
     </g>
   </SVG>
-)
+);
 
-export default Laptop
+export default Laptop;

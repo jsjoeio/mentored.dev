@@ -1,15 +1,15 @@
-import React, { useRef, useEffect } from 'react'
-import styled from 'styled-components'
-import { graphql } from 'gatsby'
-import Laptop from '../atoms/Laptop'
-import { addFocus } from '../../utils/mixins'
+import React, { useRef, useEffect } from "react";
+import styled from "styled-components";
+import { graphql } from "gatsby";
+import Laptop from "../atoms/Laptop";
+import { addFocus } from "../../utils/mixins";
 
 const Container = styled.div`
   text-align: center;
   margin: auto;
   height: 80vh;
   width: 100%;
-`
+`;
 
 const Title = styled.h1`
   margin-top: 20vh;
@@ -21,12 +21,12 @@ const Title = styled.h1`
     margin-top: 10vh;
     font-size: 8vh;
   }
-`
+`;
 
 const SubTitle = styled.p`
   margin-top: 2vh;
   font-size: 3vh;
-`
+`;
 
 const Instructions = styled.button`
   margin-top: 4vh;
@@ -37,7 +37,7 @@ const Instructions = styled.button`
   margin-right: auto;
   background: none;
   border: none;
-`
+`;
 
 const Footer = styled.footer`
   position: fixed;
@@ -47,22 +47,22 @@ const Footer = styled.footer`
   font-size: 1.75vh;
   text-transform: uppercase;
   text-align: center;
-`
+`;
 
-const StartScreen = ({ login }) => {
+const StartScreen: React.FC<{ login: () => void }> = ({ login }) => {
   useEffect(() => {
     // Listen for enter to start game
-    function listenForEnter(e) {
-      e.preventDefault()
+    function listenForEnter(e: KeyboardEvent) {
+      e.preventDefault();
       if (e.keyCode == 13) {
-        login()
+        login();
       }
     }
-    document.addEventListener('keydown', listenForEnter, false)
+    document.addEventListener("keydown", listenForEnter, false);
     return () => {
-      document.removeEventListener('keydown', listenForEnter, false)
-    }
-  }, [])
+      document.removeEventListener("keydown", listenForEnter, false);
+    };
+  }, []);
 
   return (
     <Container id="start-screen-container">
@@ -74,7 +74,7 @@ const StartScreen = ({ login }) => {
       </div>
       <Footer>© ‘19 jsjoeio</Footer>
     </Container>
-  )
-}
+  );
+};
 
-export default StartScreen
+export default StartScreen;

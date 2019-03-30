@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from 'react'
-import styled from 'styled-components'
-import { hideElement, addFocus } from '../../utils/mixins'
+import React, { useRef, useEffect } from "react";
+import styled from "styled-components";
+import { hideElement, addFocus } from "../../utils/mixins";
 
 const Label = styled.label`
   ${hideElement}
-`
+`;
 
 const Input = styled.input`
   background-color: ${props => props.theme.background.main};
@@ -29,37 +29,39 @@ const Input = styled.input`
     border-bottom: solid 2px ${props => props.theme.focus.main};
     ${addFocus}
   }
-`
+`;
 
 const InputText = ({ input, value, onChange, transition }) => {
-  const inputTextRef = useRef(null)
+  const inputTextRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    inputTextRef.current.focus()
-  }, [inputTextRef])
+    if (inputTextRef.current) {
+      inputTextRef.current.focus();
+    }
+  }, [inputTextRef]);
   return (
     <React.Fragment>
-      <Label id={`${input['KEY']}-label`} htmlFor={input['KEY']}>
-        {input['KEY']}
+      <Label id={`${input["KEY"]}-label`} htmlFor={input["KEY"]}>
+        {input["KEY"]}
       </Label>
       <Input
-        aria-labelledby={`${input['KEY']}-label`}
+        aria-labelledby={`${input["KEY"]}-label`}
         required
-        placeholder={input['PLACEHOLDER'] || input['KEY']}
+        placeholder={input["PLACEHOLDER"] || input["KEY"]}
         ref={inputTextRef}
         tabIndex="1"
         value={value}
         onChange={onChange}
         onKeyUp={e => {
-          if ((e.keyCode === 13 || e.keyCode === 39) && value !== '') {
-            transition()
+          if ((e.keyCode === 13 || e.keyCode === 39) && value !== "") {
+            transition();
           }
         }}
         type="text"
-        name={input['KEY']}
-        id={input['KEY']}
+        name={input["KEY"]}
+        id={input["KEY"]}
       />
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default InputText
+export default InputText;

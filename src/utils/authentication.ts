@@ -1,17 +1,17 @@
-import OneGraphAuth from 'onegraph-auth'
+import OneGraphAuth from "onegraph-auth";
 
-let auth
+let auth: unknown;
 
-export const appId = process.env.GATSBY_OG_APP_ID
+export const appId = process.env.GATSBY_OG_APP_ID;
 
 export default () => {
   // Prevents build from failing at runtime because window is not defined
   if (typeof window !== `undefined`) {
     if (!auth) {
       auth = new OneGraphAuth({
-        appId
-      })
+        appId,
+      });
     }
-    return auth
+    return auth;
   }
-}
+};
