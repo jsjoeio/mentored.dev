@@ -1,7 +1,7 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
-import Next from '../atoms/Next'
-import Previous from '../atoms/Previous'
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import Next from "../atoms/Next";
+import Previous from "../atoms/Previous";
 
 const slideUp = keyframes`
   from {
@@ -13,45 +13,39 @@ const slideUp = keyframes`
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
-`
+`;
 
-const Wrapper = styled.div`
-  position: absolute;
-  bottom: 0;
-`
-
-const Container = styled.div`
+const Container = styled.div<{ hasPrevious: boolean }>`
   display: flex;
-  flex-direction: ${props => (props.hasPrevious ? 'row' : 'row-reverse')};
+  flex-direction: ${props => (props.hasPrevious ? "row" : "row-reverse")};
   justify-content: space-between;
   transition: all 0.3s ease;
   animation: ${slideUp} 500ms ease;
-`
+`;
 
-const DialogNavigation = ({
+export interface DialogNavigationProps {
+  hasNext: boolean;
+  hasPrevious: boolean;
+  transition: () => void;
+  transitionPrevious: () => void;
+  formValue: string;
+  showForm: boolean;
+}
+
+const DialogNavigation: React.FC<DialogNavigationProps> = ({
   hasNext,
   hasPrevious,
   transition,
   transitionPrevious,
   formValue,
-  showForm
+  showForm,
 }) => (
   <Container hasPrevious={hasPrevious}>
-    {hasPrevious && (
-      <Previous
-        transition={transition}
-        transitionPrevious={transitionPrevious}
-      />
-    )}
+    {hasPrevious && <Previous transition={transition} transitionPrevious={transitionPrevious} />}
     {hasNext && (
-      <Next
-        transition={transition}
-        transitionPrevious={transitionPrevious}
-        formValue={formValue}
-        showForm={showForm}
-      />
+      <Next transition={transition} transitionPrevious={transitionPrevious} formValue={formValue} showForm={showForm} />
     )}
   </Container>
-)
+);
 
-export default DialogNavigation
+export default DialogNavigation;

@@ -1,20 +1,15 @@
-import React, { useRef, useEffect } from 'react'
-import styled from 'styled-components'
-import { addFocus } from '../../utils/mixins'
+import React, { useRef, useEffect } from "react";
+import { addFocus } from "../../utils/mixins";
+import styled from "../../utils/styled";
+import { Story, IStory } from "../../utils/story";
 
-const Container = styled.div`
-  input:focus + ${Label}::before, input:active + ${Label}::before {
-    ${addFocus}
-  }
-`
-
-const Label = styled.label`
+const Label = styled.label<{ checked: boolean }>`
   margin-left: 0.5rem;
   font-size: 1.25rem;
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     display: inline-block;
     height: 12px;
     width: 12px;
@@ -23,10 +18,15 @@ const Label = styled.label`
     position: absolute;
     left: -19px;
     top: 4px;
-    background-color: ${props =>
-      props.checked ? props.theme.primary.main : ''};
+    background-color: ${props => (props.checked ? props.theme.primary.main : "")};
   }
-`
+`;
+
+const Container = styled.div`
+  input:focus + ${Label}::before, input:active + ${Label}::before {
+    ${addFocus}
+  }
+`;
 
 const Input = styled.input`
   font-size: 1.25rem;
@@ -35,39 +35,50 @@ const Input = styled.input`
   &:active {
     outline: none;
   }
-`
+`;
 
-const InputRadio = ({ currentValue, input, onChange, transition }) => {
-  const inputRadioRef = useRef(null)
-  useEffect(() => {
-    inputRadioRef.current.focus()
-  }, [inputRadioRef])
-  return (
-    <React.Fragment>
-      {input['OPTIONS'].map((option, index) => (
-        <Container key={option}>
-          <Input
-            ref={index === 0 ? inputRadioRef : null}
-            tabIndex={index === 0 ? '1' : ''}
-            value={option}
-            checked={option === currentValue}
-            onChange={onChange}
-            onKeyUp={e => {
-              if ((e.keyCode === 13 || e.keyCode === 39) && currentValue) {
-                transition()
-              }
-            }}
-            type="radio"
-            name={option}
-            id={option}
-          />
-          <Label checked={option === currentValue} htmlFor={option}>
-            {option}
-          </Label>
-        </Container>
-      ))}
-    </React.Fragment>
-  )
+export interface InputRadioProps {
+  currentValue: string;
+  input: IStory["INPUT"];
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  transition: () => void;
 }
 
-export default InputRadio
+const InputRadio: React.FC<InputRadioProps> = ({ currentValue, input, onChange, transition }) => {
+  const inputRadioRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (inputRadioRef.current) {
+      inputRadioRef.current.focus();
+    }
+  }, [inputRadioRef]);
+  return (
+    <React.Fragment>
+      {input &&
+        input.OPTIONS &&
+        input.OPTIONS.map((option, index) => (
+          <Container key={option}>
+            <Input
+              ref={index === 0 ? inputRadioRef : null}
+              tabIndex={index === 0 ? 1 : 0}
+              value={option}
+              checked={option === currentValue}
+              onChange={onChange}
+              onKeyUp={e => {
+                if ((e.keyCode === 13 || e.keyCode === 39) && currentValue) {
+                  transition();
+                }
+              }}
+              type="radio"
+              name={option}
+              id={option}
+            />
+            <Label checked={option === currentValue} htmlFor={option}>
+              {option}
+            </Label>
+          </Container>
+        ))}
+    </React.Fragment>
+  );
+};
+
+export default InputRadio;

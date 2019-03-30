@@ -1,9 +1,11 @@
-import React from 'react'
-import { Frame, Keyframes } from '../../utils/react-keyframes/'
-import MouthIH from '../atoms/Mouths/MouthIH'
-import MouthLUH from '../atoms/Mouths/MouthLUH'
-import MouthCON from '../atoms/Mouths/MouthCON'
-import MouthAH from '../atoms/Mouths/MouthAH'
+import React from "react";
+
+// @ts-ignore
+import { Frame, Keyframes } from "../../utils/react-keyframes/";
+import MouthIH from "../atoms/Mouths/MouthIH";
+import MouthLUH from "../atoms/Mouths/MouthLUH";
+import MouthCON from "../atoms/Mouths/MouthCON";
+import MouthAH from "../atoms/Mouths/MouthAH";
 
 export default ({ isTalking }) => (
   <Keyframes component="Fragment" loop={isTalking}>
@@ -20,4 +22,4 @@ export default ({ isTalking }) => (
       <MouthAH />
     </Frame>
   </Keyframes>
-)
+);

@@ -5,10 +5,14 @@
         "noImplicitAny": true,
         "module": "commonjs",
         "target": "esnext",
+        "strict": true,
         "jsx": "react",
-        "lib": ["dom", "es2015", "es2017"]
+        "skipLibCheck": true,
+        "lib": ["dom", "es2015", "es2017"],
+        "allowSyntheticDefaultImports": true
     },
     "include": [
-        "./src/**/*"
+        "./src/**/*", "styled.d.ts",
+        "onegraph.d.ts"
     ]
 }

@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from 'react'
-import styled, { keyframes } from 'styled-components'
-import Arrow from './Arrow'
-import { addFocus } from '../../utils/mixins'
+import React, { useRef, useEffect } from "react";
+import styled, { keyframes } from "styled-components";
+import Arrow from "./Arrow";
+import { addFocus } from "../../utils/mixins";
 
 const arrowAnimation = keyframes`
   0%, 100% {
@@ -11,7 +11,7 @@ const arrowAnimation = keyframes`
   50% {
     transform: translate3d(2px, 0, 0);
   }
-`
+`;
 
 const Button = styled.button`
   display: flex;
@@ -30,20 +30,21 @@ const Button = styled.button`
     border-style: solid;
     outline: none;
     svg {
-      animation: ${arrowAnimation} 1200ms cubic-bezier(0.17, 0.67, 0.83, 0.67)
-        infinite;
+      animation: ${arrowAnimation} 1200ms cubic-bezier(0.17, 0.67, 0.83, 0.67) infinite;
     }
   }
-`
+`;
 
 const Next = ({ transition, formValue, showForm, transitionPrevious }) => {
-  const nextText = useRef(null)
+  const nextText = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     // Only focus nextText if doesn't have form
     if (!showForm) {
-      nextText.current.focus()
+      if (nextText.current) {
+        nextText.current.focus();
+      }
     }
-  }, [nextText, showForm])
+  }, [nextText, showForm]);
 
   return (
     <Button
@@ -53,33 +54,33 @@ const Next = ({ transition, formValue, showForm, transitionPrevious }) => {
         if (showForm) {
           // We need to validate formValue first
           if (formValue) {
-            transition()
+            transition();
           }
           // Otherwise, no form, transition on click
         } else {
-          transition()
+          transition();
         }
       }}
-      tabIndex={showForm ? null : '1'}
+      tabIndex={showForm ? null : "1"}
       onKeyUp={e => {
         if (e.keyCode === 39) {
           if (showForm) {
             // We need to validate formValue first
             if (formValue) {
-              transition()
+              transition();
             }
             // Otherwise, no form, transition on click
           } else {
-            transition()
+            transition();
           }
         } else if (e.keyCode === 37) {
-          transitionPrevious()
+          transitionPrevious();
         }
       }}
     >
       <Arrow color="secondary" direction="right" />
     </Button>
-  )
-}
+  );
+};
 
-export default Next
+export default Next;
