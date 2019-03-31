@@ -39,15 +39,14 @@ const Input = styled.input`
 `
 
 export interface InputProps {
-  currentValue: string
+  value: string
   input: IStory['INPUT']
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   transition: () => void
-  value?: string
 }
 
 const InputRadio: React.FC<InputProps> = ({
-  currentValue,
+  value,
   input,
   onChange,
   transition
@@ -68,10 +67,10 @@ const InputRadio: React.FC<InputProps> = ({
               ref={index === 0 ? inputRadioRef : null}
               tabIndex={index === 0 ? 1 : 0}
               value={option}
-              checked={option === currentValue}
+              checked={option === value}
               onChange={onChange}
               onKeyUp={e => {
-                if ((e.keyCode === 13 || e.keyCode === 39) && currentValue) {
+                if ((e.keyCode === 13 || e.keyCode === 39) && value) {
                   transition()
                 }
               }}
@@ -79,7 +78,7 @@ const InputRadio: React.FC<InputProps> = ({
               name={option}
               id={option}
             />
-            <Label checked={option === currentValue} htmlFor={option}>
+            <Label checked={option === value} htmlFor={option}>
               {option}
             </Label>
           </Container>
