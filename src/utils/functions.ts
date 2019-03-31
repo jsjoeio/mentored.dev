@@ -1,10 +1,9 @@
-import localKeys from "./localKeys";
-import story, { IStory } from "./story";
-import console = require("console");
+import localKeys from './localKeys'
+import story, { IStory } from './story'
 
 export interface Fun {
-  state: { [key: string]: string };
-  storyState: IStory;
+  state: { [key: string]: string }
+  storyState: IStory
 }
 /**
  * @description A function to replace the template key in the message with the state key value
@@ -14,27 +13,27 @@ export interface Fun {
 function replaceKey({ state, storyState }: Fun) {
   if (storyState && storyState.HAS_KEY) {
     // Get the key from the storyState object
-    const key = storyState["HAS_KEY"];
+    const key = storyState['HAS_KEY']
     // Get the value storied in state
-    const value = state[key];
+    const value = state[key]
     // Replace value in message and return message
-    return storyState["MESSAGE"].replace(`{${key}}`, value);
+    return storyState['MESSAGE'].replace(`{${key}}`, value)
   }
 
-  console.warn("This story has no key");
+  console.warn('This story has no key')
 }
 
 function replaceLocalKeys({ state, storyState }: Fun) {
   // *In the future, we may want to extend the functionality to also accept
   // a message so then, we can replace local keys after the keys have been replaced
-  let message = storyState["MESSAGE"];
-  if (storyState && storyState["HAS_LOCAL_KEYS"]) {
+  let message = storyState['MESSAGE']
+  if (storyState && storyState['HAS_LOCAL_KEYS']) {
     // Get the keys from the storyState object
-    const keys = storyState["HAS_LOCAL_KEYS"];
+    const keys = storyState['HAS_LOCAL_KEYS']
 
     for (let i = 0; i < keys.length; i++) {
       // Get key object from localKeys
-      const keyObject = localKeys[keys[i]];
+      const keyObject = localKeys[keys[i]]
       if (keyObject.stateKey) {
         // Grab value inside state under the keyObject statekey
         /* Example:
@@ -42,27 +41,27 @@ function replaceLocalKeys({ state, storyState }: Fun) {
         - so we get the value the user selected for 'os', then use that to get the value
         on localKeys.application
         */
-        const stateValue = state[keyObject.stateKey];
-        let value = localKeys[keys[i]][stateValue];
-        message = message.replace(`{${keys[i]}}`, value);
+        const stateValue = state[keyObject.stateKey]
+        let value = localKeys[keys[i]][stateValue]
+        message = message.replace(`{${keys[i]}}`, value)
       }
     }
   }
-  return message;
+  return message
 }
 
 export function getMessage({ state, storyState }: Fun) {
-  let message;
-  if (storyState["HAS_KEY"]) {
-    message = replaceKey({ state, storyState });
-  } else if (storyState["HAS_LOCAL_KEYS"]) {
-    message = replaceLocalKeys({ state, storyState });
-  } else if (storyState["HAS_SPECIAL_MESSAGE"]) {
-    message = replaceSpecialMessage({ state, storyState });
+  let message
+  if (storyState['HAS_KEY']) {
+    message = replaceKey({ state, storyState })
+  } else if (storyState['HAS_LOCAL_KEYS']) {
+    message = replaceLocalKeys({ state, storyState })
+  } else if (storyState['HAS_SPECIAL_MESSAGE']) {
+    message = replaceSpecialMessage({ state, storyState })
   } else {
-    message = storyState["MESSAGE"];
+    message = storyState['MESSAGE']
   }
-  return message;
+  return message
 }
 
 /**
@@ -72,43 +71,46 @@ export function getMessage({ state, storyState }: Fun) {
  * @returns {number} returns total score as an integer
  */
 function calculateScore({ state }: Fun) {
-  const stateKeys = Object.keys(state);
-  let score = 0;
-  let totalPossible = 0;
+  const stateKeys = Object.keys(state)
+  let score = 0
+  let totalPossible = 0
 
   for (let i = 0; i < stateKeys.length; i++) {
     //@Techdebt this assumes  that the user has answered all questions in the storyState
     // Double check if the state has an ANSWER key on it
-    if (story.states.hasOwnProperty(stateKeys[i]) && story.states[stateKeys[i]]["ANSWER"]) {
+    if (
+      story.states.hasOwnProperty(stateKeys[i]) &&
+      story.states[stateKeys[i]]['ANSWER']
+    ) {
       // If it does, it's a question.
-      totalPossible += 1;
+      totalPossible += 1
 
       // @todo this is unsafe, fix it
-      if (story.states[stateKeys[i]]["ANSWER"]!.includes(state[stateKeys[i]])) {
-        score += 1;
+      if (story.states[stateKeys[i]]['ANSWER']!.includes(state[stateKeys[i]])) {
+        score += 1
       }
     }
   }
-  return { score, totalPossible };
+  return { score, totalPossible }
 }
 
 function replaceSpecialMessage({ state, storyState }: Fun) {
-  let message = storyState["MESSAGE"];
-  let sentiment;
+  let message = storyState['MESSAGE']
+  let sentiment
   // get score
-  const { score, totalPossible } = calculateScore({ state, storyState });
+  const { score, totalPossible } = calculateScore({ state, storyState })
 
   if (score === totalPossible) {
-    sentiment = "positive";
+    sentiment = 'positive'
   } else if (score < totalPossible && score > 1) {
-    sentiment = "neutral";
+    sentiment = 'neutral'
   } else {
-    sentiment = "negative";
+    sentiment = 'negative'
   }
   // @Techdebt
   // This is pretty hard-coded. Will eventually need to redo.
   return message
     .replace(`{reaction}`, localKeys.reaction[sentiment])
     .replace(`{score}`, `${score}/${totalPossible}`)
-    .replace(`{closingMessage}`, localKeys.closingMessage[sentiment]);
+    .replace(`{closingMessage}`, localKeys.closingMessage[sentiment])
 }
