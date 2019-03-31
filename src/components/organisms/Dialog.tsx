@@ -1,9 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
-import Form from '../molecules/Form'
-import Next from '../atoms/Next'
-import Message from '../atoms/Message'
-import DialogNavigation from '../molecules/DialogNavigation'
+import React from "react";
+import styled from "styled-components";
+import Form from "../molecules/Form";
+import Next from "../atoms/Next";
+import Message from "../atoms/Message";
+import DialogNavigation from "../molecules/DialogNavigation";
+import story, { IStory } from "../../utils/story";
+import { State } from "../../state/storyInputs";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -16,9 +18,23 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`
+`;
 
-const Dialog = ({
+export interface DialogProps {
+  messageIsLoading: boolean;
+  setMessageLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  isTalking: boolean;
+  setTalking: React.Dispatch<React.SetStateAction<boolean>>;
+  message: string;
+  transition: () => void;
+  transitionPrevious: () => void;
+  showForm: boolean;
+  storyState?: IStory;
+  state: State;
+  handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Dialog: React.FC<DialogProps> = ({
   messageIsLoading,
   setMessageLoading,
   isTalking,
@@ -29,7 +45,7 @@ const Dialog = ({
   showForm,
   storyState,
   state,
-  handleOnChange
+  handleOnChange,
 }) => (
   <Container>
     <div>
@@ -42,30 +58,30 @@ const Dialog = ({
         />
       )}
       {/* This empty div below is a placeholder for the Form */}
-      {showForm && isTalking && <div style={{ height: '48px' }} />}
-      {showForm && !messageIsLoading && (
+      {showForm && isTalking && <div style={{ height: "48px" }} />}
+      {showForm && !messageIsLoading && storyState && storyState["INPUT"] && (
         <Form
           state={state}
-          value={state[storyState['INPUT']['KEY']] || ''}
-          input={storyState['INPUT']}
+          value={state[storyState["INPUT"]["KEY"]] || ""}
+          input={storyState["INPUT"]}
           handleOnChange={e => handleOnChange(e)}
           transition={transition}
         />
       )}
     </div>
     {/* This empty div below is a placeholder for the DialogNavigation */}
-    {isTalking && <div style={{ height: '48px' }} />}
+    {isTalking && <div style={{ height: "48px" }} />}
     {!isTalking && (
       <DialogNavigation
-        hasNext={storyState.hasOwnProperty('NEXT')}
-        hasPrevious={storyState.hasOwnProperty('PREVIOUS')}
+        hasNext={storyState ? storyState.hasOwnProperty("NEXT") : false}
+        hasPrevious={storyState ? storyState.hasOwnProperty("PREVIOUS") : false}
         transition={transition}
         transitionPrevious={transitionPrevious}
-        formValue={showForm ? state[storyState['INPUT']['KEY']] : null}
+        formValue={showForm && storyState && storyState["INPUT"] ? state[storyState["INPUT"]["KEY"]] : ""}
         showForm={showForm}
       />
     )}
   </Container>
-)
+);
 
-export default Dialog
+export default Dialog;

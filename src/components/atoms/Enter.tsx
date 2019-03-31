@@ -1,15 +1,17 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from "react";
 
-const Enter = ({ onClick }) => {
-  const enterText = useRef(null)
+const Enter: React.FC<{ onClick: () => void}> = ({ onClick }) => {
+  const enterText = useRef<null | HTMLButtonElement>(null);
   useEffect(() => {
-    enterText.current.focus()
-  }, [enterText])
+    if (enterText.current) {
+      enterText.current.focus();
+    }
+  }, [enterText]);
   return (
-    <button ref={enterText} tabIndex="1" onClick={onClick}>
+    <button ref={enterText} tabIndex={1} onClick={onClick}>
       Enter
     </button>
-  )
-}
+  );
+};
 
-export default Enter
+export default Enter;
