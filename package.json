@@ -1,5 +1,5 @@
 {
-  "name": "life-of-code",
+  "name": "mentored-dev",
   "description": "a platform for learning how to code",
   "version": "0.0.1",
   "author": "JavaScript Joe <jjprevite@gmail.com>",
@@ -32,7 +32,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch"

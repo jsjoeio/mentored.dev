@@ -336,7 +336,7 @@ const story: {
         KEY: 'commandLineQuizQuesTwo',
         PLACEHOLDER: 'Write command'
       },
-      ANSWER: ['mkdir studies']
+      ANSWER: ['mkdir studies', 'mkdir -p studies']
     },
     commandLineQuizQuesThree: {
       MESSAGE:

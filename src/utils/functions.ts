@@ -82,11 +82,16 @@ function calculateScore({ state }: Fun) {
       story.states.hasOwnProperty(stateKeys[i]) &&
       story.states[stateKeys[i]]['ANSWER']
     ) {
-      // If it does, it's a question.
+      // If it does have an answer, it's a question.
       totalPossible += 1
 
-      // @todo this is unsafe, fix it
-      if (story.states[stateKeys[i]]['ANSWER']!.includes(state[stateKeys[i]])) {
+      // @Todo - Not sure how to fix without using the "Non-Null Assertion Operator"
+      // ANSWER is optional on a story state object.
+      if (
+        story.states[stateKeys[i]]['ANSWER']!.includes(
+          state[stateKeys[i]].toLowerCase()
+        )
+      ) {
         score += 1
       }
     }
