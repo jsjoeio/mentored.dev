@@ -12,7 +12,7 @@
         "allowSyntheticDefaultImports": true
     },
     "include": [
-        "./src/**/*", "styled.d.ts",
-        "onegraph.d.ts"
+        "./src/**/*", "src/styled.d.ts",
+        "src/onegraph.d.ts"
     ]
 }
