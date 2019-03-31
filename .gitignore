@@ -11,5 +11,7 @@ yarn-error.log
 NOTES.md
 
 # .env
+.env
 .env.development
 dist
+
