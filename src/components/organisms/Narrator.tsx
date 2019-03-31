@@ -24,8 +24,12 @@ const Container = styled.div`
     animation: ${slideIn} 800ms cubic-bezier(0.51, 0.04, 0.66, 0.57);
   }
 `
+export interface NarratorProps {
+  isTalking: boolean
+  setTalking: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-const Narrator = ({ isTalking, setTalking }) => {
+const Narrator: React.FC<NarratorProps> = ({ isTalking, setTalking }) => {
   return (
     <Container>
       <svg

@@ -5,7 +5,12 @@ import { graphql } from 'gatsby'
 import StartScreen from '../components/molecules/StartScreen'
 import Username from '../components/atoms/Username'
 
-const Index = ({ auth }) => {
+interface IAuth {
+  login: (service: string) => void
+  isLoggedIn: (service: string) => boolean
+}
+
+const Index: React.FC<{ auth: IAuth }> = ({ auth }) => {
   const [authenticated, setAuthenticated] = useState(false)
   function login(service = 'github') {
     return async () => {
@@ -13,7 +18,6 @@ const Index = ({ auth }) => {
       setAuthenticated(await auth.isLoggedIn('github'))
     }
   }
-  console.log(auth, '<---')
   return (
     <React.Fragment>
       {authenticated ? (

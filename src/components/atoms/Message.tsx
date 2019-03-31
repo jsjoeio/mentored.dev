@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState, useRef } from 'react'
+import styled from 'styled-components'
 
 const Container = styled.p`
   color: ${props => props.theme.primary.main};
@@ -7,42 +7,54 @@ const Container = styled.p`
   white-space: pre-line;
   margin: 0 0 6px;
   overflow-y: hidden;
-`;
+`
 
-const Message = ({ message, isTalking, setTalking, setMessageLoading }) => {
-  const [charCount, setCharCount] = useState(0);
-  const [text, setText] = useState("");
-  const [timer, setTimer] = useState(0);
-  let speed = 25;
+export interface MessageProps {
+  message: string
+  isTalking: boolean
+  setTalking: React.Dispatch<React.SetStateAction<boolean>>
+  setMessageLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Message: React.FC<MessageProps> = ({
+  message,
+  isTalking,
+  setTalking,
+  setMessageLoading
+}) => {
+  const [charCount, setCharCount] = useState(0)
+  const [text, setText] = useState('')
+  const [timer, setTimer] = useState(0)
+  let speed = 25
 
   function typeWriter() {
     if (charCount < message.length) {
-      setText(text + message.charAt(charCount));
-      setCharCount(charCount + 1);
+      setText(text + message.charAt(charCount))
+      setCharCount(charCount + 1)
     } else {
-      setTalking(!isTalking);
-      setMessageLoading(false);
+      setTalking(!isTalking)
+      setMessageLoading(false)
     }
   }
 
   // Reset everything if message changes
   useEffect(() => {
-    setTalking(!isTalking);
-    setText("");
-    clearTimeout(timer);
-    setCharCount(0);
-  }, [message]);
+    setTalking(!isTalking)
+    setText('')
+    clearTimeout(timer)
+    setCharCount(0)
+  }, [message])
 
   useEffect(() => {
     // setTimeout returns a timer Id, this allows us to clear the timeout
     // if the user clicks next before the message finishes typing out.
     setTimer(
       window.setTimeout(() => {
-        typeWriter();
-      }, speed),
-    );
-  }, [charCount]);
-  return <Container>{text}</Container>;
-};
+        typeWriter()
+      }, speed)
+    )
+  }, [charCount])
+  return <Container>{text}</Container>
+}
 
-export default Message;
+export default Message

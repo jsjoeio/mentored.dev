@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from "react";
-import { addFocus } from "../../utils/mixins";
-import styled from "../../utils/styled";
-import { Story, IStory } from "../../utils/story";
+import React, { useRef, useEffect } from 'react'
+import { addFocus } from '../../utils/mixins'
+import styled from '../../utils/styled'
+import { Story, IStory } from '../../utils/story'
 
 const Label = styled.label<{ checked: boolean }>`
   margin-left: 0.5rem;
@@ -9,7 +9,7 @@ const Label = styled.label<{ checked: boolean }>`
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     display: inline-block;
     height: 12px;
     width: 12px;
@@ -18,15 +18,16 @@ const Label = styled.label<{ checked: boolean }>`
     position: absolute;
     left: -19px;
     top: 4px;
-    background-color: ${props => (props.checked ? props.theme.primary.main : "")};
+    background-color: ${props =>
+      props.checked ? props.theme.primary.main : ''};
   }
-`;
+`
 
 const Container = styled.div`
   input:focus + ${Label}::before, input:active + ${Label}::before {
     ${addFocus}
   }
-`;
+`
 
 const Input = styled.input`
   font-size: 1.25rem;
@@ -35,22 +36,28 @@ const Input = styled.input`
   &:active {
     outline: none;
   }
-`;
+`
 
-export interface InputRadioProps {
-  currentValue: string;
-  input: IStory["INPUT"];
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  transition: () => void;
+export interface InputProps {
+  currentValue: string
+  input: IStory['INPUT']
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  transition: () => void
+  value?: string
 }
 
-const InputRadio: React.FC<InputRadioProps> = ({ currentValue, input, onChange, transition }) => {
-  const inputRadioRef = useRef<HTMLInputElement>(null);
+const InputRadio: React.FC<InputProps> = ({
+  currentValue,
+  input,
+  onChange,
+  transition
+}) => {
+  const inputRadioRef = useRef<HTMLInputElement>(null)
   useEffect(() => {
     if (inputRadioRef.current) {
-      inputRadioRef.current.focus();
+      inputRadioRef.current.focus()
     }
-  }, [inputRadioRef]);
+  }, [inputRadioRef])
   return (
     <React.Fragment>
       {input &&
@@ -65,7 +72,7 @@ const InputRadio: React.FC<InputRadioProps> = ({ currentValue, input, onChange, 
               onChange={onChange}
               onKeyUp={e => {
                 if ((e.keyCode === 13 || e.keyCode === 39) && currentValue) {
-                  transition();
+                  transition()
                 }
               }}
               type="radio"
@@ -78,7 +85,7 @@ const InputRadio: React.FC<InputRadioProps> = ({ currentValue, input, onChange, 
           </Container>
         ))}
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default InputRadio;
+export default InputRadio
