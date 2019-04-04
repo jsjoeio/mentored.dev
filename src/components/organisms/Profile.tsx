@@ -7,6 +7,7 @@ import ProfileHeader from '../molecules/ProfileHeader'
 
 const Container = styled.div`
   width: 475px;
+  margin-left: auto;
 `
 
 const Profile = () => (

@@ -6,7 +6,7 @@ import Profile from './Profile'
 const Dashboard = () => (
   <div style={{ marginTop: '12vh' }}>
     <Profile />
-    <p style={{ fontSize: '2.5vh' }}>
+    <p style={{ fontSize: '2.5vh', textAlign: 'right', marginRight: '20px' }}>
       Go to <Link to="/dashboard">Game</Link>
     </p>
   </div>
