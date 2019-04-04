@@ -1,8 +1,9 @@
 import React from 'react'
 
 // TODO - change fills to use theme colors
-const IconStar = () => (
+const IconStar: React.FC<{ className: string }> = ({ className }) => (
   <svg
+    className={className}
     width="38"
     height="38"
     viewBox="0 0 38 38"
