@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import StartScreen from '../components/molecules/StartScreen'
 import Username from '../components/atoms/Username'
+import Dashboard from '../components/organisms/Dashboard'
 
 interface IAuth {
   login: (service: string) => void
@@ -20,17 +21,7 @@ const Index: React.FC<{ auth: IAuth }> = ({ auth }) => {
   }
   return (
     <React.Fragment>
-      {authenticated ? (
-        <div style={{ textAlign: 'center', margin: 'auto', marginTop: '12vh' }}>
-          <h1 style={{ fontSize: '4vh' }}>Logged in with GitHub</h1>
-          <p style={{ fontSize: '2.5vh' }}>
-            Go to <Link to="/dashboard">Game</Link>
-          </p>
-          <Username />
-        </div>
-      ) : (
-        <StartScreen login={login()} />
-      )}
+      {authenticated ? <Dashboard /> : <StartScreen login={login()} />}
     </React.Fragment>
   )
 }
