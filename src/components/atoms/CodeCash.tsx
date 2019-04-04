@@ -6,7 +6,6 @@ const Container = styled.div`
   display: flex;
   margin-left: 25px;
   p {
-    margin-top: 4px;
     margin-left: 8px;
     display: inline-block;
     font-size: 18px;

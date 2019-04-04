@@ -3,8 +3,8 @@ import React from 'react'
 // TODO - change fills to use theme colors
 const IconCoin = () => (
   <svg
-    width="31"
-    height="31"
+    width="30"
+    height="30"
     viewBox="0 0 31 31"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
