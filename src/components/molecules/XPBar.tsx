@@ -14,18 +14,25 @@ const Container = styled.div`
   }
 `
 
-const ProgressBarContainer = styled.div`
+export const ProgressBarContainer = styled.div<{
+  height: string
+  width: string
+}>`
   display: inline-block;
-  height: 18px;
-  width: 200px;
+  height: ${props => props.height || '18px'};
+  width: ${props => props.width || '200px'};
   background-color: ${props => props.theme.neutral.darker};
   margin-left: 1rem;
 `
 
-const ProgressBar = styled.div`
+export const ProgressBar = styled.div<{
+  height: string
+  width: number
+  percent: number
+}>`
   background-color: ${props => props.theme.accentBlue.main};
-  height: 18px;
-  width: ${200 * 0.4 * 2 + 'px'};
+  height: ${props => props.height || '18px'};
+  width: ${props => (props.width || 200) * (props.percent || 0.2) + 'px'};
 `
 
 const XPBar = () => (
