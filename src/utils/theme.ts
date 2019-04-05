@@ -26,7 +26,7 @@ export interface Color {
   /**
    * 300
    */
-  lighest: string
+  lightest: string
 }
 
 export interface Theme {
@@ -76,7 +76,7 @@ const lightTheme: Theme = {
     main: '#22AFCC',
     light: '#64C7DB',
     lighter: '#A6DFEA',
-    lighest: '#D2EFF4'
+    lightest: '#D2EFF4'
   },
   neutral: {
     darkest: '#2D2D2D',
@@ -85,7 +85,7 @@ const lightTheme: Theme = {
     main: '#B2B2B2',
     light: '#DFDFDF',
     lighter: '#F3F3F3',
-    lighest: '#FAFAFA'
+    lightest: '#FAFAFA'
   },
   focus: {
     main: '#2574A9',
@@ -117,7 +117,7 @@ const darkTheme: Theme = {
     main: '22AFCC',
     light: '64C7DB',
     lighter: 'A6DFEA',
-    lighest: 'D2EFF4'
+    lightest: 'D2EFF4'
   }
 }
 
