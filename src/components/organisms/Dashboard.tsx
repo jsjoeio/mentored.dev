@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from '../../utils/styled'
 import Username from '../atoms/Username'
 import Profile from './Profile'
+import DeveloperProgress from '../molecules/DeveloperProgress'
 
 const Container = styled.div`
   margin: 3vh 1.5vw;
@@ -48,7 +49,7 @@ const Dashboard = () => (
       <Profile />
       <Challenges />
       <Achievements />
-      <Progress />
+      <DeveloperProgress />
     </Sidebar>
     {/* <p style={{ fontSize: '2.5vh', textAlign: 'right', marginRight: '20px' }}>
       Go to <Link to="/dashboard">Game</Link>
