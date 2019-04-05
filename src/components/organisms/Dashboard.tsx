@@ -4,6 +4,8 @@ import styled from '../../utils/styled'
 import Username from '../atoms/Username'
 import Profile from './Profile'
 import DeveloperProgress from '../molecules/DeveloperProgress'
+import DailyChallenges from '../molecules/DailyChallenges'
+import Achievements from '../molecules/Achievements'
 
 const Container = styled.div`
   margin: 3vh 1.5vw;
@@ -13,6 +15,7 @@ const Container = styled.div`
 const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 475px;
 `
 
@@ -20,34 +23,26 @@ const MapPlaceholder = styled.div`
   background-color: #a8dbbd;
   border-radius: 5px;
   width: 75vw;
-  margin-right: 1vw;
+  margin-right: 2vw;
   height: 94vh;
-`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-const Challenges = styled.div`
-  background-color: yellow;
-  width: 97%;
-  height: calc(100vh * 0.3);
-`
-
-const Achievements = styled.div`
-  background-color: gray;
-  width: 97%;
-  height: calc(100vh * 0.3);
-`
-
-const Progress = styled.div`
-  background-color: blue;
-  width: 97%;
-  height: calc(100vh * 0.1);
+  p {
+    text-align: center;
+    font-size: 4rem;
+  }
 `
 
 const Dashboard = () => (
   <Container>
-    <MapPlaceholder />
+    <MapPlaceholder>
+      <p>MAP PLACEHOLDER</p>
+    </MapPlaceholder>
     <Sidebar>
       <Profile />
-      <Challenges />
+      <DailyChallenges />
       <Achievements />
       <DeveloperProgress />
     </Sidebar>
