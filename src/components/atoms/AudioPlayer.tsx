@@ -37,20 +37,23 @@ const Button = styled.button`
 `
 
 const useAudio = (url: string) => {
-  const [audio] = useState(new Audio(url))
-  const [playing, setPlaying] = useState(true)
+  // Audio is a web API. Need to check defined first otherwise Gatsby build will fail
+  if (typeof Audio !== undefined) {
+    const [audio] = useState(new Audio(url))
+    const [playing, setPlaying] = useState(true)
 
-  const toggle = () => setPlaying(!playing)
+    const toggle = (): void => setPlaying(!playing)
 
-  useEffect(() => {
-    playing ? audio.play() : audio.pause()
-    audio.loop = true
-    return () => {
-      audio.pause()
-    }
-  }, [playing])
+    useEffect(() => {
+      playing ? audio.play() : audio.pause()
+      audio.loop = true
+      return () => {
+        audio.pause()
+      }
+    }, [playing])
 
-  return [playing, toggle]
+    return [playing, toggle]
+  }
 }
 
 const AudioPlayer: React.FC<{ url: string }> = ({ url }) => {
