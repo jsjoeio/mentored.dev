@@ -6,6 +6,7 @@ import Profile from './Profile'
 import DeveloperProgress from '../molecules/DeveloperProgress'
 import DailyChallenges from '../molecules/DailyChallenges'
 import Achievements from '../molecules/Achievements'
+import Map from '../molecules/Map'
 
 const Container = styled.div`
   margin: 3vh 1.5vw;
@@ -37,18 +38,13 @@ const MapPlaceholder = styled.div`
 
 const Dashboard = () => (
   <Container>
-    <MapPlaceholder>
-      <p>MAP PLACEHOLDER</p>
-    </MapPlaceholder>
+    <Map />
     <Sidebar>
       <Profile />
       <DailyChallenges />
       <Achievements />
       <DeveloperProgress />
     </Sidebar>
-    {/* <p style={{ fontSize: '2.5vh', textAlign: 'right', marginRight: '20px' }}>
-      Go to <Link to="/dashboard">Game</Link>
-    </p> */}
   </Container>
 )
 
