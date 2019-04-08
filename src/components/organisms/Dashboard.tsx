@@ -8,6 +8,7 @@ import DailyChallenges from '../molecules/DailyChallenges'
 import Achievements from '../molecules/Achievements'
 import Map from '../molecules/Map'
 import AudioPlayer from '../atoms/AudioPlayer'
+// @ts-ignore
 import Gamesound from '../../sounds/PixelCityGroovin.mp3'
 
 const Container = styled.div`

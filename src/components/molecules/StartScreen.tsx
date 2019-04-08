@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Laptop from '../atoms/Laptop'
 import { addFocus } from '../../utils/mixins'
 import AudioPlayer from '../atoms/AudioPlayer'
+// @ts-ignore
 import Startsound from '../../sounds/GameMenu.mp3'
 
 const Container = styled.div`
