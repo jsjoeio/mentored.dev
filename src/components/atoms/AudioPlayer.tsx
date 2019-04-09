@@ -44,8 +44,12 @@ const useAudio = (url: string) => {
     const toggle = () => setPlaying(!playing)
 
     useEffect(() => {
-      playing ? audio.play() : audio.pause()
       audio.loop = true
+      audio.autoplay = true
+    })
+
+    useEffect(() => {
+      playing ? audio.play() : audio.pause()
       return () => {
         audio.pause()
       }
