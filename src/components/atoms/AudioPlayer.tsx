@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styled from '../../utils/styled'
+import styled from 'styled-components'
 import IconSoundOn from './IconSoundOn'
 import IconSoundOff from './IconSoundOff'
 
@@ -37,12 +37,11 @@ const Button = styled.button`
 `
 
 const useAudio = (url: string) => {
-  // Audio is a web API. Need to check defined first otherwise Gatsby build will fail
-  if (typeof Audio !== undefined) {
+  if (typeof Audio !== 'undefined') {
     const [audio] = useState(new Audio(url))
     const [playing, setPlaying] = useState(true)
 
-    const toggle = (): void => setPlaying(!playing)
+    const toggle = () => setPlaying(!playing)
 
     useEffect(() => {
       playing ? audio.play() : audio.pause()
@@ -57,13 +56,17 @@ const useAudio = (url: string) => {
 }
 
 const AudioPlayer: React.FC<{ url: string }> = ({ url }) => {
-  const [playing, toggle] = useAudio(url)
+  if (typeof Audio !== 'undefined') {
+    const [playing, toggle] = useAudio(url)
+  }
 
   return (
     <AudioContainer>
-      <Button onClick={toggle}>
-        {playing ? <IconSoundOn /> : <IconSoundOff />}
-      </Button>
+      {typeof playing !== 'undefined' && (
+        <Button onClick={() => toggle()}>
+          {playing ? <IconSoundOn /> : <IconSoundOff />}
+        </Button>
+      )}
     </AudioContainer>
   )
 }
