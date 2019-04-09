@@ -4,7 +4,7 @@ import styled from '../../utils/styled'
 const Container = styled.div`
   border-radius: 5px;
   width: 75vw;
-  margin-right: 2vw;
+  margin: 0 1vw;
   height: 94vh;
 `
 

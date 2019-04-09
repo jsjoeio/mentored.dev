@@ -19,14 +19,14 @@ const AchievementCommandLine = () => (
     <path
       d="M10.5 21.5L26.5 30L10.5 38"
       stroke="#FAFAFA"
-      stroke-width="4"
+      strokeWidth="4"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M29 44H49.5"
       stroke="#FAFAFA"
-      stroke-width="4"
+      strokeWidth="4"
       stroke-linecap="round"
       stroke-linejoin="round"
     />

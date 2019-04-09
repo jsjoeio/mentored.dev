@@ -14,7 +14,6 @@ This project uses [`yarn`](https://yarnpkg.com/en/) instead of `npm`. You can in
 brew install yarn
 ```
 
-
 ### Installing
 
 After you've cloned the repo, running the following steps:
@@ -34,6 +33,7 @@ Then in your browser, navigate to [http:localhost:8000/](http:localhost:8000/).
 ## Running the tests
 
 TODO
+
 - [ ] Add Jest for unit testing
 - [ ] Add Cypress for integration/end-to-end testing
 
@@ -61,11 +61,11 @@ When a new version is ready, you can submit a new PR to merge `staging` into `ma
 
 ## Built With
 
-* [gatsby.js](https://www.gatsbyjs.org/) - The React web framework used
-* [TypeScript](https://www.typescriptlang.org/) - "JavaScript that scales"
-* [ApolloClient](https://www.apollographql.com/) - GraphQL client
-* [OneGraph](https://www.onegraph.com/) - Used to integrate with GitHub OAuth
-* [styled-components](https://www.styled-components.com/) - CSS-in-JS solution
+- [gatsby.js](https://www.gatsbyjs.org/) - The React web framework used
+- [TypeScript](https://www.typescriptlang.org/) - "JavaScript that scales"
+- [ApolloClient](https://www.apollographql.com/) - GraphQL client
+- [OneGraph](https://www.onegraph.com/) - Used to integrate with GitHub OAuth
+- [styled-components](https://www.styled-components.com/) - CSS-in-JS solution
 
 ## Contributing
 
@@ -75,15 +75,16 @@ Not currently open to contributors but check back in the future!
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/jsjoeio/mentored.dev/tags).
 
-
 ## License
 
 TODO
+
 - [ ] Add MIT License
 
 ## Acknowledgments
 
 TODO
-- [ ] Add acknowledgements (Tejas, OneGraph team, Gatsby)
-<!-- * Hat tip to anyone who's code was used -->
 
+- [ ] Add acknowledgements (Tejas, OneGraph team, Gatsby)
+- Music by [Eric Matyas](www.soundimage.org)
+  <!-- * Hat tip to anyone who's code was used -->

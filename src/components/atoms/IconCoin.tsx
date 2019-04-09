@@ -24,14 +24,14 @@ const IconCoin = () => (
     <path
       d="M12.0415 13.6802L8.2085 15.3837L12.0415 17.0873"
       stroke="#C29B2E"
-      strokeLineCap="round"
+      strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M17.5005 17.0874L21.3335 15.3839L17.5005 13.6803"
       stroke="#C29B2E"
-      strokeLineCap="round"
-      strokeLineJoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <line
       x1="15.8608"
@@ -39,8 +39,8 @@ const IconCoin = () => (
       x2="13.2253"
       y2="18.9205"
       stroke="#C29B2E"
-      strokeLineCap="round"
-      strokeLineJoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 )

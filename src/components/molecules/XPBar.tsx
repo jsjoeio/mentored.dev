@@ -15,8 +15,8 @@ const Container = styled.div`
 `
 
 export const ProgressBarContainer = styled.div<{
-  height: string
-  width: string
+  height?: string
+  width?: string
 }>`
   display: inline-block;
   height: ${props => props.height || '18px'};
@@ -26,9 +26,9 @@ export const ProgressBarContainer = styled.div<{
 `
 
 export const ProgressBar = styled.div<{
-  height: string
-  width: number
-  percent: number
+  height?: string
+  width?: number
+  percent?: number
 }>`
   background-color: ${props => props.theme.accentBlue.main};
   height: ${props => props.height || '18px'};
