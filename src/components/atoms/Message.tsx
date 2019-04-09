@@ -9,10 +9,22 @@ const Container = styled.p`
   overflow-y: hidden;
 `
 
-const Message = ({ message, isTalking, setTalking, setMessageLoading }) => {
+export interface MessageProps {
+  message: string
+  isTalking: boolean
+  setTalking: React.Dispatch<React.SetStateAction<boolean>>
+  setMessageLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Message: React.FC<MessageProps> = ({
+  message,
+  isTalking,
+  setTalking,
+  setMessageLoading
+}) => {
   const [charCount, setCharCount] = useState(0)
   const [text, setText] = useState('')
-  const [timer, setTimer] = useState('')
+  const [timer, setTimer] = useState(0)
   let speed = 25
 
   function typeWriter() {
@@ -37,7 +49,7 @@ const Message = ({ message, isTalking, setTalking, setMessageLoading }) => {
     // setTimeout returns a timer Id, this allows us to clear the timeout
     // if the user clicks next before the message finishes typing out.
     setTimer(
-      setTimeout(() => {
+      window.setTimeout(() => {
         typeWriter()
       }, speed)
     )

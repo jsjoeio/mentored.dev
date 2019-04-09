@@ -1,4 +1,107 @@
-const story = {
+export interface Input {
+  TYPE: string
+  KEY: string
+  OPTIONS?: string[]
+  PLACEHOLDER?: string
+}
+
+export interface NextOptions {
+  OPTION_0: string
+  OPTION_1: string
+}
+
+export interface IStory {
+  MESSAGE: string
+  NEXT?: string | NextOptions
+  PREVIOUS?: string
+  INPUT?: Input
+  HAS_LOCAL_KEYS?: string[]
+  HAS_KEY?: string
+  ANSWER?: string[]
+  HAS_SPECIAL_MESSAGE?: string[]
+}
+
+const os: IStory = {
+  MESSAGE: 'What operating system are you using?',
+  NEXT: 'osComment',
+  PREVIOUS: 'moreInfo',
+  INPUT: {
+    TYPE: 'radio',
+    KEY: 'os',
+    OPTIONS: ['macOS', 'Windows', 'Linux']
+  }
+}
+
+const initialCommandLine: IStory = {
+  MESSAGE: 'Have you used the command line before?',
+  NEXT: {
+    OPTION_0: 'commandLineExpYes',
+    OPTION_1: 'commandLineExpNo'
+  },
+  PREVIOUS: 'commandLine',
+  INPUT: {
+    TYPE: 'radio',
+    KEY: 'initialCommandLine',
+    OPTIONS: ['Yes', 'No']
+  }
+}
+
+const commandLineLessonPartOne: IStory = {
+  MESSAGE:
+    "Inside the {application} window, type 'cd Desktop'. You should see the location updated to /Desktop.",
+  NEXT: {
+    OPTION_0: 'commandLineLessonPartOneSuccessYes',
+    OPTION_1: 'commandLineLessonPartOneSuccessNo'
+  },
+  PREVIOUS: 'commandLineLessonCommandPartOneIntro',
+  INPUT: {
+    TYPE: 'radio',
+    KEY: 'commandLineLessonPartOne',
+    OPTIONS: [
+      'It worked!',
+      'Uh-oh. I see an error message, "no such file or directory."'
+    ]
+  },
+  HAS_LOCAL_KEYS: ['application']
+}
+
+const commandLineLessonPartTwoCont: IStory = {
+  MESSAGE:
+    "You should now see a new folder on your Desktop titled 'coding-stuff'.",
+  NEXT: {
+    OPTION_0: 'commandLineLessonPartTwoSuccessYes',
+    OPTION_1: 'commandLineLessonPartTwoSuccessNo'
+  },
+  PREVIOUS: 'commandLineLessonPartTwo',
+  INPUT: {
+    TYPE: 'radio',
+    KEY: 'commandLineLessonPartTwoCont',
+    OPTIONS: ['Success!', "Oh no...It didn't work."]
+  },
+  HAS_LOCAL_KEYS: ['application']
+}
+
+const commandLineLessonPartThree: IStory = {
+  MESSAGE:
+    "Inside the same {application} window, cd into 'coding-stuff' and then type '{newFileCommand} intro.txt'.",
+  NEXT: {
+    OPTION_0: 'commandLineLessonPartThreeSuccessYes',
+    OPTION_1: 'commandLineLessonPartThreeSuccessNo'
+  },
+  PREVIOUS: 'commandLineLessonPartThreeIntro',
+  INPUT: {
+    TYPE: 'radio',
+    KEY: 'commandLineLessonPartThree',
+    OPTIONS: ['Yay! I created it successfully.', 'Help! I need a hint.']
+  },
+  HAS_LOCAL_KEYS: ['application', 'newFileCommand']
+}
+
+const story: {
+  states: {
+    [key: string]: IStory
+  }
+} = {
   states: {
     initial: {
       MESSAGE:
@@ -24,7 +127,7 @@ const story = {
     },
     introProfessor: {
       MESSAGE:
-        'My name is Professor and I have the delight of calling myself your teacher.',
+        'My name is Professor and I have the delight of calling myself your mentor.',
       NEXT: 'name',
       PREVIOUS: 'instructionsCont'
     },
@@ -49,16 +152,7 @@ const story = {
       NEXT: 'os',
       PREVIOUS: 'greet'
     },
-    os: {
-      MESSAGE: 'What operating system are you using?',
-      NEXT: 'osComment',
-      PREVIOUS: 'moreInfo',
-      INPUT: {
-        TYPE: 'radio',
-        KEY: 'os',
-        OPTIONS: ['macOS', 'Windows', 'Linux']
-      }
-    },
+    os,
     osComment: {
       MESSAGE: "{os}, eh? Fantastic choice! We're going to make a great team.",
       NEXT: 'commandLine',
@@ -71,19 +165,7 @@ const story = {
       NEXT: 'initialCommandLine',
       PREVIOUS: 'osComment'
     },
-    initialCommandLine: {
-      MESSAGE: 'Have you used the command line before?',
-      NEXT: {
-        OPTION_0: 'commandLineExpYes',
-        OPTION_1: 'commandLineExpNo'
-      },
-      PREVIOUS: 'commandLine',
-      INPUT: {
-        TYPE: 'radio',
-        KEY: 'initialCommandLine',
-        OPTIONS: ['Yes', 'No']
-      }
-    },
+    initialCommandLine,
     commandLineExpYes: {
       MESSAGE:
         "Hoho! Really? I'll see if you're telling the truth with a mini-quiz.",
@@ -156,24 +238,7 @@ const story = {
       NEXT: 'commandLineLessonPartOne',
       PREVIOUS: 'commandLineLessonCommandCDCont'
     },
-    commandLineLessonPartOne: {
-      MESSAGE:
-        "Inside the {application} window, type 'cd Desktop'. You should see the location updated to /Desktop.",
-      NEXT: {
-        OPTION_0: 'commandLineLessonPartOneSuccessYes',
-        OPTION_1: 'commandLineLessonPartOneSuccessNo'
-      },
-      PREVIOUS: 'commandLineLessonCommandPartOneIntro',
-      INPUT: {
-        TYPE: 'radio',
-        KEY: 'commandLineLessonPartOne',
-        OPTIONS: [
-          'It worked!',
-          'Uh-oh. I see an error message, "no such file or directory."'
-        ]
-      },
-      HAS_LOCAL_KEYS: ['application']
-    },
+    commandLineLessonPartOne,
     commandLineLessonPartOneSuccessYes: {
       MESSAGE:
         "Great job! You have learned your first command on the command line. 5pts for you! Let's keep up the momentum and move onto the next.",
@@ -200,21 +265,7 @@ const story = {
       PREVIOUS: 'commandLineLessonPartTwoIntro',
       HAS_LOCAL_KEYS: ['application']
     },
-    commandLineLessonPartTwoCont: {
-      MESSAGE:
-        "You should now see a new folder on your Desktop titled 'coding-stuff'.",
-      NEXT: {
-        OPTION_0: 'commandLineLessonPartTwoSuccessYes',
-        OPTION_1: 'commandLineLessonPartTwoSuccessNo'
-      },
-      PREVIOUS: 'commandLineLessonPartTwo',
-      INPUT: {
-        TYPE: 'radio',
-        KEY: 'commandLineLessonPartTwoCont',
-        OPTIONS: ['Success!', "Oh no...It didn't work."]
-      },
-      HAS_LOCAL_KEYS: ['application']
-    },
+    commandLineLessonPartTwoCont,
     commandLineLessonPartTwoSuccessYes: {
       MESSAGE:
         "Wow {name}, I knew you were a quick learner. Congrats! That's 2 commands in the book for you. Onward!",
@@ -233,21 +284,7 @@ const story = {
       NEXT: 'commandLineLessonPartThree',
       PREVIOUS: 'commandLineLessonPartTwoSuccessYes'
     },
-    commandLineLessonPartThree: {
-      MESSAGE:
-        "Inside the same {application} window, cd into 'coding-stuff' and then type '{newFileCommand} intro.txt'.",
-      NEXT: {
-        OPTION_0: 'commandLineLessonPartThreeSuccessYes',
-        OPTION_1: 'commandLineLessonPartThreeSuccessNo'
-      },
-      PREVIOUS: 'commandLineLessonPartThreeIntro',
-      INPUT: {
-        TYPE: 'radio',
-        KEY: 'commandLineLessonPartThree',
-        OPTIONS: ['Yay! I created it successfully.', 'Help! I need a hint.']
-      },
-      HAS_LOCAL_KEYS: ['application', 'newFileCommand']
-    },
+    commandLineLessonPartThree,
     commandLineLessonPartThreeSuccessYes: {
       MESSAGE:
         'Brilliant! You just created your first file using the command line. Another 5pts to you!',
@@ -299,7 +336,7 @@ const story = {
         KEY: 'commandLineQuizQuesTwo',
         PLACEHOLDER: 'Write command'
       },
-      ANSWER: ['mkdir studies']
+      ANSWER: ['mkdir studies', 'mkdir -p studies']
     },
     commandLineQuizQuesThree: {
       MESSAGE:
@@ -322,4 +359,5 @@ const story = {
   }
 }
 
+export type Story = typeof story
 export default story

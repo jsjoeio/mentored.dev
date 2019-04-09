@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { hideElement, addFocus } from '../../utils/mixins'
+import { InputProps } from './InputRadio'
 
 const Label = styled.label`
   ${hideElement}
@@ -31,22 +32,32 @@ const Input = styled.input`
   }
 `
 
-const InputText = ({ input, value, onChange, transition }) => {
-  const inputTextRef = useRef(null)
+const InputText: React.FC<InputProps> = ({
+  input,
+  value,
+  onChange,
+  transition
+}) => {
+  const inputTextRef = useRef<HTMLInputElement>(null)
   useEffect(() => {
-    inputTextRef.current.focus()
+    if (inputTextRef.current) {
+      inputTextRef.current.focus()
+    }
   }, [inputTextRef])
   return (
     <React.Fragment>
-      <Label id={`${input['KEY']}-label`} htmlFor={input['KEY']}>
-        {input['KEY']}
+      <Label
+        id={`${input && input['KEY']}-label`}
+        htmlFor={input && input['KEY']}
+      >
+        {input && input['KEY']}
       </Label>
       <Input
-        aria-labelledby={`${input['KEY']}-label`}
+        aria-labelledby={`${input && input['KEY']}-label`}
         required
-        placeholder={input['PLACEHOLDER'] || input['KEY']}
+        placeholder={(input && input['PLACEHOLDER']) || (input && input['KEY'])}
         ref={inputTextRef}
-        tabIndex="1"
+        tabIndex={1}
         value={value}
         onChange={onChange}
         onKeyUp={e => {
@@ -55,8 +66,8 @@ const InputText = ({ input, value, onChange, transition }) => {
           }
         }}
         type="text"
-        name={input['KEY']}
-        id={input['KEY']}
+        name={input && input['KEY']}
+        id={input && input['KEY']}
       />
     </React.Fragment>
   )

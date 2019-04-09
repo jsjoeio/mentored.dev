@@ -36,12 +36,26 @@ const Button = styled.button`
   }
 `
 
-const Next = ({ transition, formValue, showForm, transitionPrevious }) => {
-  const nextText = useRef(null)
+export interface NextProps {
+  transition: () => void
+  showForm: boolean
+  formValue: string
+  transitionPrevious: () => void
+}
+
+const Next: React.FC<NextProps> = ({
+  transition,
+  formValue,
+  showForm,
+  transitionPrevious
+}) => {
+  const nextText = useRef<HTMLButtonElement>(null)
   useEffect(() => {
     // Only focus nextText if doesn't have form
     if (!showForm) {
-      nextText.current.focus()
+      if (nextText.current) {
+        nextText.current.focus()
+      }
     }
   }, [nextText, showForm])
 
@@ -60,7 +74,7 @@ const Next = ({ transition, formValue, showForm, transitionPrevious }) => {
           transition()
         }
       }}
-      tabIndex={showForm ? null : '1'}
+      tabIndex={showForm ? undefined : 1}
       onKeyUp={e => {
         if (e.keyCode === 39) {
           if (showForm) {

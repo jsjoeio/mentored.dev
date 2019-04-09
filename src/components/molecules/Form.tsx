@@ -2,6 +2,8 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import InputText from '../atoms/InputText'
 import InputRadio from '../atoms/InputRadio'
+import { State } from '../../state/storyInputs'
+import { Input } from '../../utils/story'
 
 const appear = keyframes`
   from {
@@ -19,7 +21,21 @@ const Container = styled.form`
   margin-bottom: 6px;
 `
 
-const Form = ({ state, input, handleOnChange, value, transition }) => {
+interface FormProps {
+  state: State
+  input: Input
+  handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  value: string
+  transition: () => void
+}
+
+const Form: React.FC<FormProps> = ({
+  state,
+  input,
+  handleOnChange,
+  value,
+  transition
+}) => {
   return (
     <Container
       style={{ marginBottom: '0' }}
@@ -37,9 +53,8 @@ const Form = ({ state, input, handleOnChange, value, transition }) => {
       )}
       {input['TYPE'] === 'radio' && (
         <InputRadio
-          currentValue={state[input['KEY']]}
+          value={state[input['KEY']]}
           input={input}
-          value={value}
           onChange={handleOnChange}
           transition={transition}
         />

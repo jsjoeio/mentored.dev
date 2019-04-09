@@ -1,79 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import Laptop from '../components/atoms/Laptop'
+import StartScreen from '../components/molecules/StartScreen'
+import Username from '../components/atoms/Username'
+import Dashboard from '../components/organisms/Dashboard'
 
-interface IndexPageProps {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string
-      }
-    }
-  }
+interface IAuth {
+  login: (service: string) => void
+  isLoggedIn: (service: string) => boolean
 }
 
-const Container = styled.div`
-  text-align: center;
-  margin: auto;
-  height: 80vh;
-  width: 100%;
-`
-
-const Title = styled.h1`
-  margin-top: 20vh;
-  font-size: 15vh;
-  font-weight: bold;
-  text-transform: lowercase;
-
-  @media only screen and (max-width: 600px) {
-    margin-top: 10vh;
-    font-size: 8vh;
+const Index: React.FC<{ auth: IAuth }> = ({ auth }) => {
+  const [authenticated, setAuthenticated] = useState(false)
+  function login(service = 'github') {
+    return async () => {
+      await auth.login(service)
+      setAuthenticated(await auth.isLoggedIn('github'))
+    }
   }
-`
-
-const SubTitle = styled.p`
-  margin-top: 2vh;
-  font-size: 3vh;
-`
-
-const Instructions = styled.p`
-  margin-top: 4vh;
-  font-size: 3vh;
-`
-
-const Footer = styled.footer`
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 4vh;
-  font-size: 1.75vh;
-  text-transform: uppercase;
-  text-align: center;
-`
-
-const Index = (props: IndexPageProps) => {
   return (
-    <Container>
-      <Title>mentored.dev</Title>
-      <SubTitle>The best game for learning web development</SubTitle>
-      <div>
-        <Instructions>Press enter to play</Instructions>
-        <Laptop />
-      </div>
-      <Footer>© ‘19 jsjoeio</Footer>
-    </Container>
+    <React.Fragment>
+      {authenticated ? <Dashboard /> : <StartScreen login={login()} />}
+    </React.Fragment>
   )
 }
 
 export default Index
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
