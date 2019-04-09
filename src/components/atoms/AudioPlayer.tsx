@@ -58,17 +58,18 @@ const useAudio = (url: string) => {
 const AudioPlayer: React.FC<{ url: string }> = ({ url }) => {
   if (typeof Audio !== 'undefined') {
     const [playing, toggle] = useAudio(url)
-  }
 
-  return (
-    <AudioContainer>
-      {typeof playing !== 'undefined' && (
-        <Button onClick={() => toggle()}>
-          {playing ? <IconSoundOn /> : <IconSoundOff />}
-        </Button>
-      )}
-    </AudioContainer>
-  )
+    return (
+      <AudioContainer>
+        {typeof playing !== 'undefined' && (
+          <Button onClick={() => toggle()}>
+            {playing ? <IconSoundOn /> : <IconSoundOff />}
+          </Button>
+        )}
+      </AudioContainer>
+    )
+  }
+  return null
 }
 
 export default AudioPlayer
