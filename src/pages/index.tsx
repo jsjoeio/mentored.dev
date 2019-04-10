@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
@@ -13,17 +13,33 @@ interface IAuth {
 
 const Index: React.FC<{ auth: IAuth }> = ({ auth }) => {
   const [authenticated, setAuthenticated] = useState(false)
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    async function checkIfLoggedIn() {
+      const loggedIn = await auth.isLoggedIn('github')
+      if (loggedIn) {
+        setAuthenticated(true)
+      } else {
+        setAuthenticated(false)
+      }
+      setLoading(false)
+    }
+    checkIfLoggedIn()
+  }, [auth])
+
   function login(service = 'github') {
     return async () => {
       await auth.login(service)
       setAuthenticated(await auth.isLoggedIn('github'))
     }
   }
-  return (
-    <React.Fragment>
-      {authenticated ? <Dashboard /> : <StartScreen login={login()} />}
-    </React.Fragment>
-  )
+  if (loading && !authenticated) {
+    return <p>Loading...</p>
+  } else if (!loading && authenticated) {
+    return <Dashboard />
+  } else {
+    return <StartScreen login={login()} />
+  }
 }
 
 export default Index
