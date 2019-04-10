@@ -19,7 +19,6 @@ const Username = () => (
     {({ loading, error, data }) => {
       if (loading) return <div>Loading...</div>
       if (error) return <div>Uh oh, something went wrong!</div>
-      console.log(data, 'data!!!!')
 
       return (
         <div>
