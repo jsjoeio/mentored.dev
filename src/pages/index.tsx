@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import StartScreen from '../components/molecules/StartScreen'
 import Username from '../components/atoms/Username'
 import Dashboard from '../components/organisms/Dashboard'
+import LoadingScreen from '../components/organisms/LoadingScreen'
 
 interface IAuth {
   login: (service: string) => void
@@ -34,7 +35,7 @@ const Index: React.FC<{ auth: IAuth }> = ({ auth }) => {
     }
   }
   if (loading && !authenticated) {
-    return <p>Loading...</p>
+    return <LoadingScreen />
   } else if (!loading && authenticated) {
     return <Dashboard />
   } else {
