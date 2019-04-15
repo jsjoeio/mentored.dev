@@ -14,29 +14,18 @@ import Gamesound from '../../sounds/PixelCityGroovin.mp3'
 const Container = styled.div`
   margin: 3vh 1.5vw;
   display: flex;
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    margin: 20px 25px 15px;
+  }
 `
 
 const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 475px;
-`
-
-const MapPlaceholder = styled.div`
-  background-color: #a8dbbd;
-  border-radius: 5px;
-  width: 75vw;
-  margin-right: 2vw;
-  height: 94vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  p {
-    text-align: center;
-    font-size: 4rem;
-  }
+  /* width: 475px; */
 `
 
 const Dashboard = () => (
