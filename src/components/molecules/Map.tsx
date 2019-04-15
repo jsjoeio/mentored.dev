@@ -6,6 +6,19 @@ const Container = styled.div`
   width: 75vw;
   margin: 0 1vw;
   height: 94vh;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    margin-bottom: 32px;
+    margin-left: 25px;
+  }
+
+  svg {
+    @media screen and (max-width: 768px) {
+      width: 95vw;
+      height: auto;
+    }
+  }
 `
 
 const Map = () => (
