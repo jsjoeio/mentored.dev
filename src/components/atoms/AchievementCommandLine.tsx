@@ -20,15 +20,15 @@ const AchievementCommandLine = () => (
       d="M10.5 21.5L26.5 30L10.5 38"
       stroke="#FAFAFA"
       strokeWidth="4"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M29 44H49.5"
       stroke="#FAFAFA"
       strokeWidth="4"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 )
