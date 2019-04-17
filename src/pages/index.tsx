@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components'
-import { graphql } from 'gatsby'
 import StartScreen from '../components/molecules/StartScreen'
-import Username from '../components/atoms/Username'
 import Dashboard from '../components/organisms/Dashboard'
 import LoadingScreen from '../components/organisms/LoadingScreen'
 
