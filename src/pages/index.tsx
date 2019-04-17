@@ -17,14 +17,21 @@ const Index: React.FC<{ auth: IAuth }> = ({ auth }) => {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     async function checkIfLoggedIn() {
-      const loggedIn = await auth.isLoggedIn('github')
-      if (loggedIn) {
-        setAuthenticated(true)
-      } else {
+      try {
+        const loggedIn = await auth.isLoggedIn('github')
+        if (loggedIn) {
+          setAuthenticated(true)
+        } else {
+          setAuthenticated(false)
+        }
+        setLoading(false)
+      } catch (e) {
+        console.error('Could not login with OneGraph')
         setAuthenticated(false)
+        setLoading(false)
       }
-      setLoading(false)
     }
+
     checkIfLoggedIn()
   }, [auth])
 
