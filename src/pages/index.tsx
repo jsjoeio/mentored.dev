@@ -22,7 +22,7 @@ const Index: React.FC<{ auth: IAuth }> = ({ auth }) => {
         }
         setLoading(false)
       } catch (e) {
-        console.error('Could not login with OneGraph')
+        console.error('Error: could not login with OneGraph')
         setAuthenticated(false)
         setLoading(false)
       }
