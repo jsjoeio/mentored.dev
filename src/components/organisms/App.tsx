@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import StartScreen from '../molecules/StartScreen'
 import Dashboard from './Dashboard'
 import LoadingScreen from '../molecules/LoadingScreen'
+// @ts-ignore-start
 import gameSound from '../../sounds/GameSound.mp3'
 import gameMenu from '../../sounds/GameMenu.mp3'
+// @ts-ignore-end
 import AudioPlayer from '../atoms/AudioPlayer'
 
 interface IAuth {
