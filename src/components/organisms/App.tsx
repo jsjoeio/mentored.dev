@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import StartScreen from '../molecules/StartScreen'
 import Dashboard from './Dashboard'
 import LoadingScreen from '../molecules/LoadingScreen'
-import gameSound from '../../sounds/PixelCityGroovin.mp3'
+import gameSound from '../../sounds/GameSound.mp3'
 import gameMenu from '../../sounds/GameMenu.mp3'
 import AudioPlayer from '../atoms/AudioPlayer'
 
@@ -13,6 +13,7 @@ interface IAuth {
 
 const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
   const [authenticated, setAuthenticated] = useState(false)
+  const [song, setSong] = useState(gameMenu)
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     async function checkIfLoggedIn() {
@@ -34,17 +35,24 @@ const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
     checkIfLoggedIn()
   }, [auth])
 
+  useEffect(() => {
+    if (authenticated) {
+      setSong(gameSound)
+    } else {
+      setSong(gameMenu)
+    }
+  }, [authenticated])
+
   function login(service = 'github') {
     return async () => {
       await auth.login(service)
       setAuthenticated(await auth.isLoggedIn('github'))
     }
   }
-
   return (
     <React.Fragment>
       {loading && <LoadingScreen />}
-      <AudioPlayer url={authenticated ? gameSound : gameMenu} />
+      <AudioPlayer url={song} />
       {authenticated && !loading ? (
         <Dashboard />
       ) : (
