@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css, keyframes } from 'styled-components'
 
 export const hideElement = () => css`
   border: 0;
@@ -16,4 +16,15 @@ export const addFocus = () => css`
   border-color: ${props => props.theme.focus.main};
   box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075),
     0 0 0 0.2em ${props => props.theme.focus.lighter};
+`
+export const slideUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 `
