@@ -7,13 +7,15 @@ import DeveloperProgress from '../molecules/DeveloperProgress'
 import DailyChallenges from '../molecules/DailyChallenges'
 import Achievements from '../molecules/Achievements'
 import Map from '../molecules/Map'
-import AudioPlayer from '../atoms/AudioPlayer'
 // @ts-ignore
 import Gamesound from '../../sounds/PixelCityGroovin.mp3'
+import { slideUp } from '../../utils/mixins'
 
 const Container = styled.div`
   margin: 3vh 1.5vw;
   display: flex;
+  transition: all 0.3s ease;
+  animation: ${slideUp} 500ms ease;
 
   @media screen and (max-width: 768px) {
     flex-wrap: wrap;
@@ -30,7 +32,6 @@ const Sidebar = styled.div`
 
 const Dashboard = () => (
   <Container>
-    <AudioPlayer url={Gamesound} />
     <Map />
     <Sidebar>
       <Profile />
