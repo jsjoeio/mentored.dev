@@ -36,7 +36,7 @@ const Button = styled.button`
   }
 `
 
-function useAudio(audioRef: React.MutableRefObject<T>) {
+function useAudio(audioRef: React.MutableRefObject<HTMLAudioElement | null>) {
   const [playing, setPlaying] = useState(false)
   const toggle = (): void => setPlaying(!playing)
 
@@ -70,8 +70,6 @@ const AudioPlayer: React.FC<{ url: string }> = ({ url }) => {
       </Button>
     </AudioContainer>
   )
-  // }
-  // return null
 }
 
 export default AudioPlayer
