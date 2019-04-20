@@ -43,13 +43,15 @@ function useAudio(audioRef: React.MutableRefObject<HTMLAudioElement | null>) {
   useEffect(() => {
     // Check if the audioRef is currently playing.
     // This will be true if autoplay was used on the HTML element
-    if (audioRef.current.playing) {
+    if (audioRef && audioRef.current && !audioRef.current.paused) {
       setPlaying(true)
     }
   })
 
   useEffect(() => {
-    playing ? audioRef.current.play() : audioRef.current.pause()
+    if (audioRef && audioRef.current) {
+      playing ? audioRef.current.play() : audioRef.current.pause()
+    }
   }, [playing])
 
   return [playing, toggle] as [boolean, () => void]
