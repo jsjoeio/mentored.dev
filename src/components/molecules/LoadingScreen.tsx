@@ -1,10 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import Logo from '../molecules/Logo'
+import Logo from './Logo'
 
 const Container = styled.div`
   text-align: center;
-  margin: 150px auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  padding-top: 150px;
+  transition: all 0.3s ease;
 `
 
 const TipTitle = styled.h3`
