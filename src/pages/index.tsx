@@ -1,46 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components'
-import { graphql } from 'gatsby'
-import StartScreen from '../components/molecules/StartScreen'
-import Username from '../components/atoms/Username'
-import Dashboard from '../components/organisms/Dashboard'
-import LoadingScreen from '../components/organisms/LoadingScreen'
+import App from '../components/organisms/App'
 
 interface IAuth {
   login: (service: string) => void
   isLoggedIn: (service: string) => boolean
 }
 
-const Index: React.FC<{ auth: IAuth }> = ({ auth }) => {
-  const [authenticated, setAuthenticated] = useState(false)
-  const [loading, setLoading] = useState(true)
-  useEffect(() => {
-    async function checkIfLoggedIn() {
-      const loggedIn = await auth.isLoggedIn('github')
-      if (loggedIn) {
-        setAuthenticated(true)
-      } else {
-        setAuthenticated(false)
-      }
-      setLoading(false)
-    }
-    checkIfLoggedIn()
-  }, [auth])
-
-  function login(service = 'github') {
-    return async () => {
-      await auth.login(service)
-      setAuthenticated(await auth.isLoggedIn('github'))
-    }
-  }
-  if (loading && !authenticated) {
-    return <LoadingScreen />
-  } else if (!loading && authenticated) {
-    return <Dashboard />
-  } else {
-    return <StartScreen login={login()} />
-  }
-}
+const Index: React.FC<{ auth: IAuth }> = ({ auth }) => <App auth={auth} />
 
 export default Index

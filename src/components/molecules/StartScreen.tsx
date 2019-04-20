@@ -3,15 +3,17 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Laptop from '../atoms/Laptop'
 import { addFocus } from '../../utils/mixins'
-import AudioPlayer from '../atoms/AudioPlayer'
 // @ts-ignore
 import Startsound from '../../sounds/GameMenu.mp3'
+import { slideUp } from '../../utils/mixins'
 
 const Container = styled.div`
   text-align: center;
   margin: auto;
   height: 80vh;
   width: 100%;
+  transition: all 0.3s ease;
+  animation: ${slideUp} 1000ms ease;
 `
 
 const Title = styled.h1`
@@ -76,7 +78,6 @@ const StartScreen: React.FC<{ login: () => void }> = ({ login }) => {
         <Instructions onClick={login}>Press enter to play</Instructions>
         <Laptop login={login} />
       </div>
-      <AudioPlayer url={Startsound} />
       <Footer>
         <p>© ‘19 jsjoeio</p>
       </Footer>

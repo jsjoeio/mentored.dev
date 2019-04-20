@@ -30,7 +30,7 @@ const Map = () => (
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <rect width="902" height="745" rx="15" fill="#51B77B" />
         <mask
           id="mask0"
@@ -610,7 +610,7 @@ const Map = () => (
           <path
             d="M464 396C470.544 396.083 476.867 392.694 477 383"
             stroke="#FAFAFA"
-            stroke-width="4"
+            strokeWidth="4"
           />
           <rect
             x="390"
@@ -1925,7 +1925,7 @@ const Map = () => (
             height="37.5438"
             fill="#1B8CA3"
             stroke="#CC8427"
-            stroke-width="3"
+            strokeWidth="3"
           />
           <rect
             x="278.624"
@@ -1989,7 +1989,7 @@ const Map = () => (
             height="37.5438"
             fill="#1B8CA3"
             stroke="#CC8427"
-            stroke-width="3"
+            strokeWidth="3"
           />
           <rect
             x="711.534"
@@ -2053,7 +2053,7 @@ const Map = () => (
             height="37.5438"
             fill="#1B8CA3"
             stroke="#CC8427"
-            stroke-width="3"
+            strokeWidth="3"
           />
           <rect
             x="492.534"
@@ -2314,7 +2314,7 @@ const Map = () => (
             height="18.5287"
             fill="#D2EFF4"
             stroke="#B2B2B2"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <rect
             x="619.558"
@@ -2375,7 +2375,7 @@ const Map = () => (
             height="36.8966"
             fill="#D2EFF4"
             stroke="#797979"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <path
             opacity="0.5"
@@ -2394,7 +2394,7 @@ const Map = () => (
             height="36.8966"
             fill="#D2EFF4"
             stroke="#797979"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <path
             opacity="0.5"
@@ -2413,7 +2413,7 @@ const Map = () => (
             height="36.8966"
             fill="#D2EFF4"
             stroke="#797979"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <path
             opacity="0.5"
@@ -2432,7 +2432,7 @@ const Map = () => (
             height="36.8966"
             fill="#D2EFF4"
             stroke="#797979"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <path
             opacity="0.5"
@@ -2458,7 +2458,7 @@ const Map = () => (
             height="12.046"
             fill="#D2EFF4"
             stroke="#797979"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <rect
             x="560.609"
@@ -2467,7 +2467,7 @@ const Map = () => (
             height="12.046"
             fill="#D2EFF4"
             stroke="#797979"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <rect
             x="604.368"
@@ -2476,7 +2476,7 @@ const Map = () => (
             height="12.046"
             fill="#D2EFF4"
             stroke="#797979"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <rect
             x="626.517"
@@ -2485,7 +2485,7 @@ const Map = () => (
             height="12.046"
             fill="#D2EFF4"
             stroke="#797979"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <ellipse
             cx="543.132"
