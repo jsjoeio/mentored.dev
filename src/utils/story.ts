@@ -110,7 +110,7 @@ const story: {
     },
     intro: {
       MESSAGE:
-        'Welcome to the Life of Code! Our goal? To teach you to become a developer.',
+        'Welcome to mentored.dev! Our goal? To teach you to become a web developer.',
       NEXT: 'instructions',
       PREVIOUS: 'initial'
     },
