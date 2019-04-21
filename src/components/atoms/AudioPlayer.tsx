@@ -42,10 +42,8 @@ function useAudio(audioRef: React.MutableRefObject<HTMLAudioElement | null>) {
 
   useEffect(() => {
     if (audioRef && audioRef.current) {
-      console.log('inside if block')
       playing ? audioRef.current.play() : audioRef.current.pause()
     }
-    console.log(audioRef.current)
   }, [playing])
 
   return [playing, toggle] as [boolean, () => void]
