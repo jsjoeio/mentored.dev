@@ -5,7 +5,7 @@ import MouthAnimation from '../molecules/MouthAnimation'
 import Eyes from '../atoms/Eyes'
 import EyesAnimation from '../molecules/EyesAnimation'
 
-const slideIn = keyframes`
+const slideInRight = keyframes`
   from {
     opacity: 0;
     transform: translate3d(100px, 0, 0);
@@ -21,7 +21,7 @@ const Container = styled.div`
   svg {
     margin-right: 2rem;
     transition: all 300ms ease;
-    animation: ${slideIn} 800ms cubic-bezier(0.51, 0.04, 0.66, 0.57);
+    animation: ${slideInRight} 800ms cubic-bezier(0.51, 0.04, 0.66, 0.57);
   }
 `
 export interface NarratorProps {
