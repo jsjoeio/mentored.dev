@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from '../../utils/styled'
 import Username from '../atoms/Username'
@@ -27,19 +27,29 @@ const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* width: 475px; */
+  margin-bottom: 34px;
 `
 
-const Dashboard = () => (
-  <Container>
-    <Map />
-    <Sidebar>
-      <Profile />
-      <DailyChallenges />
-      <Achievements />
-      <DeveloperProgress />
-    </Sidebar>
-  </Container>
-)
+// TODO
+/*
+  3. then I need to make Ritchie Hall an SVG and add an onClick to it.
+  4. onClick => setMapLocation('ritchie-hall)
+*/
+
+const Dashboard = () => {
+  const [mapLocation, setMapLocation] = useState('main-campus')
+
+  return (
+    <Container>
+      <Map location={mapLocation} />
+      <Sidebar>
+        <Profile />
+        <DailyChallenges />
+        <Achievements />
+        <DeveloperProgress />
+      </Sidebar>
+    </Container>
+  )
+}
 
 export default Dashboard
