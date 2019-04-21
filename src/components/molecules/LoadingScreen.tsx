@@ -10,7 +10,7 @@ const Container = styled.div`
   z-index: 1;
   background-color: #fff;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding-top: 150px;
   transition: all 0.3s ease;
 `
