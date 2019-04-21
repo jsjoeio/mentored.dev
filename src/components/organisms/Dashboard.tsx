@@ -38,10 +38,9 @@ const Sidebar = styled.div`
 
 const Dashboard = () => {
   const [mapLocation, setMapLocation] = useState('main-campus')
-
   return (
     <Container>
-      <Map location={mapLocation} />
+      <Map location={mapLocation} setMapLocation={setMapLocation} />
       <Sidebar>
         <Profile />
         <DailyChallenges />
