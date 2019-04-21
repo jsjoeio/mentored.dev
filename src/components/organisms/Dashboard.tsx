@@ -7,8 +7,6 @@ import DeveloperProgress from '../molecules/DeveloperProgress'
 import DailyChallenges from '../molecules/DailyChallenges'
 import Achievements from '../molecules/Achievements'
 import Map from '../molecules/Map'
-// @ts-ignore
-import Gamesound from '../../sounds/PixelCityGroovin.mp3'
 import { slideUp } from '../../utils/mixins'
 
 const Container = styled.div`
@@ -29,12 +27,6 @@ const Sidebar = styled.div`
   justify-content: space-between;
   margin-bottom: 34px;
 `
-
-// TODO
-/*
-  3. then I need to make Ritchie Hall an SVG and add an onClick to it.
-  4. onClick => setMapLocation('ritchie-hall)
-*/
 
 const Dashboard = () => {
   const [mapLocation, setMapLocation] = useState('main-campus')
