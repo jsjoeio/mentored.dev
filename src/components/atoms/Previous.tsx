@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from "react";
-import styled from "styled-components";
-import Arrow from "./Arrow";
-import { addFocus } from "../../utils/mixins";
+import React, { useRef, useEffect } from 'react'
+import styled from 'styled-components'
+import Arrow from './Arrow'
+import { addFocus } from '../../utils/mixins'
 
 const Button = styled.button`
   display: flex;
+  align-items: center;
   width: 42px;
   height: 42px;
   background: transparent;
@@ -23,26 +24,26 @@ const Button = styled.button`
     border-width: 3px;
     ${addFocus}
   }
-`;
+`
 
-const Previous: React.FC<{ transitionPrevious: () => void; transition: () => void }> = ({
-  transitionPrevious,
-  transition,
-}) => {
+const Previous: React.FC<{
+  transitionPrevious: () => void
+  transition: () => void
+}> = ({ transitionPrevious, transition }) => {
   return (
     <Button
       onClick={transitionPrevious}
       onKeyUp={e => {
         if (e.keyCode === 37) {
-          transitionPrevious();
+          transitionPrevious()
         } else if (e.keyCode === 39) {
-          transition();
+          transition()
         }
       }}
     >
       <Arrow color="primary" direction="left" />
     </Button>
-  );
-};
+  )
+}
 
-export default Previous;
+export default Previous

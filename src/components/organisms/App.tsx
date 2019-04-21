@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import StartScreen from '../molecules/StartScreen'
+import Game from './Game'
 import Dashboard from './Dashboard'
+import StartScreen from '../molecules/StartScreen'
 import LoadingScreen from '../molecules/LoadingScreen'
+import AudioPlayer from '../atoms/AudioPlayer'
+import Overlay from '../atoms/Overlay'
 // @ts-ignore
 import gameSound from '../../sounds/GameSound.mp3'
 // @ts-ignore
 import gameMenu from '../../sounds/GameMenu.mp3'
-import AudioPlayer from '../atoms/AudioPlayer'
 
 interface IAuth {
   login: (service: string) => void
@@ -17,6 +19,7 @@ const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
   const [authenticated, setAuthenticated] = useState(false)
   const [song, setSong] = useState(gameMenu)
   const [loading, setLoading] = useState(true)
+  const [showOverlay, setShowOverlay] = useState(false)
   useEffect(() => {
     async function checkIfLoggedIn() {
       try {
@@ -54,9 +57,12 @@ const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
   return (
     <React.Fragment>
       {loading && <LoadingScreen />}
+      <Overlay show={showOverlay} toggleOverlay={setShowOverlay}>
+        <Game />
+      </Overlay>
       <AudioPlayer url={song} />
       {authenticated && !loading ? (
-        <Dashboard />
+        <Dashboard toggleOverlay={setShowOverlay} />
       ) : (
         <StartScreen login={login()} />
       )}

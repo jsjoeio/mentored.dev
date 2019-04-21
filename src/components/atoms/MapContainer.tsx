@@ -6,6 +6,7 @@ const Container = styled.div`
   width: 75vw;
   margin: 0 1vw;
   height: 94vh;
+  transition: all 0.3s ease;
 
   @media screen and (max-width: 768px) {
     height: auto;

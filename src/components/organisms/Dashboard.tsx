@@ -7,12 +7,11 @@ import DeveloperProgress from '../molecules/DeveloperProgress'
 import DailyChallenges from '../molecules/DailyChallenges'
 import Achievements from '../molecules/Achievements'
 import Map from '../molecules/Map'
-// @ts-ignore
-import Gamesound from '../../sounds/PixelCityGroovin.mp3'
 import { slideUp } from '../../utils/mixins'
+import Overlay from '../atoms/Overlay'
 
 const Container = styled.div`
-  margin: 3vh 1.5vw;
+  padding: 3vh 1.5vw;
   display: flex;
   transition: all 0.3s ease;
   animation: ${slideUp} 500ms ease;
@@ -30,17 +29,17 @@ const Sidebar = styled.div`
   margin-bottom: 34px;
 `
 
-// TODO
-/*
-  3. then I need to make Ritchie Hall an SVG and add an onClick to it.
-  4. onClick => setMapLocation('ritchie-hall)
-*/
-
-const Dashboard = () => {
+const Dashboard: React.FC<{ toggleOverlay: () => void }> = ({
+  toggleOverlay
+}) => {
   const [mapLocation, setMapLocation] = useState('main-campus')
   return (
     <Container>
-      <Map location={mapLocation} setMapLocation={setMapLocation} />
+      <Map
+        location={mapLocation}
+        setMapLocation={setMapLocation}
+        toggleOverlay={toggleOverlay}
+      />
       <Sidebar>
         <Profile />
         <DailyChallenges />
