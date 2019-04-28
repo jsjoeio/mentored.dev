@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from '../../utils/styled'
 import Username from '../atoms/Username'
@@ -7,49 +7,47 @@ import DeveloperProgress from '../molecules/DeveloperProgress'
 import DailyChallenges from '../molecules/DailyChallenges'
 import Achievements from '../molecules/Achievements'
 import Map from '../molecules/Map'
-import AudioPlayer from '../atoms/AudioPlayer'
-// @ts-ignore
-import Gamesound from '../../sounds/PixelCityGroovin.mp3'
+import { slideUp } from '../../utils/mixins'
+import Overlay from '../atoms/Overlay'
 
 const Container = styled.div`
-  margin: 3vh 1.5vw;
+  padding: 3vh 1.5vw;
   display: flex;
+  transition: all 0.3s ease;
+  animation: ${slideUp} 500ms ease;
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    margin: 20px 25px 15px;
+  }
 `
 
 const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 475px;
+  margin-bottom: 34px;
 `
 
-const MapPlaceholder = styled.div`
-  background-color: #a8dbbd;
-  border-radius: 5px;
-  width: 75vw;
-  margin-right: 2vw;
-  height: 94vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  p {
-    text-align: center;
-    font-size: 4rem;
-  }
-`
-
-const Dashboard = () => (
-  <Container>
-    <AudioPlayer url={Gamesound} />
-    <Map />
-    <Sidebar>
-      <Profile />
-      <DailyChallenges />
-      <Achievements />
-      <DeveloperProgress />
-    </Sidebar>
-  </Container>
-)
+const Dashboard: React.FC<{ toggleOverlay: () => void }> = ({
+  toggleOverlay
+}) => {
+  const [mapLocation, setMapLocation] = useState('main-campus')
+  return (
+    <Container>
+      <Map
+        location={mapLocation}
+        setMapLocation={setMapLocation}
+        toggleOverlay={toggleOverlay}
+      />
+      <Sidebar>
+        <Profile />
+        <DailyChallenges />
+        <Achievements />
+        <DeveloperProgress />
+      </Sidebar>
+    </Container>
+  )
+}
 
 export default Dashboard

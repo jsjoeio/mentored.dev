@@ -15,6 +15,7 @@ const arrowAnimation = keyframes`
 
 const Button = styled.button`
   display: flex;
+  align-items: center;
   width: 42px;
   height: 42px;
   background-color: ${props => props.theme.primary.main};

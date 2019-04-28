@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import IconSoundOn from './IconSoundOn'
 import IconSoundOff from './IconSoundOff'
@@ -36,44 +36,34 @@ const Button = styled.button`
   }
 `
 
-const useAudio = (url: string) => {
-  if (typeof Audio !== 'undefined') {
-    const [audio] = useState(new Audio(url))
-    const [playing, setPlaying] = useState(true)
+function useAudio(audioRef: React.MutableRefObject<HTMLAudioElement | null>) {
+  const [playing, setPlaying] = useState(false)
+  const toggle = (): void => setPlaying(!playing)
 
-    const toggle = () => setPlaying(!playing)
+  useEffect(() => {
+    if (audioRef && audioRef.current) {
+      playing ? audioRef.current.play() : audioRef.current.pause()
+    }
+  }, [playing])
 
-    useEffect(() => {
-      audio.loop = true
-      audio.autoplay = true
-    })
-
-    useEffect(() => {
-      playing ? audio.play() : audio.pause()
-      return () => {
-        audio.pause()
-      }
-    }, [playing])
-
-    return [playing, toggle]
-  }
+  return [playing, toggle] as [boolean, () => void]
 }
 
 const AudioPlayer: React.FC<{ url: string }> = ({ url }) => {
-  if (typeof Audio !== 'undefined') {
-    const [playing, toggle] = useAudio(url)
-
-    return (
-      <AudioContainer>
-        {typeof playing !== 'undefined' && (
-          <Button onClick={() => toggle()}>
-            {playing ? <IconSoundOn /> : <IconSoundOff />}
-          </Button>
-        )}
-      </AudioContainer>
-    )
-  }
-  return null
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [playing, toggle] = useAudio(audioRef)
+  const [songUrl, setSongUrl] = useState('')
+  useEffect(() => {
+    setSongUrl(url)
+  }, [url])
+  return (
+    <AudioContainer>
+      <audio ref={audioRef} src={url} />
+      <Button onClick={() => toggle()}>
+        {playing ? <IconSoundOn /> : <IconSoundOff />}
+      </Button>
+    </AudioContainer>
+  )
 }
 
 export default AudioPlayer
