@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Game from './Game'
 import Dashboard from './Dashboard'
 import StartScreen from '../molecules/StartScreen'
 import LoadingScreen from '../molecules/LoadingScreen'
@@ -20,6 +19,7 @@ const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
   const [song, setSong] = useState(gameMenu)
   const [loading, setLoading] = useState(true)
   const [showOverlay, setShowOverlay] = useState(false)
+  const [overlay, setOverlay] = useState('')
   useEffect(() => {
     async function checkIfLoggedIn() {
       try {
@@ -57,12 +57,15 @@ const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
   return (
     <React.Fragment>
       {loading && <LoadingScreen />}
-      <Overlay show={showOverlay} toggleOverlay={setShowOverlay}>
-        <Game />
-      </Overlay>
+      <Overlay
+        overlay={overlay}
+        setOverlay={setOverlay}
+        show={showOverlay}
+        toggleOverlay={setShowOverlay}
+      />
       <AudioPlayer url={song} />
       {authenticated && !loading ? (
-        <Dashboard toggleOverlay={setShowOverlay} />
+        <Dashboard setOverlay={setOverlay} toggleOverlay={setShowOverlay} />
       ) : (
         <StartScreen login={login()} />
       )}

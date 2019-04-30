@@ -27,8 +27,14 @@ const ViewCourses = styled.g`
 
 const ViewCoursesSign: React.FC<{
   toggleOverlay: (show: boolean) => void
-}> = ({ toggleOverlay }) => (
-  <ViewCourses onClick={() => toggleOverlay(true)}>
+  setOverlay: (overlay: string) => void
+}> = ({ toggleOverlay, setOverlay }) => (
+  <ViewCourses
+    onClick={() => {
+      setOverlay('courses')
+      toggleOverlay(true)
+    }}
+  >
     <rect
       x="559"
       y="409"
@@ -37,7 +43,7 @@ const ViewCoursesSign: React.FC<{
       rx="2"
       fill="#B2B2B2"
       stroke="black"
-      stroke-width="12"
+      strokeWidth="12"
       mask="url(#path-26-inside-1)"
     />
     <path
@@ -55,7 +61,8 @@ const ViewCoursesSign: React.FC<{
 const RitchieHall: React.FC<{
   toggleOverlay: (show: boolean) => void
   setMapLocation: (location: string) => void
-}> = ({ setMapLocation, toggleOverlay }) => (
+  setOverlay: (overlay: string) => void
+}> = ({ setMapLocation, toggleOverlay, setOverlay }) => (
   <React.Fragment>
     <svg
       width="902"
@@ -115,7 +122,7 @@ const RitchieHall: React.FC<{
           width="882"
           height="748"
           stroke="#FBECC3"
-          stroke-width="20"
+          strokeWidth="20"
         />
         <rect x="56" y="586" width="411" height="162" fill="#99631D" />
         <rect x="50" y="571" width="425" height="15" fill="#B2B2B2" />
@@ -127,7 +134,10 @@ const RitchieHall: React.FC<{
         <mask id="path-26-inside-1" fill="white">
           <rect x="559" y="409" width="227" height="114" rx="2" />
         </mask>
-        <ViewCoursesSign toggleOverlay={toggleOverlay} />
+        <ViewCoursesSign
+          setOverlay={setOverlay}
+          toggleOverlay={toggleOverlay}
+        />
         <rect x="656" y="20" width="25" height="162" fill="#797979" />
         <path d="M669 186L773.789 282.75H564.211L669 186Z" fill="#F6D475" />
         <path d="M687 283L718.878 232L774 283H687Z" fill="#FBECC3" />
