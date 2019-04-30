@@ -6,8 +6,9 @@ import RitchieHall from '../atoms/RitchieHall'
 const Map: React.FC<{
   toggleOverlay: (show: boolean) => void
   setMapLocation: () => void
+  setOverlay: () => void
   location: string
-}> = ({ location, setMapLocation, toggleOverlay }) => {
+}> = ({ location, setMapLocation, toggleOverlay, setOverlay }) => {
   function getMap() {
     if (location === 'main-campus')
       return <MainCampus setMapLocation={setMapLocation} />
@@ -15,6 +16,7 @@ const Map: React.FC<{
       return (
         <RitchieHall
           setMapLocation={setMapLocation}
+          setOverlay={setOverlay}
           toggleOverlay={toggleOverlay}
         />
       )

@@ -29,15 +29,17 @@ const Sidebar = styled.div`
   margin-bottom: 34px;
 `
 
-const Dashboard: React.FC<{ toggleOverlay: () => void }> = ({
-  toggleOverlay
-}) => {
+const Dashboard: React.FC<{
+  toggleOverlay: () => void
+  setOverlay: () => void
+}> = ({ toggleOverlay, setOverlay }) => {
   const [mapLocation, setMapLocation] = useState('main-campus')
   return (
     <Container>
       <Map
         location={mapLocation}
         setMapLocation={setMapLocation}
+        setOverlay={setOverlay}
         toggleOverlay={toggleOverlay}
       />
       <Sidebar>

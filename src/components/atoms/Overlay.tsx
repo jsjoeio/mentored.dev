@@ -1,4 +1,5 @@
 import React from 'react'
+import Game from '../organisms/Game'
 import styled, { keyframes } from 'styled-components'
 
 const fadeIn = keyframes`
@@ -31,14 +32,33 @@ const ExitButton = styled.button`
 `
 
 const Overlay: React.FC<{
-  children: React.ReactNode
   show: boolean
-  toggleOverlay: () => void
-}> = ({ show = false, toggleOverlay, children }) => (
-  <Container show={show} id="overlay">
-    <ExitButton onClick={() => toggleOverlay(!show)}>exit</ExitButton>
-    {children}
-  </Container>
-)
+  toggleOverlay: (show: boolean) => void
+  overlay: string
+  setOverlay: (overlay: string) => void
+}> = ({ show = false, toggleOverlay, overlay, setOverlay }) => {
+  function getOverlayInner() {
+    if (overlay === 'game') {
+      return <Game />
+    } else if (overlay === 'courses') {
+      return (
+        <div>
+          <h2>Courses:</h2>
+          <ul>
+            <li onClick={() => setOverlay('game')}>command line basics</li>
+          </ul>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
+  return (
+    <Container show={show} id="overlay">
+      <ExitButton onClick={() => toggleOverlay(!show)}>exit</ExitButton>
+      {getOverlayInner()}
+    </Container>
+  )
+}
 
 export default Overlay
