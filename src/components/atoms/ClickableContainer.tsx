@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '../../utils/styled'
 
-const ExitSign = styled.g`
+const ClickableSVG = styled.g`
   &:hover,
   &:active,
   &:focus {
@@ -9,4 +9,4 @@ const ExitSign = styled.g`
   }
 `
 
-export default ExitSign
+export default ClickableSVG
