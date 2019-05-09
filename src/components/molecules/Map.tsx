@@ -2,6 +2,7 @@ import React from 'react'
 import MapContainer from '../atoms/MapContainer'
 import MainCampus from '../atoms/MainCampus'
 import RitchieHall from '../atoms/RitchieHall'
+import Professors from '../atoms/Professors'
 
 const Map: React.FC<{
   toggleOverlay: (show: boolean) => void
@@ -12,6 +13,8 @@ const Map: React.FC<{
   function getMap() {
     if (location === 'main-campus')
       return <MainCampus setMapLocation={setMapLocation} />
+    else if (location === 'professors')
+      return <Professors setMapLocation={setMapLocation} />
     else if (location === 'ritchie-hall')
       return (
         <RitchieHall
