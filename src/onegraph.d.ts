@@ -1,2 +1,2 @@
 declare module 'onegraph-auth'
-declare module '../../utils/react-keyframes/'
+declare module 'react-keyframes'
