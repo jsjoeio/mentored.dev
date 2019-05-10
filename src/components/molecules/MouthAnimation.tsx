@@ -1,14 +1,12 @@
 import React from 'react'
-
-// @ts-ignore
-import { Frame, Keyframes } from '../../utils/react-keyframes/'
+import { Frame, Keyframes } from 'react-keyframes'
 import MouthIH from '../atoms/Mouths/MouthIH'
 import MouthLUH from '../atoms/Mouths/MouthLUH'
 import MouthCON from '../atoms/Mouths/MouthCON'
 import MouthAH from '../atoms/Mouths/MouthAH'
 
 const MouthAnimation: React.FC<{ isTalking: boolean }> = ({ isTalking }) => (
-  <Keyframes component="Fragment" loop={isTalking}>
+  <Keyframes component={React.Fragment} loop={isTalking}>
     <Frame duration={130}>
       <MouthIH />
     </Frame>
