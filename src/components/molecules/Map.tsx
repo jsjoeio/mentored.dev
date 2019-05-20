@@ -16,7 +16,7 @@ const Map: React.FC<{
       case 'main-campus':
         return <MainCampus setMapLocation={setMapLocation} />
       case 'dorms':
-        return <Dorms />
+        return <Dorms setMapLocation={setMapLocation} />
       case 'professors':
         return <Professors setMapLocation={setMapLocation} />
       case 'ritchie-hall':
