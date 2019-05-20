@@ -3,6 +3,7 @@ import MapContainer from '../atoms/MapContainer'
 import MainCampus from '../atoms/MainCampus'
 import RitchieHall from '../atoms/RitchieHall'
 import Professors from '../atoms/Professors'
+import Dorms from '../atoms/Dorms'
 
 const Map: React.FC<{
   toggleOverlay: (show: boolean) => void
@@ -10,22 +11,27 @@ const Map: React.FC<{
   setOverlay: () => void
   location: string
 }> = ({ location, setMapLocation, toggleOverlay, setOverlay }) => {
-  function getMap() {
-    if (location === 'main-campus')
-      return <MainCampus setMapLocation={setMapLocation} />
-    else if (location === 'professors')
-      return <Professors setMapLocation={setMapLocation} />
-    else if (location === 'ritchie-hall')
-      return (
-        <RitchieHall
-          setMapLocation={setMapLocation}
-          setOverlay={setOverlay}
-          toggleOverlay={toggleOverlay}
-        />
-      )
-    else return <MainCampus setMapLocation={setMapLocation} />
+  function getMap(location: string) {
+    switch (location) {
+      case 'main-campus':
+        return <MainCampus setMapLocation={setMapLocation} />
+      case 'dorms':
+        return <Dorms />
+      case 'professors':
+        return <Professors setMapLocation={setMapLocation} />
+      case 'ritchie-hall':
+        return (
+          <RitchieHall
+            setMapLocation={setMapLocation}
+            setOverlay={setOverlay}
+            toggleOverlay={toggleOverlay}
+          />
+        )
+      default:
+        return <MainCampus setMapLocation={setMapLocation} />
+    }
   }
-  return <MapContainer>{getMap()}</MapContainer>
+  return <MapContainer>{getMap(location)}</MapContainer>
 }
 
 export default Map
