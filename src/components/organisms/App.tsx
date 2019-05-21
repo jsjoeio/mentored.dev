@@ -3,7 +3,7 @@ import Dashboard from './Dashboard'
 import StartScreen from '../molecules/StartScreen'
 import LoadingScreen from '../molecules/LoadingScreen'
 import AudioPlayer from '../atoms/AudioPlayer'
-import Overlay from '../atoms/Overlay'
+import Overlay from '../molecules/Overlay'
 // @ts-ignore
 import gameSound from '../../sounds/GameSound.mp3'
 // @ts-ignore

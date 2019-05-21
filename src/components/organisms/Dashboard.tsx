@@ -8,7 +8,7 @@ import DailyChallenges from '../molecules/DailyChallenges'
 import Achievements from '../molecules/Achievements'
 import Map from '../molecules/Map'
 import { slideUp } from '../../utils/mixins'
-import Overlay from '../atoms/Overlay'
+import Overlay from '../molecules/Overlay'
 
 const Container = styled.div`
   padding: 3vh 1.5vw;
