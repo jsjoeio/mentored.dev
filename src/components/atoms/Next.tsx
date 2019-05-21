@@ -18,14 +18,14 @@ const Button = styled.button`
   align-items: center;
   width: 42px;
   height: 42px;
-  background-color: ${props => props.theme.primary.main};
+  background-color: ${props => props.theme.neutral.darker};
   border-radius: 50%;
   transition: all 0.3s ease;
   &:hover,
   &:focus,
   &:active {
     cursor: pointer;
-    background-color: ${props => props.theme.primary.darker};
+    background-color: ${props => props.theme.neutral.darkest};
     ${addFocus}
     border-width: 3px;
     border-style: solid;

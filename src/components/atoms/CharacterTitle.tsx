@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   border-radius: 6px;
-  background-color: ${props => props.theme.primary.main};
+  background-color: ${props => props.theme.neutral.darker};
   position: absolute;
   top: -13px;
   left: 48px;
@@ -13,7 +13,7 @@ const Container = styled.div`
 `
 
 const Title = styled.h3`
-  color: ${props => props.theme.secondary.main};
+  color: ${props => props.theme.neutral.lightest};
   text-transform: uppercase;
   font-size: 1.75rem;
   font-weight: normal;

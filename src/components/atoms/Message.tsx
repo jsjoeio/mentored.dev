@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.p`
-  color: ${props => props.theme.primary.main};
+  color: ${props => props.theme.neutral.darker};
   font-size: 2.2rem;
   white-space: pre-line;
   margin: 0 0 6px;
