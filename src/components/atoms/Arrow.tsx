@@ -1,19 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const SVG = styled.svg`
+const SVG = styled.svg<{ shade: string }>`
   path {
     fill: ${props =>
-      props.color ? props.theme[props.color].main : props.theme.neutral.darker};
+      props.shade
+        ? props.theme.neutral[props.shade]
+        : props.theme.neutral.darker};
   }
 `
 
-const Arrow: React.FC<{ color: string; direction: string }> = ({
-  color,
+const Arrow: React.FC<{ shade: string; direction: string }> = ({
+  shade,
   direction
 }) => (
   <SVG
-    color={color}
+    shade={shade}
     width="24"
     height="18"
     viewBox="0 0 24 18"

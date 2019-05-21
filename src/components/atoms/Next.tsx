@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import Arrow from './Arrow'
 import { addFocus } from '../../utils/mixins'
 
-const arrowAnimation = keyframes`
+export const arrowAnimation = keyframes`
   0%, 100% {
     transform: translate3d(0, 0, 0);
   }
@@ -92,7 +92,7 @@ const Next: React.FC<NextProps> = ({
         }
       }}
     >
-      <Arrow color="secondary" direction="right" />
+      <Arrow shade="lightest" direction="right" />
     </Button>
   )
 }
