@@ -24,6 +24,8 @@ const Container = styled.div<{ show: boolean }>`
 `
 
 const ExitButton = styled.button`
+  position: absolute;
+  right: 0;
   padding: 8px 16px;
   background-color: teal;
   color: #fff;
@@ -37,6 +39,7 @@ const Overlay: React.FC<{
   overlay: string
   setOverlay: (overlay: string) => void
 }> = ({ show = false, toggleOverlay, overlay, setOverlay }) => {
+  // May need to refactor later to have different components render
   function getOverlayInner() {
     if (overlay === 'game') {
       return <Game />
