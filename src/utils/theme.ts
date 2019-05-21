@@ -30,24 +30,11 @@ export interface Color {
 }
 
 export interface Theme {
-  primary: {
-    darker: string
-    main: string
-    /**
-     * # LIGHTER PRIMARY COLOR
-     *  - light theme: "rgba(71,71,71, 0.4)",
-     *  - dark theme: unimplemented!
-     */
-    lighter: string
-  }
-  secondary: {
-    main: string
-  }
-  background: {
-    main: string
-    darker: string
-  }
+  primary: Color
   accentBlue: Color
+  accentOrange: Color
+  accentRed: Color
+  accentYellow: Color
   neutral: Color
   focus: {
     main: string
@@ -57,16 +44,13 @@ export interface Theme {
 
 const lightTheme: Theme = {
   primary: {
-    darker: '#2A2A2A',
-    main: '#474747',
-    lighter: 'rgba(71,71,71, 0.4)'
-  },
-  secondary: {
-    main: '#ffffff'
-  },
-  background: {
-    main: '#F3F3F3',
-    darker: ''
+    darkest: '#0F4224',
+    darker: '#166336',
+    dark: '#1E8448',
+    main: '#26A65B',
+    light: '#51B77B',
+    lighter: '#A8DBBD',
+    lightest: '#E9F6EE'
   },
   accentBlue: {
     darkest: '#0A343D',
@@ -76,6 +60,33 @@ const lightTheme: Theme = {
     light: '#64C7DB',
     lighter: '#A6DFEA',
     lightest: '#D2EFF4'
+  },
+  accentOrange: {
+    darkest: '#664213',
+    darker: '#99631D',
+    dark: '#CC8427',
+    main: '#FFA631',
+    light: '#FFC06E',
+    lighter: '#FFE4C1',
+    lightest: '#FFF6EA'
+  },
+  accentRed: {
+    darkest: '#4C1E1E',
+    darker: '#7F3333',
+    dark: '#B24747',
+    main: '#FF6667',
+    light: '#FF9393',
+    lighter: '#FFC1C1',
+    lightest: '#FFE0E0'
+  },
+  accentYellow: {
+    darkest: '#614D17',
+    darker: '#917422',
+    dark: '#C29B2E',
+    main: '#F3C13A',
+    light: '#F6D475',
+    lighter: '#FBECC3',
+    lightest: '#FDF8EB'
   },
   neutral: {
     darkest: '#2D2D2D',
@@ -94,16 +105,13 @@ const lightTheme: Theme = {
 
 const darkTheme: Theme = {
   primary: {
-    darker: '#2A2A2A',
-    main: '#474747',
-    lighter: 'rgba(71,71,71, 0.4)'
-  },
-  secondary: {
-    main: '#ffffff'
-  },
-  background: {
-    main: '#F3F3F3',
-    darker: ''
+    darkest: '#0F4224',
+    darker: '#166336',
+    dark: '#1E8448',
+    main: '#26A65B',
+    light: '#51B77B',
+    lighter: '#A8DBBD',
+    lightest: '#E9F6EE'
   },
   accentBlue: {
     darkest: '#0A343D',
@@ -113,6 +121,33 @@ const darkTheme: Theme = {
     light: '#64C7DB',
     lighter: '#A6DFEA',
     lightest: '#D2EFF4'
+  },
+  accentOrange: {
+    darkest: '#664213',
+    darker: '#99631D',
+    dark: '#CC8427',
+    main: '#FFA631',
+    light: '#FFC06E',
+    lighter: '#FFE4C1',
+    lightest: '#FFF6EA'
+  },
+  accentRed: {
+    darkest: '#4C1E1E',
+    darker: '#7F3333',
+    dark: '#B24747',
+    main: '#FF6667',
+    light: '#FF9393',
+    lighter: '#FFC1C1',
+    lightest: '#FFE0E0'
+  },
+  accentYellow: {
+    darkest: '#614D17',
+    darker: '#917422',
+    dark: '#C29B2E',
+    main: '#F3C13A',
+    light: '#F6D475',
+    lighter: '#FBECC3',
+    lightest: '#FDF8EB'
   },
   neutral: {
     darkest: '#2D2D2D',
