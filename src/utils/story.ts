@@ -19,6 +19,7 @@ export interface IStory {
   HAS_KEY?: string
   ANSWER?: string[]
   HAS_SPECIAL_MESSAGE?: string[]
+  IMAGE?: string
 }
 
 const os: IStory = {
@@ -112,7 +113,9 @@ const story: {
       MESSAGE:
         'Welcome to mentored.dev! Our goal? To teach you to become a web developer.',
       NEXT: 'instructions',
-      PREVIOUS: 'initial'
+      PREVIOUS: 'initial',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1559436292/mentored.dev/Welcome.png'
     },
     instructions: {
       MESSAGE:
@@ -163,7 +166,9 @@ const story: {
       MESSAGE:
         "Enough chit-chat. Lets dive into your first lesson! Today's lesson is on the command line.",
       NEXT: 'initialCommandLine',
-      PREVIOUS: 'osComment'
+      PREVIOUS: 'osComment',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1559436604/mentored.dev/EmptyCommandLine.png'
     },
     initialCommandLine,
     commandLineExpYes: {
