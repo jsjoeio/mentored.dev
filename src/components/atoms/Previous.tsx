@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import Arrow from './Arrow'
 import { addFocus } from '../../utils/mixins'
+import { arrowAnimation } from './Next'
 
 const Button = styled.button`
   display: flex;
@@ -23,6 +24,10 @@ const Button = styled.button`
     padding: 0 7px;
     border-width: 3px;
     ${addFocus}
+    svg {
+      animation: ${arrowAnimation} 1200ms cubic-bezier(0.17, 0.67, 0.83, 0.67)
+        infinite;
+    }
   }
 `
 
@@ -41,7 +46,7 @@ const Previous: React.FC<{
         }
       }}
     >
-      <Arrow color="primary" direction="left" />
+      <Arrow shade="dark" direction="left" />
     </Button>
   )
 }

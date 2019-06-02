@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import Arrow from './Arrow'
 import { addFocus } from '../../utils/mixins'
 
-const arrowAnimation = keyframes`
+export const arrowAnimation = keyframes`
   0%, 100% {
     transform: translate3d(0, 0, 0);
   }
@@ -18,14 +18,14 @@ const Button = styled.button`
   align-items: center;
   width: 42px;
   height: 42px;
-  background-color: ${props => props.theme.primary.main};
+  background-color: ${props => props.theme.neutral.darker};
   border-radius: 50%;
   transition: all 0.3s ease;
   &:hover,
   &:focus,
   &:active {
     cursor: pointer;
-    background-color: ${props => props.theme.primary.darker};
+    background-color: ${props => props.theme.neutral.darkest};
     ${addFocus}
     border-width: 3px;
     border-style: solid;
@@ -92,7 +92,7 @@ const Next: React.FC<NextProps> = ({
         }
       }}
     >
-      <Arrow color="secondary" direction="right" />
+      <Arrow shade="lightest" direction="right" />
     </Button>
   )
 }

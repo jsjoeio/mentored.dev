@@ -8,11 +8,11 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
-  background-color: ${props => props.theme.background.main};
+  background-color: ${props => props.theme.neutral.lighter};
   border: none;
   border-radius: 1px;
-  border-bottom: solid 2px ${props => props.theme.primary.lighter};
-  color: ${props => props.theme.primary.main};
+  border-bottom: solid 2px ${props => props.theme.neutral.dark};
+  color: ${props => props.theme.neutral.darker};
   font-size: 18px;
   transition: all 0.3s ease;
   margin-bottom: 8px;

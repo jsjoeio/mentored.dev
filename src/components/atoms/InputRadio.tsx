@@ -13,13 +13,13 @@ const Label = styled.label<{ checked: boolean }>`
     display: inline-block;
     height: 12px;
     width: 12px;
-    border: 1px solid ${props => props.theme.primary.lighter};
+    border: 1px solid ${props => props.theme.neutral.dark};
     border-radius: 50%;
     position: absolute;
     left: -19px;
     top: 4px;
     background-color: ${props =>
-      props.checked ? props.theme.primary.main : ''};
+      props.checked ? props.theme.neutral.darker : ''};
   }
 `
 
