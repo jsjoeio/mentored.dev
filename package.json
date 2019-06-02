@@ -22,6 +22,7 @@
     "onegraph-auth": "^1.2.23",
     "react": "^16.8.3",
     "react-apollo": "^2.5.3",
+    "react-apollo-hooks": "^0.4.5",
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
     "react-keyframes": "^0.2.3",
