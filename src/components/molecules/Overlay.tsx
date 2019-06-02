@@ -1,16 +1,7 @@
 import React from 'react'
 import Game from '../organisms/Game'
 import styled, { keyframes } from 'styled-components'
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`
+import { fadeIn } from '../../utils/mixins'
 
 const Container = styled.div<{ show: boolean }>`
   position: absolute;

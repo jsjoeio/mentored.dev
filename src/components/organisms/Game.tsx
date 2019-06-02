@@ -75,7 +75,10 @@ const Game: React.FC = () => {
   }
   return (
     <div>
-      <Chalkboard />
+      <Chalkboard
+        hasImage={storyState && !!storyState['IMAGE']}
+        image={storyState && storyState['IMAGE']}
+      />
       <Container>
         <Narrator isTalking={isTalking} setTalking={setTalking} />
         <div style={{ position: 'relative' }}>
