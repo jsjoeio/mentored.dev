@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'gatsby'
 import styled from '../../utils/styled'
-import Username from '../atoms/Username'
 import Profile from './Profile'
 import DeveloperProgress from '../molecules/DeveloperProgress'
 import DailyChallenges from '../molecules/DailyChallenges'
 import Achievements from '../molecules/Achievements'
 import Map from '../molecules/Map'
 import { slideUp } from '../../utils/mixins'
-import Overlay from '../molecules/Overlay'
+import { checkRepo } from '../../utils/apiCalls'
 
 const Container = styled.div`
   padding: 3vh 1.5vw;
@@ -34,6 +32,9 @@ const Dashboard: React.FC<{
   setOverlay: () => void
 }> = ({ toggleOverlay, setOverlay }) => {
   const [mapLocation, setMapLocation] = useState('main-campus')
+
+  checkRepo()
+
   return (
     <Container>
       <Map
