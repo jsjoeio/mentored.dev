@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Form from '../molecules/Form'
-import Next from '../atoms/Next'
 import Message from '../atoms/Message'
 import DialogNavigation from '../molecules/DialogNavigation'
 import story, { IStory } from '../../utils/story'
