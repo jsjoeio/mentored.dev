@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useMutation } from 'react-apollo-hooks'
 import styled from '../../utils/styled'
 import Profile from './Profile'
 import DeveloperProgress from '../molecules/DeveloperProgress'
@@ -6,7 +7,7 @@ import DailyChallenges from '../molecules/DailyChallenges'
 import Achievements from '../molecules/Achievements'
 import Map from '../molecules/Map'
 import { slideUp } from '../../utils/mixins'
-import { checkRepo } from '../../utils/apiCalls'
+import { checkRepo, CREATE_REPO } from '../../utils/apiCalls'
 
 const Container = styled.div`
   padding: 3vh 1.5vw;
@@ -33,7 +34,8 @@ const Dashboard: React.FC<{
 }> = ({ toggleOverlay, setOverlay }) => {
   const [mapLocation, setMapLocation] = useState('main-campus')
 
-  checkRepo()
+  const createRepository = useMutation(CREATE_REPO)
+  checkRepo(createRepository)
 
   return (
     <Container>
