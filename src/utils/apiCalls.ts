@@ -13,16 +13,35 @@ const CHECK_FOR_REPO = gql`
   }
 `
 
-export function checkRepo() {
+export const CREATE_REPO = gql`
+  mutation CreateRepo {
+    gitHub {
+      createRepositoryTemp(
+        input: {
+          repoName: "mentored-dev"
+          description: "A repository created by mentored.dev to keep track of your progress 😎"
+        }
+      ) {
+        repository {
+          id
+        }
+      }
+    }
+  }
+`
+
+export function checkRepo(createRepoCallbackFn: () => void) {
   const { data, error, loading } = useQuery(CHECK_FOR_REPO)
   if (loading) return null
   if (error) console.error('Oops. Please try again.')
   if (data) {
-    console.log(data)
     if (!data.me.github.repository) {
       console.log("mentored-dev repo does not yet exist in user's GitHub.")
+      createRepoCallbackFn()
+      return null
     } else {
-      console.log('Repo exists!')
+      console.log('mentored-dev repo exists!')
+      return data.me.github.repository
     }
   }
 }
