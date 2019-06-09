@@ -18,11 +18,10 @@ export function checkRepo() {
   if (loading) return null
   if (error) console.error('Oops. Please try again.')
   if (data) {
-    console.log(data)
     if (!data.me.github.repository) {
       console.log("mentored-dev repo does not yet exist in user's GitHub.")
     } else {
-      console.log('Repo exists!')
+      console.log('mentored-dev repo exists!')
     }
   }
 }
