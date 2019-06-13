@@ -1,6 +1,24 @@
-# mentored.dev
+<br />
+<p align="center">
+  <a href="https://mentored.dev">
+    <img src="https://res.cloudinary.com/dobfxs62e/image/upload/v1560467950/mentored.dev/icon-book.svg" alt="Logo" width="80" height="80">
+  </a>
 
-A gamified learning platform to help you become a web developer.
+  <h3 align="center">mentored.dev</h3>
+
+  <p align="center">
+    A gamified learning platform to help you become a web developer.
+    <br />
+    <br />
+    ·
+    <a href="https://mentored.dev">Visit</a>
+    ·
+    <a href="https://twitter.com/jsjoeio">Get in touch</a>
+    .
+    <a href="https://github.com/jsjoeio/mentored.dev/issues">Report Bug</a>
+    ·
+  </p>
+</p>
 
 ## Getting Started
 
@@ -32,26 +50,7 @@ Then in your browser, navigate to [http:localhost:8000/](http:localhost:8000/).
 
 ## Running the tests
 
-TODO
-
-- [ ] Add Jest for unit testing
-- [ ] Add Cypress for integration/end-to-end testing
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+Currently, there are no tests :scream: but there will be in the future!
 
 ## Deployment
 
@@ -77,14 +76,13 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## License
 
-TODO
-
-- [ ] Add MIT License
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Acknowledgments
 
-TODO
+This project wouldn't be possible without these people and organizations
 
-- [ ] Add acknowledgements (Tejas, OneGraph team, Gatsby)
-- Music by [Eric Matyas](www.soundimage.org)
-  <!-- * Hat tip to anyone who's code was used -->
+- [Gatsby](https://gatsby.org)
+- [OneGraph](https://www.onegraph.com/)
+- [@TejasQ](https://github.com/TejasQ)
+- [Eric Matyas](https://www.soundimage.org) for music
