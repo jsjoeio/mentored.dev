@@ -32,7 +32,7 @@ const Dorms: React.FC<{ setMapLocation: () => void }> = ({
         width="882"
         height="748"
         stroke="#7F3333"
-        stroke-width="20"
+        strokeWidth="20"
       />
       <rect x="31" y="24" width="249" height="30" rx="2" fill="#CC8427" />
       <path
@@ -159,7 +159,7 @@ const Dorms: React.FC<{ setMapLocation: () => void }> = ({
         rx="3.5"
         fill="#FAFAFA"
         stroke="#474747"
-        stroke-width="3"
+        strokeWidth="3"
       />
       <rect
         x="433.23"
@@ -363,16 +363,16 @@ const Dorms: React.FC<{ setMapLocation: () => void }> = ({
       <path
         d="M758.426 471C759.426 469.163 760.89 466.949 759.288 463.767C757.687 460.585 757 460 757 460"
         stroke="#474747"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M764.426 470C765.426 468.163 766.89 465.949 765.288 462.767C763.687 459.585 763 459 763 459"
         stroke="#474747"
-        stroke-width="4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </g>
   </svg>
