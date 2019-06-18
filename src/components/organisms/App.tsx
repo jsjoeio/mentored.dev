@@ -68,6 +68,18 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
     if (user !== '') {
       console.log('not empty string')
     }
+    /*
+    Here is where I'm stuck. After i've stored the user in local state, I want to then use this
+    to call the get file to get the streak file.
+
+    I'm wondering if I should break up my functions. I want to have a function that just gets the repo.
+
+    - if repo exists, get file from repo and also save the file sha...
+    - if repo doesn't exist, create repo and create file.
+
+    I think first step is to get all that logic in this file.
+
+    */
   }, [user])
 
   function login(service = 'github') {
