@@ -13,6 +13,16 @@ const CHECK_FOR_REPO = gql`
   }
 `
 
+export const GET_REPO_OWNER = gql`
+  query GetRepoOwner {
+    me {
+      github {
+        login
+      }
+    }
+  }
+`
+
 export const CREATE_REPO = gql`
   mutation CreateRepo {
     gitHub {
