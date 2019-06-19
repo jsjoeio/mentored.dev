@@ -12,7 +12,8 @@ import gameSound from '../../sounds/GameSound.mp3'
 import gameMenu from '../../sounds/GameMenu.mp3'
 import {
   createGameDbObject,
-  shouldIncrementStreak
+  shouldIncrementStreak,
+  isBrowser
 } from '../../utils/functions'
 interface IAuth {
   login: (service: string) => void
@@ -55,28 +56,30 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
   }, [authenticated])
 
   useEffect(() => {
-    // Check if DB exists
-    const gameDb = localStorage.getItem('gameDb')
-    const today = new Date()
-    let gameDbInstance
-    if (!gameDb) {
-      // Create a new gameDb instance
-      const initialGameDb = createGameDbObject(today)
-      const gameDbString = JSON.stringify(initialGameDb)
-      localStorage.setItem('gameDb', gameDbString)
-      console.log('GameDB created successfully!')
-    } else {
-      gameDbInstance = JSON.parse(gameDb)
-      console.log(gameDbInstance)
-      if (shouldIncrementStreak(gameDbInstance.streak.lastLoginDate, today)) {
-        // We should increment streak
-        gameDbInstance.streak.count += 1
-        const gameDbString = JSON.stringify(gameDbInstance)
-        // Save to localStorage again
+    if (isBrowser()) {
+      // Check if DB exists
+      const gameDb = localStorage.getItem('gameDb')
+      const today = new Date()
+      let gameDbInstance
+      if (!gameDb) {
+        // Create a new gameDb instance
+        const initialGameDb = createGameDbObject(today)
+        const gameDbString = JSON.stringify(initialGameDb)
         localStorage.setItem('gameDb', gameDbString)
+        console.log('GameDB created successfully!')
       } else {
-        // Streak stays the same
-        console.log('keep streak the same!')
+        gameDbInstance = JSON.parse(gameDb)
+        console.log(gameDbInstance)
+        if (shouldIncrementStreak(gameDbInstance.streak.lastLoginDate, today)) {
+          // We should increment streak
+          gameDbInstance.streak.count += 1
+          const gameDbString = JSON.stringify(gameDbInstance)
+          // Save to localStorage again
+          localStorage.setItem('gameDb', gameDbString)
+        } else {
+          // Streak stays the same
+          console.log('keep streak the same!')
+        }
       }
     }
   }, [])
