@@ -52,21 +52,14 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
   }, [authenticated])
 
   useEffect(() => {
-    // Check if streak is there
-
+    // Check if DB exists
     const gameDb = localStorage.getItem('gameDb')
-    if (gameDb) {
-      /*
-       */
-      const test = JSON.parse(gameDb)
-      console.log('it exists!', test)
-    } else {
-      // create a new gameDb
+    if (!gameDb) {
+      // Create a new gameDb instance
       const initialGameDb = createGameDbObject(new Date())
       const gameDbString = JSON.stringify(initialGameDb)
       localStorage.setItem('gameDb', gameDbString)
-
-      console.log('no gameDb yet...')
+      console.log('GameDB created successfully!')
     }
   }, [])
 
