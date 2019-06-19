@@ -10,7 +10,6 @@ import Overlay from '../molecules/Overlay'
 import gameSound from '../../sounds/GameSound.mp3'
 // @ts-ignore
 import gameMenu from '../../sounds/GameMenu.mp3'
-import { GET_REPO_OWNER } from '../../utils/apiCalls'
 interface IAuth {
   login: (service: string) => void
   isLoggedIn: (service: string) => boolean
@@ -51,36 +50,6 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
       setSong(gameMenu)
     }
   }, [authenticated])
-
-  useEffect(() => {
-    async function getRepoOwner() {
-      try {
-        const data = await client.query({ query: GET_REPO_OWNER })
-        setUser(data.data.me.github.login)
-      } catch (e) {
-        console.error(e)
-      }
-    }
-    getRepoOwner()
-  }, [])
-
-  useEffect(() => {
-    if (user !== '') {
-      console.log('not empty string')
-    }
-    /*
-    Here is where I'm stuck. After i've stored the user in local state, I want to then use this
-    to call the get file to get the streak file.
-
-    I'm wondering if I should break up my functions. I want to have a function that just gets the repo.
-
-    - if repo exists, get file from repo and also save the file sha...
-    - if repo doesn't exist, create repo and create file.
-
-    I think first step is to get all that logic in this file.
-
-    */
-  }, [user])
 
   function login(service = 'github') {
     return async () => {
