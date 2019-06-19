@@ -34,8 +34,8 @@ const Dashboard: React.FC<{
 }> = ({ toggleOverlay, setOverlay }) => {
   const [mapLocation, setMapLocation] = useState('main-campus')
 
-  const createRepository = useMutation(CREATE_REPO)
-  checkRepo(createRepository)
+  // const createRepository = useMutation(CREATE_REPO)
+  // checkRepo(createRepository)
 
   return (
     <Container>
