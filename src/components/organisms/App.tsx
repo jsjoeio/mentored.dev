@@ -76,9 +76,6 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
           const gameDbString = JSON.stringify(gameDbInstance)
           // Save to localStorage again
           localStorage.setItem('gameDb', gameDbString)
-        } else {
-          // Streak stays the same
-          console.log('keep streak the same!')
         }
       }
     }
