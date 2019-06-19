@@ -10,7 +10,10 @@ import Overlay from '../molecules/Overlay'
 import gameSound from '../../sounds/GameSound.mp3'
 // @ts-ignore
 import gameMenu from '../../sounds/GameMenu.mp3'
-import { createGameDbObject } from '../../utils/functions'
+import {
+  createGameDbObject,
+  shouldIncrementStreak
+} from '../../utils/functions'
 interface IAuth {
   login: (service: string) => void
   isLoggedIn: (service: string) => boolean
@@ -54,12 +57,27 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
   useEffect(() => {
     // Check if DB exists
     const gameDb = localStorage.getItem('gameDb')
+    const today = new Date()
+    let gameDbInstance
     if (!gameDb) {
       // Create a new gameDb instance
-      const initialGameDb = createGameDbObject(new Date())
+      const initialGameDb = createGameDbObject(today)
       const gameDbString = JSON.stringify(initialGameDb)
       localStorage.setItem('gameDb', gameDbString)
       console.log('GameDB created successfully!')
+    } else {
+      gameDbInstance = JSON.parse(gameDb)
+      console.log(gameDbInstance)
+      if (shouldIncrementStreak(gameDbInstance.streak.lastLoginDate, today)) {
+        // We should increment streak
+        gameDbInstance.streak.count += 1
+        const gameDbString = JSON.stringify(gameDbInstance)
+        // Save to localStorage again
+        localStorage.setItem('gameDb', gameDbString)
+      } else {
+        // Streak stays the same
+        console.log('keep streak the same!')
+      }
     }
   }, [])
 
