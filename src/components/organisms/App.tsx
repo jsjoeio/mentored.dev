@@ -10,6 +10,7 @@ import Overlay from '../molecules/Overlay'
 import gameSound from '../../sounds/GameSound.mp3'
 // @ts-ignore
 import gameMenu from '../../sounds/GameMenu.mp3'
+import { createGameDbObject } from '../../utils/functions'
 interface IAuth {
   login: (service: string) => void
   isLoggedIn: (service: string) => boolean
@@ -21,7 +22,6 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
   const [loading, setLoading] = useState(true)
   const [showOverlay, setShowOverlay] = useState(false)
   const [overlay, setOverlay] = useState('')
-  const [user, setUser] = useState('')
 
   useEffect(() => {
     async function checkIfLoggedIn() {
@@ -50,6 +50,25 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
       setSong(gameMenu)
     }
   }, [authenticated])
+
+  useEffect(() => {
+    // Check if streak is there
+
+    const gameDb = localStorage.getItem('gameDb')
+    if (gameDb) {
+      /*
+       */
+      const test = JSON.parse(gameDb)
+      console.log('it exists!', test)
+    } else {
+      // create a new gameDb
+      const initialGameDb = createGameDbObject(new Date())
+      const gameDbString = JSON.stringify(initialGameDb)
+      localStorage.setItem('gameDb', gameDbString)
+
+      console.log('no gameDb yet...')
+    }
+  }, [])
 
   function login(service = 'github') {
     return async () => {
