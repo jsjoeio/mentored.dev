@@ -139,3 +139,5 @@ export function shouldIncrementStreak(lastLoginDate: Date, dateToday: Date) {
   // Should only increment streak if distance is between 24 and 48 hours (inclusive)
   return distance >= ONE_DAY && distance <= ONE_DAY * 2
 }
+
+export const isBrowser = () => typeof window !== 'undefined'
