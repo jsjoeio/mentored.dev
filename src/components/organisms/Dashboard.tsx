@@ -7,7 +7,6 @@ import DailyChallenges from '../molecules/DailyChallenges'
 import Achievements from '../molecules/Achievements'
 import Map from '../molecules/Map'
 import { slideUp } from '../../utils/mixins'
-import { checkRepo, CREATE_REPO } from '../../utils/apiCalls'
 
 const Container = styled.div`
   padding: 3vh 1.5vw;
@@ -33,9 +32,6 @@ const Dashboard: React.FC<{
   setOverlay: () => void
 }> = ({ toggleOverlay, setOverlay }) => {
   const [mapLocation, setMapLocation] = useState('main-campus')
-
-  // const createRepository = useMutation(CREATE_REPO)
-  // checkRepo(createRepository)
 
   return (
     <Container>

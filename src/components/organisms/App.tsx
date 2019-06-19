@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { withApollo } from 'react-apollo'
-import { useQuery } from 'react-apollo-hooks'
 import Dashboard from './Dashboard'
 import StartScreen from '../molecules/StartScreen'
 import LoadingScreen from '../molecules/LoadingScreen'
@@ -106,4 +104,4 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
   )
 }
 
-export default withApollo(App)
+export default App
