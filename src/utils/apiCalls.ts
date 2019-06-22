@@ -1,5 +1,6 @@
 import { useQuery } from 'react-apollo-hooks'
 import { gql } from 'apollo-boost'
+import { isBrowser } from './functions'
 
 const CHECK_FOR_REPO = gql`
   query CheckForRepo {
@@ -54,4 +55,33 @@ export function checkRepo(createRepoCallbackFn: () => void) {
       return data.me.github.repository
     }
   }
+}
+
+// Experimental function - how to make a GraphQL Query with fetch.
+export function makeGraphQLFetch(queryString) {
+  const URL = process.env.GATSBY_OG_ENDPOINT
+  const query = {
+    query: queryString
+  }
+
+  let oneGraphObject = ''
+  if (isBrowser()) {
+    oneGraphObject =
+      localStorage.getItem(`oneGraph:${process.env.GATSBY_OG_APP_ID}`) || ''
+  }
+
+  const token = JSON.parse(oneGraphObject).accessToken
+  const options = {
+    crossDomain: true,
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(query)
+  }
+
+  fetch(URL, options)
+    .then(res => res.json())
+    .then(result => console.log('was it?', result))
 }

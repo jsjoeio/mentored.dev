@@ -67,7 +67,6 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
         console.log('GameDB created successfully!')
       } else {
         gameDbInstance = JSON.parse(gameDb)
-        console.log(gameDbInstance)
         if (shouldIncrementStreak(gameDbInstance.streak.lastLoginDate, today)) {
           // We should increment streak
           gameDbInstance.streak.count += 1
@@ -75,6 +74,11 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
           // Save to localStorage again
           localStorage.setItem('gameDb', gameDbString)
         }
+        // Update lastLoginDate
+        gameDbInstance.streak.lastLoginDate = today
+        const gameDbString = JSON.stringify(gameDbInstance)
+        // Save to localStorage again
+        localStorage.setItem('gameDb', gameDbString)
       }
     }
   }, [])
