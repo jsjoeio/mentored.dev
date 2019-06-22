@@ -3,9 +3,7 @@ import styled from '../../utils/styled'
 
 const Container = styled.div`
   border-radius: 5px;
-  width: 75vw;
-  margin: 0 1vw;
-  height: 94vh;
+  margin: 0 1rem 0 2.5rem;
   transition: all 0.3s ease;
 
   @media screen and (max-width: 768px) {
@@ -28,7 +26,7 @@ const MapContainer: React.FC<{
     <svg
       width="902"
       height="745"
-      viewBox="0 0 902 769"
+      viewBox="0 0 902 745"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
