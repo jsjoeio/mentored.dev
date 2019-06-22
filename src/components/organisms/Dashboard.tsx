@@ -43,9 +43,9 @@ const Dashboard: React.FC<{
       />
       <Sidebar>
         <Profile />
-        <DailyChallenges />
-        <Achievements />
-        <DeveloperProgress />
+        {/* <DailyChallenges /> */}
+        {/* <Achievements /> */}
+        {/* <DeveloperProgress /> */}
       </Sidebar>
     </Container>
   )
