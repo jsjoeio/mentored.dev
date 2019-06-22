@@ -57,9 +57,7 @@ export function checkRepo(createRepoCallbackFn: () => void) {
   }
 }
 
-// Saving for later
-// todo
-
+// Experimental function - how to make a GraphQL Query with fetch.
 export function makeGraphQLFetch(queryString) {
   const URL = process.env.GATSBY_OG_ENDPOINT
   const query = {
