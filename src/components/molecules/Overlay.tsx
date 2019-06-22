@@ -2,6 +2,7 @@ import React from 'react'
 import Game from '../organisms/Game'
 import styled, { keyframes } from 'styled-components'
 import { fadeIn } from '../../utils/mixins'
+import ExitSign from '../atoms/ExitSign'
 
 const Container = styled.div<{ show: boolean }>`
   position: absolute;
@@ -17,11 +18,23 @@ const Container = styled.div<{ show: boolean }>`
 const ExitButton = styled.button`
   position: absolute;
   right: 0;
-  padding: 8px 16px;
-  background-color: teal;
-  color: #fff;
+  padding: 4px 24px;
+  border-color: ${props => props.theme.accentRed.main};
+  border-style: solid;
+  border-radius: 5px;
+  color: ${props => props.theme.accentRed.main};
+  background-color: ${props => props.theme.neutral.lightest};
   font-size: 2rem;
   margin: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0.35;
+  animation: all 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
 `
 
 const Overlay: React.FC<{
