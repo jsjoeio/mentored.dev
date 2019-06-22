@@ -447,7 +447,7 @@ const Professors: React.FC<{ setMapLocation: (location: string) => void }> = ({
       <path
         d="M504.711 214.25L505.024 227.666L512.309 227.904"
         stroke="#797979"
-        stroke-width="3"
+        strokeWidth="3"
       />
       <rect x="285" y="560" width="188" height="30" rx="2" fill="#CC8427" />
       <path

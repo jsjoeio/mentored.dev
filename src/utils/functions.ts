@@ -119,3 +119,25 @@ function replaceSpecialMessage({ state, storyState }: Fun) {
     .replace(`{score}`, `${score}/${totalPossible}`)
     .replace(`{closingMessage}`, localKeys.closingMessage[sentiment])
 }
+
+export function createGameDbObject(date: Date) {
+  const gameDb = {
+    streak: {
+      count: 1,
+      lastLoginDate: date
+    }
+  }
+  return gameDb
+}
+
+export function shouldIncrementStreak(lastLoginDate: Date, dateToday: Date) {
+  // 1000 milliseconds * 60 seconds * 60 minutes * 24 hours in a day
+  const ONE_DAY = 1000 * 60 * 60 * 24
+
+  const distance = +dateToday - +lastLoginDate
+
+  // Should only increment streak if distance is between 24 and 48 hours (inclusive)
+  return distance >= ONE_DAY && distance <= ONE_DAY * 2
+}
+
+export const isBrowser = () => typeof window !== 'undefined'

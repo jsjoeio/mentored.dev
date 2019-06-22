@@ -8,18 +8,23 @@ import Overlay from '../molecules/Overlay'
 import gameSound from '../../sounds/GameSound.mp3'
 // @ts-ignore
 import gameMenu from '../../sounds/GameMenu.mp3'
-
+import {
+  createGameDbObject,
+  shouldIncrementStreak,
+  isBrowser
+} from '../../utils/functions'
 interface IAuth {
   login: (service: string) => void
   isLoggedIn: (service: string) => boolean
 }
 
-const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
+const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
   const [authenticated, setAuthenticated] = useState(false)
   const [song, setSong] = useState(gameMenu)
   const [loading, setLoading] = useState(true)
   const [showOverlay, setShowOverlay] = useState(false)
   const [overlay, setOverlay] = useState('')
+
   useEffect(() => {
     async function checkIfLoggedIn() {
       try {
@@ -47,6 +52,36 @@ const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
       setSong(gameMenu)
     }
   }, [authenticated])
+
+  useEffect(() => {
+    if (isBrowser()) {
+      // Check if DB exists
+      const gameDb = localStorage.getItem('gameDb')
+      const today = new Date()
+      let gameDbInstance
+      if (!gameDb) {
+        // Create a new gameDb instance
+        const initialGameDb = createGameDbObject(today)
+        const gameDbString = JSON.stringify(initialGameDb)
+        localStorage.setItem('gameDb', gameDbString)
+        console.log('GameDB created successfully!')
+      } else {
+        gameDbInstance = JSON.parse(gameDb)
+        if (shouldIncrementStreak(gameDbInstance.streak.lastLoginDate, today)) {
+          // We should increment streak
+          gameDbInstance.streak.count += 1
+          const gameDbString = JSON.stringify(gameDbInstance)
+          // Save to localStorage again
+          localStorage.setItem('gameDb', gameDbString)
+        }
+        // Update lastLoginDate
+        gameDbInstance.streak.lastLoginDate = today
+        const gameDbString = JSON.stringify(gameDbInstance)
+        // Save to localStorage again
+        localStorage.setItem('gameDb', gameDbString)
+      }
+    }
+  }, [])
 
   function login(service = 'github') {
     return async () => {
