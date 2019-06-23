@@ -37,6 +37,22 @@ const ExitButton = styled.button`
   }
 `
 
+const CoursesContainer = styled.div`
+  margin: 20px;
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  ul {
+    font-size: 2rem;
+
+    li {
+      cursor: pointer;
+    }
+  }
+`
+
 const Overlay: React.FC<{
   show: boolean
   toggleOverlay: (show: boolean) => void
@@ -49,12 +65,12 @@ const Overlay: React.FC<{
       return <Game />
     } else if (overlay === 'courses') {
       return (
-        <div>
+        <CoursesContainer>
           <h2>Courses:</h2>
           <ul>
             <li onClick={() => setOverlay('game')}>command line basics</li>
           </ul>
-        </div>
+        </CoursesContainer>
       )
     } else {
       return null
