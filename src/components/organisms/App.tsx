@@ -19,7 +19,7 @@ interface IAuth {
   isLoggedIn: (service: string) => boolean
 }
 
-const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
+const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
   const [authenticated, setAuthenticated] = useState(false)
   const [song, setSong] = useState(gameMenu)
   const [loading, setLoading] = useState(true)
