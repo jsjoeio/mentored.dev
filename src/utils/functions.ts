@@ -130,14 +130,15 @@ export function createGameDbObject(date: Date) {
   return gameDb
 }
 
-export function shouldIncrementStreak(lastLoginDate: Date, dateToday: Date) {
-  // 1000 milliseconds * 60 seconds * 60 minutes * 24 hours in a day
-  const ONE_DAY = 1000 * 60 * 60 * 24
+export function shouldIncrementStreak(lastLoginDate: string, dateToday: Date) {
+  const DAYS_IN_MILLISECONDS = 86400000
 
-  const distance = +dateToday - +lastLoginDate
+  const distanceMilliseconds =
+    new Date(lastLoginDate).getTime() - dateToday.getTime()
+  // Should only increment streak if distance is between 1 and 2 hours (inclusive)
 
-  // Should only increment streak if distance is between 24 and 48 hours (inclusive)
-  return distance >= ONE_DAY && distance <= ONE_DAY * 2
+  const d = distanceMilliseconds / DAYS_IN_MILLISECONDS
+  return d >= 1 && d <= 2
 }
 
 export const isBrowser = () => typeof window !== 'undefined'
