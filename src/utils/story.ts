@@ -121,12 +121,14 @@ const story: {
       MESSAGE:
         'You can navigate the dialog using the left and right arrow keys, and submit with enter.',
       NEXT: 'instructionsCont',
-      PREVIOUS: 'intro'
+      PREVIOUS: 'intro',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561327158/mentored.dev/instructions.png'
     },
     instructionsCont: {
       MESSAGE: 'Oh! How rude of me - I forgot to introduce myself.',
       NEXT: 'introProfessor',
-      PREVIOUS: 'instructionsKeyboard'
+      PREVIOUS: 'instructions'
     },
     introProfessor: {
       MESSAGE:
@@ -168,7 +170,7 @@ const story: {
       NEXT: 'initialCommandLine',
       PREVIOUS: 'osComment',
       IMAGE:
-        'https://res.cloudinary.com/dobfxs62e/image/upload/v1559436604/mentored.dev/EmptyCommandLine.png'
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561325525/mentored.dev/empty-command-line.png'
     },
     initialCommandLine,
     commandLineExpYes: {
@@ -181,13 +183,17 @@ const story: {
       MESSAGE:
         "Good! That means we'll experience the excitement of learning something new today.",
       NEXT: 'commandLineDef',
-      PREVIOUS: 'initialCommandLine'
+      PREVIOUS: 'initialCommandLine',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561325618/mentored.dev/yay-learning.png'
     },
     commandLineDef: {
       MESSAGE:
         'We can consider the command line as a place where user communicates with machine.',
       NEXT: 'commandLineImportance',
-      PREVIOUS: 'commandLineExpNo'
+      PREVIOUS: 'commandLineExpNo',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561326764/mentored.dev/command-line-def.png'
     },
     commandLineImportance: {
       MESSAGE:
