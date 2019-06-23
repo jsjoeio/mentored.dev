@@ -11,7 +11,7 @@ const Container = styled.div`
 const ProfileHeader = () => (
   <Container>
     <ProfileHeaderAvatarWithName />
-    <CodeCash />
+    {/* <CodeCash /> */}
   </Container>
 )
 

@@ -25,11 +25,11 @@ const Bars = styled(Icons)`
 const ProfileStatBars = () => (
   <Container>
     <Icons>
-      <IconStar className="icon-star" />
+      {/* <IconStar className="icon-star" /> */}
       <IconFire />
     </Icons>
     <Bars>
-      <XPBar />
+      {/* <XPBar /> */}
       <Streak />
     </Bars>
   </Container>
