@@ -147,8 +147,8 @@ export function shouldIncrementStreak(lastLoginDate: string, dateToday: Date) {
   const DAYS_IN_MILLISECONDS = 86400000
 
   const distanceMilliseconds =
-    new Date(lastLoginDate).getTime() - dateToday.getTime()
-  // Should only increment streak if distance is between 1 and 2 hours (inclusive)
+    dateToday.getTime() - new Date(lastLoginDate).getTime()
+  // Should only increment streak if distance is between 1 and 2 day (inclusive)
 
   const d = distanceMilliseconds / DAYS_IN_MILLISECONDS
   return d >= 1 && d <= 2

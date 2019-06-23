@@ -68,20 +68,25 @@ const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
         console.log('GameDB created successfully!')
       } else {
         gameDbInstance = JSON.parse(gameDb)
+
         if (shouldIncrementStreak(gameDbInstance.streak.lastLoginDate, today)) {
           // We should increment streak
           gameDbInstance.streak.count += 1
-          const gameDbString = JSON.stringify(gameDbInstance)
-          // Save to localStorage again
-          localStorage.setItem('gameDb', gameDbString)
-        }
-        // Check if lastLoginDate and today are different days (i.e. June 11th and June 12th)
-        if (shouldUpdateLoginDate(gameDbInstance.streak.lastLoginDate, today)) {
-          // Update lastLoginDate
           gameDbInstance.streak.lastLoginDate = today
           const gameDbString = JSON.stringify(gameDbInstance)
           // Save to localStorage again
           localStorage.setItem('gameDb', gameDbString)
+        } else {
+          // Check if lastLoginDate and today are different days (i.e. June 11th and June 12th)
+          if (
+            shouldUpdateLoginDate(gameDbInstance.streak.lastLoginDate, today)
+          ) {
+            // Update lastLoginDate
+            gameDbInstance.streak.lastLoginDate = today
+            const gameDbString = JSON.stringify(gameDbInstance)
+            // Save to localStorage again
+            localStorage.setItem('gameDb', gameDbString)
+          }
         }
       }
     }
