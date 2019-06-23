@@ -11,6 +11,7 @@ import gameMenu from '../../sounds/GameMenu.mp3'
 import {
   createGameDbObject,
   shouldIncrementStreak,
+  shouldUpdateLoginDate,
   isBrowser
 } from '../../utils/functions'
 interface IAuth {
@@ -74,11 +75,14 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
           // Save to localStorage again
           localStorage.setItem('gameDb', gameDbString)
         }
-        // Update lastLoginDate
-        gameDbInstance.streak.lastLoginDate = today
-        const gameDbString = JSON.stringify(gameDbInstance)
-        // Save to localStorage again
-        localStorage.setItem('gameDb', gameDbString)
+        // Check if lastLoginDate and today are different days (i.e. June 11th and June 12th)
+        if (shouldUpdateLoginDate(gameDbInstance.streak.lastLoginDate, today)) {
+          // Update lastLoginDate
+          gameDbInstance.streak.lastLoginDate = today
+          const gameDbString = JSON.stringify(gameDbInstance)
+          // Save to localStorage again
+          localStorage.setItem('gameDb', gameDbString)
+        }
       }
     }
   }, [])
