@@ -112,6 +112,19 @@ function replaceSpecialMessage({ state, storyState }: Fun) {
   } else {
     sentiment = 'negative'
   }
+
+  // Check if gameDb exists
+  const gameDb = localStorage.getItem('gameDb')
+  let gameDbInstance
+
+  if (gameDb) {
+    gameDbInstance = JSON.parse(gameDb)
+    gameDbInstance.score = score.toString()
+    const gameDbString = JSON.stringify(gameDbInstance)
+    // Save to localStorage again
+    localStorage.setItem('gameDb', gameDbString)
+  }
+
   // @Techdebt
   // This is pretty hard-coded. Will eventually need to redo.
   return message

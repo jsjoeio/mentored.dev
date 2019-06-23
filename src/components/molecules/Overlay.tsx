@@ -53,6 +53,21 @@ const CoursesContainer = styled.div`
   }
 `
 
+const LessonCompleted = () => {
+  // Check if gameDb exists
+  const gameDb = localStorage.getItem('gameDb')
+  let gameDbInstance
+  let score = ''
+  if (gameDb) {
+    gameDbInstance = JSON.parse(gameDb)
+    score = gameDbInstance.score
+  }
+  console.log('joe screo', score)
+  return score !== '' ? (
+    <span style={{ fontStyle: 'italic' }}>(completed - {score}/3)</span>
+  ) : null
+}
+
 const Overlay: React.FC<{
   show: boolean
   toggleOverlay: (show: boolean) => void
@@ -68,7 +83,9 @@ const Overlay: React.FC<{
         <CoursesContainer>
           <h2>Courses:</h2>
           <ul>
-            <li onClick={() => setOverlay('game')}>command line basics</li>
+            <li onClick={() => setOverlay('game')}>
+              command line basics <LessonCompleted />
+            </li>
           </ul>
         </CoursesContainer>
       )
