@@ -32,7 +32,7 @@ export const ProgressBar = styled.div<{
 }>`
   background-color: ${props => props.theme.accentBlue.main};
   height: ${props => props.height || '18px'};
-  width: ${props => (props.width || 200) * (props.percent || 0.2) + 'px'};
+  width: ${props => (props.width || 200) * (props.percent || 0.1) + 'px'};
 `
 
 const XPBar = () => (
@@ -42,7 +42,7 @@ const XPBar = () => (
       <ProgressBarContainer>
         <ProgressBar />
       </ProgressBarContainer>
-      <p>40/50</p>
+      <p>10/50</p>
     </div>
   </Container>
 )
