@@ -141,4 +141,8 @@ export function shouldIncrementStreak(lastLoginDate: string, dateToday: Date) {
   return d >= 1 && d <= 2
 }
 
+export function shouldUpdateLoginDate(lastLoginDate: string, dateToday: Date) {
+  return new Date(lastLoginDate).getDate() !== dateToday.getDate()
+}
+
 export const isBrowser = () => typeof window !== 'undefined'
