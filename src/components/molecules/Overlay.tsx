@@ -63,7 +63,7 @@ const LessonCompleted = () => {
     score = gameDbInstance.score
   }
   console.log('joe screo', score)
-  return score !== '' ? (
+  return score ? (
     <span style={{ fontStyle: 'italic' }}>(completed - {score}/3)</span>
   ) : null
 }
