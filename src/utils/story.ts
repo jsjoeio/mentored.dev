@@ -224,19 +224,25 @@ const story: {
       MESSAGE:
         'A command is simply a keyword that the command line recognizes and performs a specific action.',
       NEXT: 'commandLineLessonStartCont',
-      PREVIOUS: 'commandLineLessonStart'
+      PREVIOUS: 'commandLineLessonStart',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561335206/mentored.dev/command-line-lesson-commands.png'
     },
     commandLineLessonStartCont: {
       MESSAGE:
         "We'll be looking at three commands today. The first one is the most basic: 'cd'. ",
       NEXT: 'commandLineLessonCommandCD',
-      PREVIOUS: 'commandLineLessonStart'
+      PREVIOUS: 'commandLineLessonStart',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561335300/mentored.dev/command-line-lesson-command-cd.png'
     },
     commandLineLessonCommandCD: {
       MESSAGE:
         "'cd' stands for 'change directory'. A directory is just a folder on your computer. Nothing magical.",
       NEXT: 'commandLineLessonCommandCDCont',
-      PREVIOUS: 'commandLineLessonStartCont'
+      PREVIOUS: 'commandLineLessonStartCont',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561335407/mentored.dev/command-line-lesson-command-cd-dir.png'
     },
     commandLineLessonCommandCDCont: {
       MESSAGE:
