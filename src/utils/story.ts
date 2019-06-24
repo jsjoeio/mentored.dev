@@ -193,7 +193,7 @@ const story: {
       NEXT: 'commandLineImportance',
       PREVIOUS: 'commandLineExpNo',
       IMAGE:
-        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561326764/mentored.dev/command-line-def.png'
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561334366/mentored.dev/command-line-def.png'
     },
     commandLineImportance: {
       MESSAGE:
