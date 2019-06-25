@@ -145,13 +145,24 @@ export function createGameDbObject(date: Date) {
 
 export function shouldIncrementStreak(lastLoginDate: string, dateToday: Date) {
   const DAYS_IN_MILLISECONDS = 86400000
+  const PREVIOUS_DATE = new Date(lastLoginDate)
 
-  const distanceMilliseconds =
-    dateToday.getTime() - new Date(lastLoginDate).getTime()
+  const d = Math.floor(
+    (Date.UTC(
+      dateToday.getFullYear(),
+      dateToday.getMonth(),
+      dateToday.getDate()
+    ) -
+      Date.UTC(
+        PREVIOUS_DATE.getFullYear(),
+        PREVIOUS_DATE.getMonth(),
+        PREVIOUS_DATE.getDate()
+      )) /
+      DAYS_IN_MILLISECONDS
+  )
+
   // Should only increment streak if distance is between 1 and 2 day (inclusive)
-
-  const d = distanceMilliseconds / DAYS_IN_MILLISECONDS
-  return d >= 1 && d <= 2
+  return d >= 1 && d < 2
 }
 
 export function shouldUpdateLoginDate(lastLoginDate: string, dateToday: Date) {
