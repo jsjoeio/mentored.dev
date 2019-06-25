@@ -95,6 +95,8 @@ const commandLineLessonPartThree: IStory = {
     KEY: 'commandLineLessonPartThree',
     OPTIONS: ['Yay! I created it successfully.', 'Help! I need a hint.']
   },
+  IMAGE:
+    'https://res.cloudinary.com/dobfxs62e/image/upload/v1561427910/mentored.dev/command-line-lesson-command-touch.png',
   HAS_LOCAL_KEYS: ['application', 'newFileCommand']
 }
 
@@ -273,7 +275,9 @@ const story: {
       MESSAGE:
         "'mkdir' is the second command in our lesson, which is short for 'make directory'.",
       NEXT: 'commandLineLessonPartTwo',
-      PREVIOUS: 'commandLineLessonPartOneSuccessYes'
+      PREVIOUS: 'commandLineLessonPartOneSuccessYes',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561427538/mentored.dev/command-line-lesson-command-cd-mkdir.png'
     },
     commandLineLessonPartTwo: {
       MESSAGE:
@@ -318,13 +322,17 @@ const story: {
       MESSAGE:
         'Look at that. In a short period of time, you learned three commands on the command line.',
       NEXT: 'commandLineLessonCongratsCont',
-      PREVIOUS: 'commandLineLessonPartThreeSuccessYes'
+      PREVIOUS: 'commandLineLessonPartThreeSuccessYes',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561428078/mentored.dev/command-line-lesson-command-all-commands.png'
     },
     commandLineLessonCongratsCont: {
       MESSAGE:
         'I suggest you memorize these. They are three of the most commonly used commands so this knowledge will serve you for a long time.',
       NEXT: 'commandLineStartQuiz',
-      PREVIOUS: 'commandLineLessonCongrats'
+      PREVIOUS: 'commandLineLessonCongrats',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561428078/mentored.dev/command-line-lesson-command-all-commands.png'
     },
     commandLineStartQuiz: {
       MESSAGE:
