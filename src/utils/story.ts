@@ -93,7 +93,7 @@ const commandLineLessonPartThree: IStory = {
   INPUT: {
     TYPE: 'radio',
     KEY: 'commandLineLessonPartThree',
-    OPTIONS: ['Yay! I created it successfully.', 'Help! I need a hint.']
+    OPTIONS: ['Yay! I created a file successfully.', 'Help! I need a hint.']
   },
   IMAGE:
     'https://res.cloudinary.com/dobfxs62e/image/upload/v1561427910/mentored.dev/command-line-lesson-command-touch.png',
