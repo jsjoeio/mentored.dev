@@ -93,8 +93,10 @@ const commandLineLessonPartThree: IStory = {
   INPUT: {
     TYPE: 'radio',
     KEY: 'commandLineLessonPartThree',
-    OPTIONS: ['Yay! I created it successfully.', 'Help! I need a hint.']
+    OPTIONS: ['Yay! I created a file successfully.', 'Help! I need a hint.']
   },
+  IMAGE:
+    'https://res.cloudinary.com/dobfxs62e/image/upload/v1561427910/mentored.dev/command-line-lesson-command-touch.png',
   HAS_LOCAL_KEYS: ['application', 'newFileCommand']
 }
 
@@ -121,12 +123,14 @@ const story: {
       MESSAGE:
         'You can navigate the dialog using the left and right arrow keys, and submit with enter.',
       NEXT: 'instructionsCont',
-      PREVIOUS: 'intro'
+      PREVIOUS: 'intro',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561564210/mentored.dev/instructions.png'
     },
     instructionsCont: {
       MESSAGE: 'Oh! How rude of me - I forgot to introduce myself.',
       NEXT: 'introProfessor',
-      PREVIOUS: 'instructionsKeyboard'
+      PREVIOUS: 'instructions'
     },
     introProfessor: {
       MESSAGE:
@@ -168,7 +172,7 @@ const story: {
       NEXT: 'initialCommandLine',
       PREVIOUS: 'osComment',
       IMAGE:
-        'https://res.cloudinary.com/dobfxs62e/image/upload/v1559436604/mentored.dev/EmptyCommandLine.png'
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561325525/mentored.dev/empty-command-line.png'
     },
     initialCommandLine,
     commandLineExpYes: {
@@ -181,13 +185,17 @@ const story: {
       MESSAGE:
         "Good! That means we'll experience the excitement of learning something new today.",
       NEXT: 'commandLineDef',
-      PREVIOUS: 'initialCommandLine'
+      PREVIOUS: 'initialCommandLine',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561325618/mentored.dev/yay-learning.png'
     },
     commandLineDef: {
       MESSAGE:
         'We can consider the command line as a place where user communicates with machine.',
       NEXT: 'commandLineImportance',
-      PREVIOUS: 'commandLineExpNo'
+      PREVIOUS: 'commandLineExpNo',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561334366/mentored.dev/command-line-def.png'
     },
     commandLineImportance: {
       MESSAGE:
@@ -218,19 +226,25 @@ const story: {
       MESSAGE:
         'A command is simply a keyword that the command line recognizes and performs a specific action.',
       NEXT: 'commandLineLessonStartCont',
-      PREVIOUS: 'commandLineLessonStart'
+      PREVIOUS: 'commandLineLessonStart',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561335206/mentored.dev/command-line-lesson-commands.png'
     },
     commandLineLessonStartCont: {
       MESSAGE:
         "We'll be looking at three commands today. The first one is the most basic: 'cd'. ",
       NEXT: 'commandLineLessonCommandCD',
-      PREVIOUS: 'commandLineLessonStart'
+      PREVIOUS: 'commandLineLessonStart',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561335300/mentored.dev/command-line-lesson-command-cd.png'
     },
     commandLineLessonCommandCD: {
       MESSAGE:
         "'cd' stands for 'change directory'. A directory is just a folder on your computer. Nothing magical.",
       NEXT: 'commandLineLessonCommandCDCont',
-      PREVIOUS: 'commandLineLessonStartCont'
+      PREVIOUS: 'commandLineLessonStartCont',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561335407/mentored.dev/command-line-lesson-command-cd-dir.png'
     },
     commandLineLessonCommandCDCont: {
       MESSAGE:
@@ -261,7 +275,9 @@ const story: {
       MESSAGE:
         "'mkdir' is the second command in our lesson, which is short for 'make directory'.",
       NEXT: 'commandLineLessonPartTwo',
-      PREVIOUS: 'commandLineLessonPartOneSuccessYes'
+      PREVIOUS: 'commandLineLessonPartOneSuccessYes',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561427538/mentored.dev/command-line-lesson-command-cd-mkdir.png'
     },
     commandLineLessonPartTwo: {
       MESSAGE:
@@ -306,13 +322,17 @@ const story: {
       MESSAGE:
         'Look at that. In a short period of time, you learned three commands on the command line.',
       NEXT: 'commandLineLessonCongratsCont',
-      PREVIOUS: 'commandLineLessonPartThreeSuccessYes'
+      PREVIOUS: 'commandLineLessonPartThreeSuccessYes',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561428078/mentored.dev/command-line-lesson-command-all-commands.png'
     },
     commandLineLessonCongratsCont: {
       MESSAGE:
         'I suggest you memorize these. They are three of the most commonly used commands so this knowledge will serve you for a long time.',
       NEXT: 'commandLineStartQuiz',
-      PREVIOUS: 'commandLineLessonCongrats'
+      PREVIOUS: 'commandLineLessonCongrats',
+      IMAGE:
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561428078/mentored.dev/command-line-lesson-command-all-commands.png'
     },
     commandLineStartQuiz: {
       MESSAGE:

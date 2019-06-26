@@ -11,6 +11,7 @@ import gameMenu from '../../sounds/GameMenu.mp3'
 import {
   createGameDbObject,
   shouldIncrementStreak,
+  shouldUpdateLoginDate,
   isBrowser
 } from '../../utils/functions'
 interface IAuth {
@@ -18,7 +19,7 @@ interface IAuth {
   isLoggedIn: (service: string) => boolean
 }
 
-const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
+const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
   const [authenticated, setAuthenticated] = useState(false)
   const [song, setSong] = useState(gameMenu)
   const [loading, setLoading] = useState(true)
@@ -67,18 +68,26 @@ const App: React.FC<{ auth: IAuth; client: any }> = ({ auth, client }) => {
         console.log('GameDB created successfully!')
       } else {
         gameDbInstance = JSON.parse(gameDb)
+
         if (shouldIncrementStreak(gameDbInstance.streak.lastLoginDate, today)) {
           // We should increment streak
           gameDbInstance.streak.count += 1
+          gameDbInstance.streak.lastLoginDate = today
           const gameDbString = JSON.stringify(gameDbInstance)
           // Save to localStorage again
           localStorage.setItem('gameDb', gameDbString)
+        } else {
+          // Check if lastLoginDate and today are different days (i.e. June 11th and June 12th)
+          if (
+            shouldUpdateLoginDate(gameDbInstance.streak.lastLoginDate, today)
+          ) {
+            // Update lastLoginDate
+            gameDbInstance.streak.lastLoginDate = today
+            const gameDbString = JSON.stringify(gameDbInstance)
+            // Save to localStorage again
+            localStorage.setItem('gameDb', gameDbString)
+          }
         }
-        // Update lastLoginDate
-        gameDbInstance.streak.lastLoginDate = today
-        const gameDbString = JSON.stringify(gameDbInstance)
-        // Save to localStorage again
-        localStorage.setItem('gameDb', gameDbString)
       }
     }
   }, [])
