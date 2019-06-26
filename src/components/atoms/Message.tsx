@@ -25,7 +25,7 @@ const Message: React.FC<MessageProps> = ({
   const [charCount, setCharCount] = useState(0)
   const [text, setText] = useState('')
   const [timer, setTimer] = useState(0)
-  let speed = 25
+  const [speed, setSpeed] = useState(25)
 
   function typeWriter() {
     if (charCount < message.length) {
@@ -37,12 +37,30 @@ const Message: React.FC<MessageProps> = ({
     }
   }
 
+  useEffect(() => {
+    // Listen for enter to start game
+    function listenForEnter(e: KeyboardEvent) {
+      // This works but prevents any other keys from working.
+      // So this works but scrolls page to bottom.
+      if (e.keyCode === 32) {
+        e.preventDefault()
+        console.log('spacebar')
+        setSpeed(1)
+      }
+    }
+    document.addEventListener('keydown', listenForEnter, false)
+    return () => {
+      document.removeEventListener('keydown', listenForEnter, false)
+    }
+  }, [])
+
   // Reset everything if message changes
   useEffect(() => {
     setTalking(!isTalking)
     setText('')
     clearTimeout(timer)
     setCharCount(0)
+    setSpeed(25)
   }, [message])
 
   useEffect(() => {
@@ -54,6 +72,7 @@ const Message: React.FC<MessageProps> = ({
       }, speed)
     )
   }, [charCount])
+
   return <Container>{text}</Container>
 }
 
