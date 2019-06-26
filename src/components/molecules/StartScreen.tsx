@@ -57,8 +57,8 @@ const StartScreen: React.FC<{ login: () => void }> = ({ login }) => {
   useEffect(() => {
     // Listen for enter to start game
     function listenForEnter(e: KeyboardEvent) {
-      e.preventDefault()
       if (e.keyCode == 13) {
+        e.preventDefault()
         login()
       }
     }
