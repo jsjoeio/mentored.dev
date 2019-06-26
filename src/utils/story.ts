@@ -125,7 +125,7 @@ const story: {
       NEXT: 'instructionsCont',
       PREVIOUS: 'intro',
       IMAGE:
-        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561327158/mentored.dev/instructions.png'
+        'https://res.cloudinary.com/dobfxs62e/image/upload/v1561564210/mentored.dev/instructions.png'
     },
     instructionsCont: {
       MESSAGE: 'Oh! How rude of me - I forgot to introduce myself.',
