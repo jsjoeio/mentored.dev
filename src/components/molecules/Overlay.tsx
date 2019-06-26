@@ -62,7 +62,6 @@ const LessonCompleted = () => {
     gameDbInstance = JSON.parse(gameDb)
     score = gameDbInstance.score
   }
-  console.log('joe screo', score)
   return score ? (
     <span style={{ fontStyle: 'italic' }}>(completed - {score}/3)</span>
   ) : null
