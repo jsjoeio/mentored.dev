@@ -44,8 +44,7 @@ const Message: React.FC<MessageProps> = ({
       // So this works but scrolls page to bottom.
       if (e.keyCode === 32) {
         e.preventDefault()
-        console.log('spacebar')
-        setSpeed(1)
+        setSpeed(0.1)
       }
     }
     document.addEventListener('keydown', listenForEnter, false)
