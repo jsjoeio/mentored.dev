@@ -95,7 +95,17 @@ const Overlay: React.FC<{
   }
   return (
     <Container show={show} id="overlay">
-      <ExitButton onClick={() => toggleOverlay(!show)}>exit</ExitButton>
+      <ExitButton
+        onClick={() => {
+          if (overlay === 'game') {
+            setOverlay('courses')
+          } else {
+            toggleOverlay(!show)
+          }
+        }}
+      >
+        exit
+      </ExitButton>
       {getOverlayInner()}
     </Container>
   )
