@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from '../../utils/styled'
+import { isBrowser } from '../../utils/functions'
 
 const Container = styled.div`
   border-radius: 5px;
@@ -19,20 +20,36 @@ const Container = styled.div`
     }
   }
 `
+
+function getWindowDim() {
+  if (isBrowser()) {
+    return [window.outerHeight, window.outerWidth]
+  }
+}
+
 const MapContainer: React.FC<{
   children: React.ReactNode
-}> = ({ children }) => (
-  <Container>
-    <svg
-      width="902"
-      height="745"
-      viewBox="0 0 902 745"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {children}
-    </svg>
-  </Container>
-)
+}> = ({ children }) => {
+  const [dimensions, setDimensions] = useState([745, 902])
+
+  useEffect(() => {
+    const currentDimensions = getWindowDim()
+    setDimensions(currentDimensions)
+  }, [])
+
+  return (
+    <Container>
+      <svg
+        width={dimensions[1] * 0.6}
+        height={dimensions[0] * 0.8}
+        viewBox="0 0 902 745"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {children}
+      </svg>
+    </Container>
+  )
+}
 
 export default MapContainer
