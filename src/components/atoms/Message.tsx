@@ -41,8 +41,8 @@ const Message: React.FC<MessageProps> = ({
     // Listen for enter to start game
     function listenForEnter(e: KeyboardEvent) {
       // This works but prevents any other keys from working.
-      // So this works but scrolls page to bottom.
       if (isBrowser()) {
+        // Only change speed if not focused in an input field
         if (e.keyCode === 32 && (document && document.activeElement && document.activeElement.tagName !== 'INPUT')) {
           e.preventDefault()
           setSpeed(0.1)
