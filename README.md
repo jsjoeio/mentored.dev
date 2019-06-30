@@ -1,5 +1,5 @@
 <br />
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 <p align="center">
   <a href="https://mentored.dev">
     <img src="https://res.cloudinary.com/dobfxs62e/image/upload/v1560467950/mentored.dev/icon-book.svg" alt="Logo" width="80" height="80">
@@ -94,7 +94,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://maxcell.me"><img src="https://avatars1.githubusercontent.com/u/8431042?v=4" width="100px;" alt="Prince Wilson"/><br /><sub><b>Prince Wilson</b></sub></a><br /><a href="https://github.com/jsjoeio/mentored.dev/issues?q=author%3Amaxcell" title="Bug reports">🐛</a></td><td align="center"><a href="https://bolajiayodeji.com"><img src="https://avatars2.githubusercontent.com/u/30334776?v=4" width="100px;" alt="Bolaji Ayodeji"/><br /><sub><b>Bolaji Ayodeji</b></sub></a><br /><a href="https://github.com/jsjoeio/mentored.dev/issues?q=author%3ABolajiAyodeji" title="Bug reports">🐛</a></td></tr></table>
+<table><tr><td align="center"><a href="https://maxcell.me"><img src="https://avatars1.githubusercontent.com/u/8431042?v=4" width="100px;" alt="Prince Wilson"/><br /><sub><b>Prince Wilson</b></sub></a><br /><a href="https://github.com/jsjoeio/mentored.dev/issues?q=author%3Amaxcell" title="Bug reports">🐛</a></td><td align="center"><a href="https://bolajiayodeji.com"><img src="https://avatars2.githubusercontent.com/u/30334776?v=4" width="100px;" alt="Bolaji Ayodeji"/><br /><sub><b>Bolaji Ayodeji</b></sub></a><br /><a href="https://github.com/jsjoeio/mentored.dev/issues?q=author%3ABolajiAyodeji" title="Bug reports">🐛</a></td><td align="center"><a href="https://github.com/andregce"><img src="https://avatars1.githubusercontent.com/u/25963571?v=4" width="100px;" alt="Andre Goncalves"/><br /><sub><b>Andre Goncalves</b></sub></a><br /><a href="https://github.com/jsjoeio/mentored.dev/issues?q=author%3Aandregce" title="Bug reports">🐛</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
