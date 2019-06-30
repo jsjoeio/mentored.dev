@@ -68,6 +68,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "sgrove",
+      "name": "Sean Grove",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/35296?v=4",
+      "profile": "http://www.riseos.com",
+      "contributions": [
+        "platform"
+      ]
     }
   ],
   "contributorsPerLine": 7,
