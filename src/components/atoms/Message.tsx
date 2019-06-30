@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
-
+import { isBrowser } from '../../utils/functions'
 const Container = styled.p`
   color: ${props => props.theme.neutral.darker};
   font-size: 2.2rem;
@@ -42,9 +42,11 @@ const Message: React.FC<MessageProps> = ({
     function listenForEnter(e: KeyboardEvent) {
       // This works but prevents any other keys from working.
       // So this works but scrolls page to bottom.
-      if (e.keyCode === 32) {
-        e.preventDefault()
-        setSpeed(0.1)
+      if (isBrowser()) {
+        if (e.keyCode === 32 && (document && document.activeElement && document.activeElement.tagName !== 'INPUT')) {
+          e.preventDefault()
+          setSpeed(0.1)
+        }
       }
     }
     document.addEventListener('keydown', listenForEnter, false)
