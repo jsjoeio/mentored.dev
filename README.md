@@ -1,5 +1,5 @@
 <br />
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
+
 <p align="center">
   <a href="https://mentored.dev">
     <img src="https://res.cloudinary.com/dobfxs62e/image/upload/v1560467950/mentored.dev/icon-book.svg" alt="Logo" width="80" height="80">
@@ -20,6 +20,8 @@
     ·
   </p>
 </p>
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
 
 ## Getting Started
 
@@ -69,7 +71,7 @@ When a new version is ready, you can submit a new PR to merge `staging` into `ma
 
 ## Contributing
 
-Not currently open to contributors but check back in the future!
+Please check the [CONTRIBUTING.md](https://github.com/jsjoeio/mentored.dev/blob/master/README.md) for details.
 
 ## Versioning
 
