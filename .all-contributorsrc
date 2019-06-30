@@ -49,6 +49,16 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "TejasQ",
+      "name": "Tejas Kumar",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/9947422?v=4",
+      "profile": "https://twitter.com/tejaskumar_",
+      "contributions": [
+        "code",
+        "platform"
+      ]
     }
   ],
   "contributorsPerLine": 7,
