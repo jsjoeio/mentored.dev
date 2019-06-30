@@ -59,6 +59,15 @@
         "code",
         "platform"
       ]
+    },
+    {
+      "login": "SQUADBCHRIS",
+      "name": "Chris",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/50125876?v=4",
+      "profile": "https://github.com/SQUADBCHRIS",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
