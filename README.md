@@ -1,4 +1,5 @@
 <br />
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 <p align="center">
   <a href="https://mentored.dev">
     <img src="https://res.cloudinary.com/dobfxs62e/image/upload/v1560467950/mentored.dev/icon-book.svg" alt="Logo" width="80" height="80">
@@ -86,3 +87,15 @@ This project wouldn't be possible without these people and organizations
 - [OneGraph](https://www.onegraph.com/)
 - [@TejasQ](https://github.com/TejasQ)
 - [Eric Matyas](https://www.soundimage.org) for music
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table><tr><td align="center"><a href="https://maxcell.me"><img src="https://avatars1.githubusercontent.com/u/8431042?v=4" width="100px;" alt="Prince Wilson"/><br /><sub><b>Prince Wilson</b></sub></a><br /><a href="https://github.com/jsjoeio/mentored.dev/issues?q=author%3Amaxcell" title="Bug reports">🐛</a></td></tr></table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
