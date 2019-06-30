@@ -31,6 +31,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "angiejones",
+      "name": "Angie Jones",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/15972783?v=4",
+      "profile": "http://angiejones.tech",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
