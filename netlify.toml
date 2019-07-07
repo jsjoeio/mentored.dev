@@ -1,0 +1,4 @@
+[build]
+  command = "yarn build && yarn build:lambda"
+  functions = "built-lambda"
+  publish = "public"
