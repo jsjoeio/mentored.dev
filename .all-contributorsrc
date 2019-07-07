@@ -59,6 +59,35 @@
         "code",
         "platform"
       ]
+    },
+    {
+      "login": "SQUADBCHRIS",
+      "name": "Chris",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/50125876?v=4",
+      "profile": "https://github.com/SQUADBCHRIS",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "sgrove",
+      "name": "Sean Grove",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/35296?v=4",
+      "profile": "http://www.riseos.com",
+      "contributions": [
+        "platform"
+      ]
+    },
+    {
+      "login": "benna100",
+      "name": "benna100",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4102007?v=4",
+      "profile": "https://github.com/benna100",
+      "contributions": [
+        "test",
+        "bug",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,
