@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Logo from './Logo'
 
@@ -24,14 +24,41 @@ const TipDescription = styled.p`
   font-size: 2rem;
 `
 
-const LoadingScreen = () => (
-  <Container>
-    <Logo />
-    <TipTitle>Tip #1</TipTitle>
-    <TipDescription>
-      The best time to become a developer is today.
-    </TipDescription>
-  </Container>
-)
+const LoadingScreen = () => {
+  const [quote, setQuote] = useState('')
+
+  function getQuote() {
+    return fetch('/.netlify/functions/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: '{ randomQuote { id quote } }' })
+    })
+  }
+
+  useEffect(() => {
+    async function fetchQuote() {
+      try {
+        const res = await getQuote()
+        const responseData = await res.json()
+        if (responseData !== undefined) {
+          const q = responseData.data.randomQuote.quote
+          console.log(q, ' hello q')
+          setQuote(q)
+        }
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    fetchQuote()
+  }, [])
+
+  return (
+    <Container>
+      <Logo />
+      <TipTitle>Tip #1</TipTitle>
+      <TipDescription>{quote}</TipDescription>
+    </Container>
+  )
+}
 
 export default LoadingScreen
