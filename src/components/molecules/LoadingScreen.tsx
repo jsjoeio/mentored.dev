@@ -28,7 +28,7 @@ const LoadingScreen = () => {
   const [quote, setQuote] = useState('')
 
   function getQuote() {
-    return fetch('http://localhost:4000', {
+    return fetch('http://localhost:9000/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: '{ randomQuote { id quote } }' })
@@ -45,7 +45,7 @@ const LoadingScreen = () => {
           console.log(q, ' hello q')
           setQuote(q)
         }
-      } catch(e) {
+      } catch (e) {
         console.error(e)
       }
     }

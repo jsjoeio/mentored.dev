@@ -59,6 +59,7 @@
     "babel-preset-gatsby": "^0.1.11",
     "dotenv": "^7.0.0",
     "eslint": "^5.16.0",
+    "eslint-plugin-graphql": "^3.0.3",
     "eslint-plugin-typescript": "^0.14.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.7.1",
