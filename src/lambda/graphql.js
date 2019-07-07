@@ -1,20 +1,6 @@
 // src/lambda/graphql.js
 const { ApolloServer, gql } = require('apollo-server-lambda')
-
-const QUOTES = [
-  {
-    quote: 'Today is your day to shine!',
-    id: '1'
-  },
-  {
-    quote: 'You can do this!',
-    id: '2'
-  },
-  {
-    quote: 'The best time to become a developer is today.',
-    id: '3'
-  }
-]
+const { QUOTES } = require('../utils/quotes')
 
 const typeDefs = gql`
   # This "Quote" type can be used in other type declarations.
@@ -41,8 +27,7 @@ const resolvers = {
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
-  playground: true
+  resolvers
 })
 
 exports.handler = server.createHandler()
