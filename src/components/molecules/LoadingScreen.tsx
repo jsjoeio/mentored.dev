@@ -28,7 +28,7 @@ const LoadingScreen = () => {
   const [quote, setQuote] = useState('')
 
   function getQuote() {
-    return fetch('http://localhost:9000/graphql', {
+    return fetch('/.netlify/functions/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: '{ randomQuote { id quote } }' })
