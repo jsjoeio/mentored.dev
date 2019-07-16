@@ -100,11 +100,13 @@ const commandLineLessonPartThree: IStory = {
   HAS_LOCAL_KEYS: ['application', 'newFileCommand']
 }
 
-const story: {
+export interface LessonInterface {
   states: {
     [key: string]: IStory
   }
-} = {
+}
+
+const story: LessonInterface = {
   states: {
     initial: {
       MESSAGE:

@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import InputText from '../atoms/InputText'
 import InputRadio from '../atoms/InputRadio'
 import { State } from '../../state/storyInputs'
-import { Input } from '../../utils/story'
+import { Input } from '../../lesons/story'
 
 const appear = keyframes`
   from {

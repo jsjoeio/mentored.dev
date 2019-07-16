@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import Game from '../components/organisms/Game'
 import Enter from '../components/atoms/Enter'
+import story from '../lesons/story'
 
 const Dashboard = () => {
   const [gameStarted, startGame] = useState(false)
@@ -17,7 +18,7 @@ const Dashboard = () => {
           <Enter onClick={() => startGame(!gameStarted)} />
         </div>
       )}
-      {gameStarted && <Game />}
+      {gameStarted && <Game lesson={story} />}
     </div>
   )
 }
