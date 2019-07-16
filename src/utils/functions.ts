@@ -1,5 +1,5 @@
 import localKeys from './localKeys'
-import story, { IStory } from './story'
+import story, { IStory } from '../lesons/story'
 
 export interface Fun {
   state: { [key: string]: string }

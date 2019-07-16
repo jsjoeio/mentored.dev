@@ -3,6 +3,7 @@ import Game from '../organisms/Game'
 import styled, { keyframes } from 'styled-components'
 import { fadeIn } from '../../utils/mixins'
 import ExitSign from '../atoms/ExitSign'
+import story from '../../lesons/story'
 
 const Container = styled.div<{ show: boolean }>`
   position: absolute;
@@ -76,7 +77,7 @@ const Overlay: React.FC<{
   // May need to refactor later to have different components render
   function getOverlayInner() {
     if (overlay === 'game') {
-      return <Game />
+      return <Game lesson={story} />
     } else if (overlay === 'courses') {
       return (
         <CoursesContainer>

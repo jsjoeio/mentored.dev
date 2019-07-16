@@ -6,11 +6,11 @@ import {
   State
 } from '../../state/storyInputs'
 import { getMessage } from '../../utils/functions'
-import story, { IStory } from '../../utils/story'
 import Dialog from './Dialog'
 import Narrator from './Narrator'
 import CharacterTitle from '../atoms/CharacterTitle'
 import Chalkboard from '../atoms/Chalkboard'
+import { LessonInterface } from '../../lesons/story'
 
 const Container = styled.div`
   position: fixed;
@@ -21,7 +21,12 @@ const Container = styled.div`
   align-items: flex-end;
 `
 
-const Game: React.FC = () => {
+interface GameProps {
+  lesson: LessonInterface
+}
+
+const Game: React.FC<GameProps> = ({ lesson }) => {
+  console.log(lesson, 'hi less')
   // @Techdebt - might be better to store these in the reducer at one point
   const [isTalking, setTalking] = useState(false)
   const [messageIsLoading, setMessageLoading] = useState(false)
@@ -34,7 +39,7 @@ const Game: React.FC = () => {
     // New message coming in
     setMessageLoading(true)
     if (transition && typeof storyState[transition] === 'string') {
-      return story.states[storyState[transition]] || storyState
+      return lesson.states[storyState[transition]] || storyState
     } else if (transition && typeof storyState[transition] === 'object') {
       // Grab what they choose for the question from state
       const optionSelected = state[storyState['INPUT']['KEY']]
@@ -47,14 +52,15 @@ const Game: React.FC = () => {
         }
       }
       return (
-        story.states[storyState[transition][`OPTION_${keyOfmatchingOption}`]] ||
-        storyState
+        lesson.states[
+          storyState[transition][`OPTION_${keyOfmatchingOption}`]
+        ] || storyState
       )
     }
   }
   const [storyState, transitionTo] = useReducer(
     transitionStory,
-    story.states.initial
+    lesson.states.initial
   )
   useEffect(() => {
     // If INPUT, create new key in "story input state"

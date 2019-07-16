@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { addFocus } from '../../utils/mixins'
 import styled from '../../utils/styled'
-import { Story, IStory } from '../../utils/story'
+import { Story, IStory } from '../../lesons/story'
 
 const Label = styled.label<{ checked: boolean }>`
   margin-left: 0.5rem;
