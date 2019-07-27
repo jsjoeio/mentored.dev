@@ -3,6 +3,11 @@ import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
 import styled from '../../utils/styled'
 import Avatar from '../atoms/Avatar'
+import { fireGTagEvent } from '../../utils/functions'
+import { EVENT_TYPES } from '../../utils/hooks';
+
+
+
 
 const GET_USER_LOGIN = gql`
   query GitHubUserLogin {
@@ -32,24 +37,41 @@ const Container = styled.div`
   }
 `
 
+interface GetUserLoginDataInterface {
+  me: {
+    github: {
+      avatarUrl: string;
+      name: string;
+      login: string;
+    }
+  }
+}
+
 const ProfileHeaderAvatarWithName = () => (
-  <Query query={GET_USER_LOGIN}>
+  <Query<GetUserLoginDataInterface> query={GET_USER_LOGIN}>
     {({ loading, error, data }) => {
       if (loading) return <div>Loading...</div>
+
       if (error) return <div>Uh oh, something went wrong!</div>
 
-      return (
-        <Container>
-          <Avatar
-            src={data.me.github.avatarUrl}
-            alt={`${data.me.github.name}'s GitHub avatar photo.`}
-          />
-          <div>
-            <h3>{data.me.github.name}</h3>
-            <p>@{data.me.github.login} • Level 1 Student</p>
-          </div>
-        </Container>
-      )
+      if (data) {
+        fireGTagEvent(EVENT_TYPES.LOGIN, {
+          user: data.me.github.login
+        })
+        return (
+          <Container>
+            <Avatar
+              src={data.me.github.avatarUrl}
+              alt={`${data.me.github.name}'s GitHub avatar photo.`}
+            />
+            <div>
+              <h3>{data.me.github.name}</h3>
+              <p>@{data.me.github.login} • Level 1 Student</p>
+            </div>
+          </Container>
+        )
+      }
+      return null
     }}
   </Query>
 )

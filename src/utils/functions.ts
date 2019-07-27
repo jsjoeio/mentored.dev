@@ -1,5 +1,6 @@
 import localKeys from './localKeys'
 import story, { IStory } from './story'
+import { EVENT_TYPES, dataInterface } from './hooks';
 
 export interface Fun {
   state: { [key: string]: string }
@@ -158,7 +159,7 @@ export function shouldIncrementStreak(lastLoginDate: string, dateToday: Date) {
         PREVIOUS_DATE.getMonth(),
         PREVIOUS_DATE.getDate()
       )) /
-      DAYS_IN_MILLISECONDS
+    DAYS_IN_MILLISECONDS
   )
 
   // Should only increment streak if distance is between 1 and 2 day (inclusive)
@@ -176,7 +177,7 @@ export const isDeviceMobile = () => {
   // https://github.com/charliegerard/flappy-windows/blob/master/index.js
   let check = false
   if (isBrowser()) {
-    ;(function(a) {
+    ; (function (a) {
       if (
         /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(
           a
@@ -189,4 +190,15 @@ export const isDeviceMobile = () => {
     })(navigator.userAgent || navigator.vendor || window.opera)
   }
   return check
+}
+
+
+export function fireGTagEvent(event: EVENT_TYPES, data: dataInterface) {
+  // Check for browser because `gatsby build` runs in Node
+  if (isBrowser()) {
+    // Make sure .gtag exists (i.e only loads in production)
+    if ((<any>window).gtag) {
+      (<any>window).gtag(event, data)
+    }
+  }
 }

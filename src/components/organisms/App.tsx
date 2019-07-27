@@ -12,8 +12,10 @@ import {
   createGameDbObject,
   shouldIncrementStreak,
   shouldUpdateLoginDate,
-  isBrowser
+  isBrowser,
+  fireGTagEvent
 } from '../../utils/functions'
+import { EVENT_TYPES } from '../../utils/hooks';
 interface IAuth {
   login: (service: string) => void
   isLoggedIn: (service: string) => boolean
@@ -32,6 +34,9 @@ const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
         const loggedIn = await auth.isLoggedIn('github')
         if (loggedIn) {
           setAuthenticated(true)
+          fireGTagEvent(EVENT_TYPES.LOGIN, {
+            data: 'a user logged in with GitHub'
+          })
         } else {
           setAuthenticated(false)
         }
@@ -111,8 +116,8 @@ const App: React.FC<{ auth: IAuth }> = ({ auth }) => {
       {authenticated && !loading ? (
         <Dashboard setOverlay={setOverlay} toggleOverlay={setShowOverlay} />
       ) : (
-        <StartScreen login={login()} />
-      )}
+          <StartScreen login={login()} />
+        )}
     </React.Fragment>
   )
 }

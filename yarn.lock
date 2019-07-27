@@ -5661,6 +5661,14 @@ gatsby-link@^2.1.1:
     "@types/reach__router" "^1.0.0"
     prop-types "^15.6.1"
 
+gatsby-plugin-google-gtag@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-1.1.3.tgz#3c71340b71978e15a88a0765b394925b0ff21429"
+  integrity sha512-8oxUXWrqCli6sb7bndgQm/oDMUpZ/lHv1l0kCrO949ZxuqOcV5ReEQ1KAyX01eAAzUqgtQsCcUIu0xT4r4Ta0A==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    minimatch "^3.0.4"
+
 gatsby-plugin-layout@^1.0.13:
   version "1.0.15"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.0.15.tgz#bb46eacd0d38d1a60ed6e423f624d899486f7830"

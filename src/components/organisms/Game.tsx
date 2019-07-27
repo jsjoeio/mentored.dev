@@ -5,12 +5,13 @@ import {
   storyInputsReducer,
   State
 } from '../../state/storyInputs'
-import { getMessage } from '../../utils/functions'
+import { getMessage, fireGTagEvent } from '../../utils/functions'
 import story, { IStory } from '../../utils/story'
 import Dialog from './Dialog'
 import Narrator from './Narrator'
 import CharacterTitle from '../atoms/CharacterTitle'
 import Chalkboard from '../atoms/Chalkboard'
+import { EVENT_TYPES } from '../../utils/hooks';
 
 const Container = styled.div`
   position: fixed;
@@ -34,6 +35,11 @@ const Game: React.FC = () => {
     // New message coming in
     setMessageLoading(true)
     if (transition && typeof storyState[transition] === 'string') {
+      if (storyState[transition] === 'commandLineQuizSummary') {
+        fireGTagEvent(EVENT_TYPES.COMPLETE_LESSON, {
+          data: 'completed command line basics lesson'
+        })
+      }
       return story.states[storyState[transition]] || storyState
     } else if (transition && typeof storyState[transition] === 'object') {
       // Grab what they choose for the question from state

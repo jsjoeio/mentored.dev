@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import IconSoundOn from './IconSoundOn'
 import IconSoundOff from './IconSoundOff'
+import { fireGTagEvent } from '../../utils/functions';
+import { EVENT_TYPES } from '../../utils/hooks';
 
 const AudioContainer = styled.div`
   position: fixed;
@@ -59,7 +61,12 @@ const AudioPlayer: React.FC<{ url: string }> = ({ url }) => {
   return (
     <AudioContainer>
       <audio ref={audioRef} src={url} />
-      <Button onClick={() => toggle()}>
+      <Button onClick={() => {
+        toggle()
+        fireGTagEvent(EVENT_TYPES.CLICK, {
+          event: 'toggled audio'
+        })
+      }}>
         {playing ? <IconSoundOn /> : <IconSoundOff />}
       </Button>
     </AudioContainer>

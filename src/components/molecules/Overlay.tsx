@@ -3,6 +3,8 @@ import Game from '../organisms/Game'
 import styled, { keyframes } from 'styled-components'
 import { fadeIn } from '../../utils/mixins'
 import ExitSign from '../atoms/ExitSign'
+import { fireGTagEvent } from '../../utils/functions';
+import { EVENT_TYPES } from '../../utils/hooks';
 
 const Container = styled.div<{ show: boolean }>`
   position: absolute;
@@ -82,7 +84,12 @@ const Overlay: React.FC<{
         <CoursesContainer>
           <h2>Courses:</h2>
           <ul>
-            <li onClick={() => setOverlay('game')}>
+            <li onClick={() => {
+              setOverlay('game')
+              fireGTagEvent(EVENT_TYPES.START_LESSON, {
+                data: 'started command line basics'
+              })
+            }}>
               command line basics <LessonCompleted />
             </li>
           </ul>
