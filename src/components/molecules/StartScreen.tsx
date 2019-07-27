@@ -75,7 +75,7 @@ const StartScreen: React.FC<{ login: () => void }> = ({ login }) => {
         A gamified learning platform to help you become a web developer
       </SubTitle>
       <div>
-        <Instructions onClick={login}>Press enter to play</Instructions>
+        <Instructions onClick={login}>Press enter to login and play</Instructions>
         <Laptop login={login} />
       </div>
       <Footer>

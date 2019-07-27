@@ -3,7 +3,8 @@ import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
 import styled from '../../utils/styled'
 import Avatar from '../atoms/Avatar'
-import { isBrowser } from '../../utils/functions'
+import { fireGTagEvent } from '../../utils/functions'
+import { EVENT_TYPES } from '../../utils/hooks';
 
 
 
@@ -50,8 +51,13 @@ const ProfileHeaderAvatarWithName = () => (
   <Query<GetUserLoginDataInterface> query={GET_USER_LOGIN}>
     {({ loading, error, data }) => {
       if (loading) return <div>Loading...</div>
+
       if (error) return <div>Uh oh, something went wrong!</div>
+
       if (data) {
+        fireGTagEvent(EVENT_TYPES.LOGIN, {
+          user: data.me.github.login
+        })
         return (
           <Container>
             <Avatar
