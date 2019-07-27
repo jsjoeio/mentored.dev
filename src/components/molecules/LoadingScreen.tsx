@@ -40,9 +40,8 @@ const LoadingScreen = () => {
       try {
         const res = await getQuote()
         const responseData = await res.json()
-        if (responseData !== undefined) {
+        if (responseData) {
           const q = responseData.data.randomQuote.quote
-          console.log(q, ' hello q')
           setQuote(q)
         }
       } catch (e) {
